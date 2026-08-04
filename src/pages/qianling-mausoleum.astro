@@ -1,0 +1,186 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Qianling Mausoleum Guide 2026: the Tomb of China’s Only Female Emperor";
+const description = "Complete guide to Qianling Mausoleum near Xi'an. Tickets ¥100, 1,300 years old. The joint tomb of Emperor Gaozong and Wu Zetian, China’s only female emperor. How to get there and whether it is worth visiting.";
+
+const faqSchema = {
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", "name": "Who is buried at Qianling Mausoleum?", "acceptedAnswer": { "@type": "Answer", "text": "Qianling is the joint tomb of Emperor Gaozong of Tang (r. 649–683 CE) and his wife Wu Zetian, who ruled China as emperor in her own right from 690 to 705 CE — the only woman in Chinese history to hold the title of Huangdi (Emperor). Their tomb has never been excavated." } },
+    { "@type": "Question", "name": "How do I get to Qianling Mausoleum from Xi'an?", "acceptedAnswer": { "@type": "Answer", "text": "Qianling is 85 km northwest of Xi'an. The most practical way is to hire a car with driver for the day (approximately ¥500). There is no direct public transport from Xi'an. You can alternatively take a bus from Xi'an West Bus Station to Qian County, then a local taxi to the site." } },
+    { "@type": "Question", "name": "Is Qianling worth visiting?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, for the historical significance alone. Qianling is the best-preserved Tang Dynasty imperial tomb, and the Spirit Way lined with stone guardians is one of the most atmospheric archaeological landscapes in China. However, the tomb itself has never been excavated, so you are visiting the surface complex — not an underground museum." } },
+    { "@type": "Question", "name": "Has Qianling Mausoleum been excavated?", "acceptedAnswer": { "@type": "Answer", "text": "No, Qianling’s tomb chamber has never been opened. It is believed to be intact. Accompanying tombs of princes and officials have been excavated and some artifacts are displayed in the site museum." } },
+  ],
+};
+
+const schemaJson = JSON.stringify([
+  {
+    "@type": "TouristAttraction",
+    "name": "Qianling Mausoleum",
+    "description": "The 1,300-year-old Tang Dynasty imperial tomb of Emperor Gaozong and Wu Zetian, China's only female emperor. Features a 3-km Spirit Way lined with stone statues, guardian figures, and accompanying tombs near Xi'an.",
+    "touristType": "History lovers, Archaeology enthusiasts, Tang Dynasty fans",
+    "address": { "@type": "PostalAddress", "addressLocality": "Qian County", "addressRegion": "Shaanxi", "addressCountry": "CN" },
+    "openingHours": "Mo-Su 08:00-18:00",
+    "offers": { "@type": "Offer", "price": "100", "priceCurrency": "CNY" },
+    "url": "https://5000-year-old-chinese-tomb.com/qianling-mausoleum",
+  },
+    {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
+      { "@type": "ListItem", "position": 2, "name": "Qianling Mausoleum", "item": "https://5000-year-old-chinese-tomb.com/qianling-mausoleum" }
+    ]
+  },
+faqSchema,
+]);
+---
+
+<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
+  <slot name="head">
+    <meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-qianling.webp" />
+  </slot>
+
+  <!-- Hero -->
+  <section class="relative min-h-[40dvh] flex items-center overflow-hidden bg-warm-900">
+    <div class="absolute inset-0 z-0 opacity-25">
+      <img src="/og-qianling.webp" alt="Qianling Mausoleum" width="1200" height="630" class="w-full h-full object-cover" loading="eager" />
+    </div>
+    <div class="relative z-10 max-w-[1200px] mx-auto px-6 py-20">
+      <p class="text-sm font-medium tracking-wide text-accent/80 mb-4">Site Guide &middot; 1,300 Years Old &middot; Tang Dynasty</p>
+      <h1 class="text-3xl md:text-5xl font-display font-bold tracking-tight leading-tight text-white max-w-3xl">Qianling Mausoleum</h1>
+      <p class="mt-4 text-lg text-warm-200/80 max-w-2xl leading-relaxed">The only tomb in China shared by two emperors — and one of them was the only woman ever to rule China in her own name. Walk the Spirit Way through 1,300 years of Tang Dynasty grandeur.</p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Overview</h2>
+    <div class="space-y-4 text-warm-700 leading-relaxed">
+      <p>
+        Qianling Mausoleum (<span lang="zh">乾陵</span>) is the final resting place of Emperor Gaozong of Tang and his wife, Empress Wu Zetian — the only woman in Chinese history to declare herself <em>Huangdi</em> (Emperor) and rule in her own name. Built into the side of Liangshan Mountain, 85 km northwest of Xi’an, the mausoleum complex spans 2.4 square kilometers and is the best-preserved of all Tang Dynasty imperial tombs.
+      </p>
+      <p>
+        The approach to Qianling is its most unforgettable feature: a <strong>3-kilometer Spirit Way (Shendao)</strong> lined with 124 stone sculptures. Pairs of winged horses, ostriches (a Tang Dynasty gift from Central Asia), and civil and military officials stand in eternal procession toward the mountain. At the midpoint, 61 stone statues of foreign envoys — representing the nations that attended Gaozong’s funeral — stand with their backs to the tomb, their heads long since destroyed (possibly during an earthquake or Ming Dynasty iconoclasm).
+      </p>
+      <p>
+        The tomb chamber itself, cut deep into the mountain, has <strong>never been excavated</strong>. Ancient records claim it was sealed with iron and molten lead. Accompanying tombs of princes, princesses, and high officials have been opened, and their murals and grave goods are displayed in the site’s museum. The site also features a controversial <strong>blank stone stele</strong> (Wuzi Bei) erected by Wu Zetian — a monument without inscription, its meaning debated for over a millennium.
+      </p>
+    </div>
+  </section>
+
+  <!-- Key Facts -->
+  <section class="bg-warm-50 py-12 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-xl font-display font-semibold tracking-tight mb-6">Key Facts</h2>
+      <div class="bg-white rounded-lg border border-border overflow-hidden">
+        <dl class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Tickets</dt><dd class="text-sm font-semibold text-warm-900">¥100</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Opening Hours</dt><dd class="text-sm font-semibold text-warm-900">8:00–18:00 (winter 8:30–17:30)</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Suggested Time</dt><dd class="text-sm font-semibold text-warm-900">3–4 hours</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Location</dt><dd class="text-sm font-semibold text-warm-900">Qian County, 85 km NW of Xi’an</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Dynasty</dt><dd class="text-sm font-semibold text-warm-900">Tang Dynasty (1,300 years old)</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Tomb Status</dt><dd class="text-sm font-semibold text-warm-900">Never excavated</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Get There -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">How to Get There</h2>
+    <div class="space-y-6 text-warm-700 leading-relaxed">
+      <div>
+        <h3 class="font-semibold text-lg mb-2">Hire a car with driver (recommended)</h3>
+        <p class="text-sm">The most practical option. A full-day car hire from Xi’an costs approximately ¥500. The drive takes about 90 minutes each way. Your driver will wait while you explore the site. This allows you to combine Qianling with the Famen Temple (30 km away) for a full-day Tang Dynasty tour.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-lg mb-2">Bus from Xi’an (budget option)</h3>
+        <p class="text-sm">Take a bus from Xi’an West Bus Station (Chengxi Keyunzhan) to Qian County (approximately 2 hours). From the Qian County bus station, take a local taxi to the Qianling scenic area (15 minutes, ¥40). The return trip can be uncertain; confirm bus times before you go.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Is It Worth Visiting -->
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Is It Worth Visiting?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-lg p-6 border border-border">
+          <h3 class="font-semibold text-green-700 mb-3">Pros</h3>
+          <ul class="space-y-2 text-sm text-warm-700">
+            <li>• Extraordinary historical significance — the only female emperor’s tomb</li>
+            <li>• Spectacular Spirit Way with 124 stone statues</li>
+            <li>• The mysterious blank stele left by Wu Zetian</li>
+            <li>• Panoramic views from the mountain</li>
+            <li>• Very few international visitors</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-lg p-6 border border-border">
+          <h3 class="font-semibold text-red-700 mb-3">Cons</h3>
+          <ul class="space-y-2 text-sm text-warm-700">
+            <li>• The main tomb is not open — you see the surface complex only</li>
+            <li>• Far from Xi’an (90 minutes each way) and requires a hired car</li>
+            <li>• Museum of accompanying tombs is small</li>
+            <li>• Limited English signage</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-6 text-sm text-warm-700 text-center">Best for: Tang Dynasty enthusiasts, anyone fascinated by Wu Zetian’s story, and travelers who want to explore beyond Xi’an’s city center. The site is worth the journey for the historical atmosphere alone.</p>
+    </div>
+  </section>
+
+  
+
+  <!-- What You Will See -->
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">What You Will See</h2>
+      <div class="space-y-6 text-warm-700 leading-relaxed">
+        <div>
+          <h3 class="font-semibold text-lg mb-2">The Spirit Way (the highlight)</h3>
+          <p class="text-sm">A 1-kilometer-long approach lined with stone sculptures on both sides: winged horses, ostriches (gifts from Central Asian envoys), and 61 foreign emissaries whose heads were mysteriously removed at some point in history. The figures have blank faces where their heads once were — a detail that gives the Spirit Way an eerie, unfinished quality. At the end stand two monumental stone lions, the largest Tang Dynasty stone sculptures in existence.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-2">The Unmarked Stele of Wu Zetian</h3>
+          <p class="text-sm">Next to the tomb mound stands a 7.5-meter-tall stone tablet with no inscription — Wu Zetian's famous "blank stele." According to tradition, she ordered it left blank so that later generations would judge her without guidance. On the opposite side stands the inscribed stele of her husband, Emperor Gaozong, listing his achievements in gold-leaf characters. The contrast — her empty stone, his carefully curated legacy — says everything about Wu Zetian's self-awareness as history's most controversial empress.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-2">The Tomb Mound and Satellite Tombs</h3>
+          <p class="text-sm">The main mound — a natural hill modified into a pyramid shape — contains the burial chambers of both rulers. It has never been excavated. Surrounding the main mound are 17 satellite tombs, three of which have been opened and turned into small museums displaying Tang Dynasty murals and artifacts. The murals are particularly fine: court ladies, polo players, and hunting scenes in vibrant colors that have survived 1,300 years underground.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insider Tips -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Insider Tips</h2>
+    <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">Hire a car with driver — public transport is impractical</h3>
+        <p>Qianling is 85 km northwest of Xi'an in a rural area. No direct public bus serves the site. Hire a car with driver for the day (¥500–600), which gives you 4–5 hours at the site including the satellite tombs. Ask the driver to wait — there is no taxi stand at Qianling.</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">Read a biography of Wu Zetian before visiting</h3>
+        <p>Qianling is more rewarding if you know the story. Wu Zetian started as a low-ranking concubine, maneuvered her way to the throne, declared herself emperor (the only woman ever to do so in Chinese history), ruled for 15 years, and was buried alongside her husband with her achievements unrecorded. The blank stele becomes deeply meaningful when you understand who she was. A good introduction is Jonathan Clements's "Wu: The Chinese Empress Who Schemed, Seduced and Murdered Her Way to Become a Living God."</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">Combine with Famen Temple for a full day trip</h3>
+        <p>Famen Temple, 40 km west of Qianling, houses a finger bone relic of the Buddha and is one of China's most important Buddhist sites. A car from Xi'an can cover both in one long day. Start at Qianling in the morning (opens 8:00 AM), then drive to Famen Temple for the afternoon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-warm-900 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6 text-center">
+      <h2 class="text-xl md:text-2xl font-display font-semibold tracking-tight text-white mb-4">Walk the Spirit Way of the Tang Dynasty</h2>
+      <p class="text-warm-200 max-w-lg mx-auto mb-8">Qianling is featured on our Xi’an & Chengdu route and the 10-day itinerary. Combine it with the Terracotta Warriors for the full imperial experience.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/xian-chengdu-ancient-sites" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150">Xi’an & Chengdu Route</a>
+        <a href="/" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150">Browse All Sites</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

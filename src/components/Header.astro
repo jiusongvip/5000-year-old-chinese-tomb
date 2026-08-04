@@ -1,0 +1,68 @@
+ ---
+ const navLinks = [
+   { label: 'Sites', href: '/#sites' },
+   { label: 'Routes', href: '/#routes' },
+   { label: 'Plan', href: '/#plan' },
+ ];
+ ---
+
+ <header class="sticky top-0 z-50 border-b border-border bg-surface/90 backdrop-blur-md">
+   <nav class="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
+     <a href="/" class="font-display text-lg font-semibold tracking-tight flex items-center gap-1.5">
+       <span class="w-2 h-2 rounded-full bg-accent inline-block"></span>
+       Ancient China Travel
+     </a>
+     <ul class="hidden md:flex items-center gap-8">
+       {navLinks.map(link => (
+         <li>
+           <a
+             href={link.href}
+             class="text-sm text-warm-700 hover:text-accent transition-colors duration-150"
+           >
+             {link.label}
+           </a>
+         </li>
+       ))}
+     </ul>
+     <button id="mobile-menu-btn" class="md:hidden text-warm-700 p-1" aria-label="Toggle menu" aria-expanded="false">
+       <svg id="menu-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+         <line x1="4" y1="6" x2="20" y2="6"></line>
+         <line x1="4" y1="12" x2="20" y2="12"></line>
+         <line x1="4" y1="18" x2="20" y2="18"></line>
+       </svg>
+       <svg id="menu-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden">
+         <line x1="18" y1="6" x2="6" y2="18"></line>
+         <line x1="6" y1="6" x2="18" y2="18"></line>
+       </svg>
+     </button>
+   </nav>
+   <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-surface">
+     <ul class="flex flex-col px-6 py-4 gap-1">
+       {navLinks.map(link => (
+         <li>
+           <a
+             href={link.href}
+             class="block py-3 text-sm text-warm-700 hover:text-accent transition-colors duration-150"
+           >
+             {link.label}
+           </a>
+         </li>
+       ))}
+     </ul>
+   </div>
+ </header>
+
+ <script>
+   const btn = document.getElementById('mobile-menu-btn');
+   const menu = document.getElementById('mobile-menu');
+   const iconOpen = document.getElementById('menu-icon-open');
+   const iconClose = document.getElementById('menu-icon-close');
+   if (btn && menu && iconOpen && iconClose) {
+     btn.addEventListener('click', () => {
+       const isOpen = menu.classList.toggle('hidden');
+       iconOpen.classList.toggle('hidden', !isOpen);
+       iconClose.classList.toggle('hidden', isOpen);
+       btn.setAttribute('aria-expanded', String(!isOpen));
+     });
+   }
+ </script>

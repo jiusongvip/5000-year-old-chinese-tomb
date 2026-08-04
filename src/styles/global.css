@@ -1,0 +1,52 @@
+ @import '@fontsource/outfit/400.css';
+ @import '@fontsource/outfit/500.css';
+ @import '@fontsource/outfit/600.css';
+ @import '@fontsource/outfit/700.css';
+ @import '@fontsource/geist-sans/400.css';
+ @import '@fontsource/geist-sans/500.css';
+
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+
+ body {
+   font-family: var(--font-sans);
+   color: #2d2218;
+   background: #faf8f5;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+ }
+
+ h1, h2, h3, h4 {
+   font-family: var(--font-display);
+   font-weight: 600;
+   letter-spacing: -0.02em;
+ }
+
+ p {
+   color: #5c4a3a;
+   line-height: 1.7;
+ }
+
+ ::selection {
+   background: #b6553a;
+   color: #ffffff;
+ }
+
+ .reveal {
+   opacity: 0;
+   transform: translateY(24px);
+   transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+ }
+ .reveal.visible {
+   opacity: 1;
+   transform: translateY(0);
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+   .reveal {
+     opacity: 1;
+     transform: none;
+     transition: none;
+   }
+ }

@@ -1,0 +1,216 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Liangzhu Ancient City Guide 2026: Tickets, Hours & How to Get There";
+const description = "Complete guide to Liangzhu Ancient City (UNESCO). Tickets from ¥60, open 9AM–5PM. How to get there from Hangzhou, best time to visit, and what you will see at this 5,300-year-old Neolithic site.";
+
+const faqSchema = {
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", "name": "How do I get to Liangzhu Ancient City from Hangzhou?", "acceptedAnswer": { "@type": "Answer", "text": "Take Metro Line 2 to Liangzhu Station (about 40 minutes from downtown Hangzhou), then a 10-minute taxi or bus ride to the park entrance. From Hangzhou East Railway Station, the metro takes approximately 50 minutes." } },
+    { "@type": "Question", "name": "How much are tickets for Liangzhu?", "acceptedAnswer": { "@type": "Answer", "text": "Tickets are ¥60 in the off-season and ¥80 in peak season. Children, students, and seniors may qualify for discounts. Tickets can be purchased at the entrance or through the official WeChat mini-program." } },
+    { "@type": "Question", "name": "Is Liangzhu Ancient City worth visiting?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, especially for archaeology and history enthusiasts. It is a UNESCO World Heritage Site with a modern museum, jade artifacts, and reconstructed Neolithic structures. It is much less crowded than major Chinese tourist attractions. However, the remains are mostly foundations and earthworks, not towering monuments." } },
+    { "@type": "Question", "name": "How old is Liangzhu compared to the Egyptian pyramids?", "acceptedAnswer": { "@type": "Answer", "text": "Liangzhu (c. 3300–2300 BCE) predates the Great Pyramid of Giza (c. 2560 BCE) by several centuries. The Liangzhu culture built a sophisticated water management system and city walls at roughly the same time the first Egyptian pyramids were being constructed." } },
+    { "@type": "Question", "name": "Can I take photos inside the Liangzhu Museum?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, photography without flash is generally allowed inside the Liangzhu Museum. Some special exhibition halls may have restrictions. Tripods and selfie sticks may be prohibited." } },
+  ],
+};
+
+const schemaJson = JSON.stringify([
+  {
+    "@type": "TouristAttraction",
+    "name": "Liangzhu Ancient City",
+    "description": "A 5,300-year-old Neolithic archaeological site and UNESCO World Heritage Site in Hangzhou, China. Features ancient city walls, a sophisticated water management system, and a modern museum displaying jade cong and bi artifacts.",
+    "touristType": "Archaeology enthusiasts, History lovers, Families",
+    "address": { "@type": "PostalAddress", "streetAddress": "Liangzhu Ancient City Archaeological Site Park", "addressLocality": "Hangzhou", "addressRegion": "Zhejiang", "addressCountry": "CN" },
+    "openingHours": "Mo-Su 09:00-17:00",
+    "offers": { "@type": "Offer", "price": "60", "priceCurrency": "CNY" },
+    "url": "https://5000-year-old-chinese-tomb.com/liangzhu-ancient-city",
+  },
+    {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
+      { "@type": "ListItem", "position": 2, "name": "Liangzhu Ancient City", "item": "https://5000-year-old-chinese-tomb.com/liangzhu-ancient-city" }
+    ]
+  },
+faqSchema,
+]);
+---
+
+<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
+  <slot name="head">
+    <meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-liangzhu.webp" />
+  </slot>
+
+  <!-- Hero -->
+  <section class="relative min-h-[40dvh] flex items-center overflow-hidden bg-warm-900">
+    <div class="absolute inset-0 z-0 opacity-25">
+      <img src="/og-liangzhu.webp" alt="Liangzhu Ancient City" width="1200" height="630" class="w-full h-full object-cover" loading="eager" />
+    </div>
+    <div class="relative z-10 max-w-[1200px] mx-auto px-6 py-20">
+      <p class="text-sm font-medium tracking-wide text-accent/80 mb-4">Site Guide &middot; 5,300 Years Old &middot; UNESCO 2019</p>
+      <h1 class="text-3xl md:text-5xl font-display font-bold tracking-tight leading-tight text-white max-w-3xl">Liangzhu Ancient City</h1>
+      <p class="mt-4 text-lg text-warm-200/80 max-w-2xl leading-relaxed">China’s earliest state-level society. Walk through a 5,300-year-old Neolithic city with its original water management system, jade workshops, and a world-class museum near Hangzhou.</p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Overview</h2>
+    <div class="space-y-4 text-warm-700 leading-relaxed">
+      <p>
+        Liangzhu Ancient City (<span lang="zh">良渚古城</span>) is the archaeological site of one of the world’s earliest complex societies. Dating from approximately 3300 to 2300 BCE, the city covered roughly 3 square kilometers surrounded by massive earthen walls. Its inhabitants built an elaborate water management system of dams, canals, and reservoirs that predates any comparable hydraulic engineering in China by over a millennium.
+      </p>
+      <p>
+        In 2019, UNESCO inscribed the Archaeological Ruins of Liangzhu City as a World Heritage Site, recognizing it as “outstanding testimony to a cultural tradition of unequalled social and technological achievements.” The most iconic artifacts from Liangzhu are <strong>cong</strong> (琮) — prismatic jade tubes intricately carved with face patterns — and <strong>bi</strong> (璧) — large jade discs that symbolized status and possibly celestial power.
+      </p>
+      <p>
+        Today, the site is a sprawling archaeological park. You can walk the ancient city walls, explore reconstructed Neolithic houses, and visit the award-winning Liangzhu Museum designed by David Chipperfield. The site is quiet, green, and blissfully uncrowded compared to China’s marquee attractions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Key Facts -->
+  <section class="bg-warm-50 py-12 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-xl font-display font-semibold tracking-tight mb-6">Key Facts</h2>
+      <div class="bg-white rounded-lg border border-border overflow-hidden">
+        <dl class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Tickets</dt><dd class="text-sm font-semibold text-warm-900">¥60 off-season / ¥80 peak</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Opening Hours</dt><dd class="text-sm font-semibold text-warm-900">9:00–17:00 (last entry 16:00)</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Suggested Time</dt><dd class="text-sm font-semibold text-warm-900">3–4 hours</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Location</dt><dd class="text-sm font-semibold text-warm-900">Yuhang District, Hangzhou, Zhejiang</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Culture</dt><dd class="text-sm font-semibold text-warm-900">Liangzhu Culture (Neolithic)</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">UNESCO Status</dt><dd class="text-sm font-semibold text-warm-900">World Heritage, 2019</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Get There -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">How to Get There</h2>
+    <div class="space-y-6 text-warm-700 leading-relaxed">
+      <div>
+        <h3 class="font-semibold text-lg mb-2">From Hangzhou Xiaoshan International Airport (HGH)</h3>
+        <p class="text-sm">The airport is about 55 km from Liangzhu. Take Metro Line 19 from the airport to East Railway Station, transfer to Line 1, then Line 2 to Liangzhu Station. Total journey: approximately 90 minutes. A taxi or Didi costs roughly ¥150–200 and takes 60–80 minutes depending on traffic.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-lg mb-2">From Hangzhou East Railway Station</h3>
+        <p class="text-sm">Take Metro Line 1 to Fengqi Road, transfer to Line 2 northbound to Liangzhu Station. About 50 minutes total. From Liangzhu Metro Station, take a taxi (¥15, 10 minutes) or bus 430 to the park’s south entrance.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-lg mb-2">From Shanghai</h3>
+        <p class="text-sm">High-speed train from Shanghai Hongqiao to Hangzhou East (45–60 minutes, ¥75–130), then follow the directions above. A day trip from Shanghai is feasible if you leave by 7:00 AM.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Is It Worth Visiting -->
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Is It Worth Visiting?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-lg p-6 border border-border">
+          <h3 class="font-semibold text-green-700 mb-3">Pros</h3>
+          <ul class="space-y-2 text-sm text-warm-700">
+            <li>• Genuinely ancient (5,300 years) and historically significant</li>
+            <li>• Excellent modern museum with English labels</li>
+            <li>• Very few international tourists — peaceful experience</li>
+            <li>• Large park with pleasant walking paths and greenery</li>
+            <li>• Far cheaper than most major Chinese attractions</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-lg p-6 border border-border">
+          <h3 class="font-semibold text-red-700 mb-3">Cons</h3>
+          <ul class="space-y-2 text-sm text-warm-700">
+            <li>• Remains are mostly earthworks and foundations — not “monumental”</li>
+            <li>• 40 minutes by metro from central Hangzhou</li>
+            <li>• Limited dining options near the site</li>
+            <li>• Hot and exposed in summer; bring water and a hat</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-6 text-sm text-warm-700 text-center">Best for: archaeology enthusiasts, history lovers, families looking for an uncrowded day trip, and anyone who wants to understand where Chinese civilization began.</p>
+    </div>
+  </section>
+
+  <!-- Nearby -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Nearby Hotels & Attractions</h2>
+    <div class="space-y-4 text-sm text-warm-700">
+      <p><strong>Hotels near Liangzhu:</strong> The area around Liangzhu Metro Station has mid-range hotels starting around ¥300/night. For a wider selection, stay near Hangzhou East Railway Station (30–40 minutes away). The Banyan Tree Hangzhou is a luxury option inside the Liangzhu cultural zone.</p>
+      <p><strong>What else is nearby:</strong> West Lake (UNESCO, 40 min by metro), Lingyin Temple (one of China’s most famous Buddhist temples), National Tea Museum, and the ancient water town of Wuzhen (1.5 hours by car).</p>
+    </div>
+  </section>
+
+  
+
+  <!-- What You Will See -->
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">What You Will See</h2>
+      <div class="space-y-6 text-warm-700 leading-relaxed">
+        <div>
+          <h3 class="font-semibold text-lg mb-2">The City Walls and Water System</h3>
+          <p class="text-sm">Liangzhu is not a single building — it is an entire 5,300-year-old city spread across 14 square kilometers. The most striking feature is the sophisticated hydraulic engineering: a network of dams, canals, and reservoirs that controlled flooding and irrigated rice paddies. The earthen city walls are still clearly visible as raised embankments. You can walk or cycle along them. The engineering is so advanced that archaeologists initially believed it was built centuries later than it actually was.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-2">The Royal Cemetery (Fanshan)</h3>
+          <p class="text-sm">This is where the jade comes from. The Fanshan burial platform contained elite tombs with thousands of jade objects — cong tubes, bi disks, and yue axes. The "King of Cong," a 8.8-kg jade tube carved with incredibly fine face motifs, was found here. Each face motif is no larger than a postage stamp and was carved by hand with quartz sand abrasives — no metal tools existed. The tomb layout shows clear social hierarchy: the ruler at the center, surrounded by subordinates with less jade.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-2">The Liangzhu Museum (David Chipperfield design)</h3>
+          <p class="text-sm">The museum is a destination in its own right, designed by the architect behind Berlin's Neues Museum. It is low, horizontal, and blends into the landscape. Inside, the galleries are chronologically organized with excellent English labels. The entire jade collection is here — cong, bi, and yue in dizzying quantity. Budget 1–1.5 hours for the museum. The museum shop has reasonably priced replicas and good archaeology books in English.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-2">The Landscape Experience</h3>
+          <p class="text-sm">One thing no photograph captures: Liangzhu is beautiful. The archaeological park is set among rice paddies, wetlands, and bamboo groves with the mountains of northern Zhejiang in the distance. On a clear day, the setting is as memorable as the archaeology. Bring water and sunscreen — shade is limited on the exposed sections of the wall walk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insider Tips -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Insider Tips</h2>
+    <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">Rent a bicycle inside the park</h3>
+        <p>The park is too large to walk — the distance from the south gate to the royal cemetery is roughly 3 km. Electric carts run between zones but they are slow and infrequent. Bicycle rental at the visitor center costs ¥20–30 for the day and is the best way to see everything at your own pace. The paved paths are flat and easy.</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">Visit on a weekday morning</h3>
+        <p>Liangzhu is rarely crowded even on weekends, but on a weekday morning you may see fewer than 50 people across the entire park. The solitude inside the royal cemetery enclosure — standing where Neolithic kings were buried 5,300 years ago, with no one else around — is a uniquely powerful experience.</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">Combine with West Lake and Tea Village</h3>
+        <p>Liangzhu is 40 minutes by metro from central Hangzhou. After the park, head to Longjing Village for tea tasting (spring harvest is best) and end the day with a walk around West Lake at sunset. Hangzhou packs three UNESCO-worthy experiences into one city.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Historical Context -->
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Why Liangzhu Changed Everything</h2>
+      <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
+        <p>Before Liangzhu was inscribed as a UNESCO World Heritage site in 2019, the official narrative placed the origin of Chinese civilization around 3,500 years ago with the Shang Dynasty. Liangzhu pushed that back by nearly 2,000 years. Here was a society with monumental architecture, social stratification, ritual jade use, and large-scale water engineering at 3,300 BCE — contemporary with Sumer and predating the Egyptian pyramids.</p>
+        <p>The Liangzhu culture's signature artifact is the <strong>cong</strong> — a squared tube of jade with a circular bore, carved with a face motif consisting of two concentric circles (eyes) above a bar (mouth). No one knows what the motif represents, but it appears on hundreds of objects and was clearly a symbol of immense power. The jade itself came from quarries hundreds of kilometers away, requiring extensive trade networks.</p>
+        <p>Around 2,300 BCE, Liangzhu collapsed. The most widely accepted theory is catastrophic flooding — evidence of a massive flood layer has been found at the site. The culture disappeared, but its jade-working traditions and the cong motif were adopted by later cultures across China, including the Longshan and the early Shang. In a very real sense, Liangzhu is the root of Chinese civilization.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-warm-900 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6 text-center">
+      <h2 class="text-xl md:text-2xl font-display font-semibold tracking-tight text-white mb-4">Ready to see Liangzhu for yourself?</h2>
+      <p class="text-warm-200 max-w-lg mx-auto mb-8">Liangzhu is the first stop on our 10-day ancient China itinerary — the perfect way to walk through 5,000 years of history in one trip.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/ancient-china-10-day-itinerary" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150">View the 10-Day Itinerary</a>
+        <a href="/" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150">Browse All Sites</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

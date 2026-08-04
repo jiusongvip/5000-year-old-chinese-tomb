@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const { title, description, schemaJson, lastUpdated } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title set:html={`${title} | Ancient China Travel`} />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="preload" href="/_astro/outfit-latin-700-normal.Cu9v6i1X.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/_astro/geist-sans-latin-400-normal.gapTbOY8.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/_astro/outfit-latin-400-normal.BGsTXAXT.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/_astro/outfit-latin-600-normal.B7SfZ07L.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/_astro/outfit-latin-500-normal.DKnIMDSk.woff2" as="font" type="font/woff2" crossorigin />
+    <meta property="og:title" content={`${title} | Ancient China Travel`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | Ancient China Travel`} />
+    <meta name="twitter:description" content={description} />
+    <slot name="head" />
+    {schemaJson && (
+      <script type="application/ld+json" set:html={schemaJson}></script>
+    )}
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+      {lastUpdated && (
+        <div class="max-w-[800px] mx-auto px-6 pb-8">
+          <p class="text-xs text-muted text-center">Last updated: {lastUpdated}. <a href="/about" class="text-accent hover:underline">About the author</a>.</p>
+        </div>
+      )}
+    </main>
+    <Footer />
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+        { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
+

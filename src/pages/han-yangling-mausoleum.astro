@@ -1,0 +1,199 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Han Yangling Mausoleum Guide 2026: Tickets, Hours & Why It’s Better Than the Warriors";
+const description = "Complete guide to Han Yangling Mausoleum near Xi'an. Tickets ¥70, glass floors above burial pits, models of the Terracotta Warriors but without the crowds. How to get there and whether it is worth visiting.";
+
+const faqSchema = {
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", "name": "How do I get to Han Yangling from Xi'an?", "acceptedAnswer": { "@type": "Answer", "text": "Take Metro Line 2 to the City Library Station, then bus You 4 (Tourist Bus 4) directly to the Han Yangling Museum. The bus ride takes about 30 minutes. Alternatively, a taxi or Didi from central Xi'an takes 30–40 minutes and costs ¥60–80." } },
+    { "@type": "Question", "name": "Is Han Yangling better than the Terracotta Warriors?", "acceptedAnswer": { "@type": "Answer", "text": "Different experiences. Han Yangling has a unique glass-floor design that lets you walk directly above the burial pits, inches from miniature terracotta figures. It is much quieter, cheaper, and closer to Xi'an. However, the Terracotta Warriors are undeniably more spectacular in scale. Many visitors do both and find Han Yangling the more intimate experience." } },
+    { "@type": "Question", "name": "How long should I spend at Han Yangling?", "acceptedAnswer": { "@type": "Answer", "text": "Allow 2–3 hours. The underground museum with glass floors is the highlight. The site also includes an above-ground exhibition hall and the emperor's burial mound (which has not been excavated). The complex is compact and walkable." } },
+    { "@type": "Question", "name": "Can I take photos at Han Yangling?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, photography without flash is generally allowed. However, the underground museum is dimly lit to protect the artifacts, and flash is strictly prohibited. Use a camera with good low-light performance or your phone's night mode." } },
+  ],
+};
+
+const schemaJson = JSON.stringify([
+  {
+    "@type": "TouristAttraction",
+    "name": "Han Yangling Mausoleum",
+    "description": "The 2,100-year-old mausoleum of Han Emperor Jingdi near Xi'an. Features a unique underground museum with glass floors allowing visitors to walk directly above excavated burial pits containing miniature terracotta figures, animals, and artifacts from the Han Dynasty.",
+    "touristType": "History lovers, Archaeology enthusiasts, Families",
+    "address": { "@type": "PostalAddress", "addressLocality": "Xi'an", "addressRegion": "Shaanxi", "addressCountry": "CN" },
+    "openingHours": "Mo-Su 08:30-17:30",
+    "offers": { "@type": "Offer", "price": "70", "priceCurrency": "CNY" },
+    "url": "https://5000-year-old-chinese-tomb.com/han-yangling-mausoleum",
+  },
+    {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
+      { "@type": "ListItem", "position": 2, "name": "Han Yangling Mausoleum", "item": "https://5000-year-old-chinese-tomb.com/han-yangling-mausoleum" }
+    ]
+  },
+faqSchema,
+]);
+---
+
+<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
+  <slot name="head">
+    <meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-yangling.webp" />
+  </slot>
+
+  <!-- Hero -->
+  <section class="relative min-h-[40dvh] flex items-center overflow-hidden bg-warm-900">
+    <div class="absolute inset-0 z-0 opacity-25">
+      <img src="/og-yangling.webp" alt="Han Yangling Mausoleum" width="1200" height="630" class="w-full h-full object-cover" loading="eager" />
+    </div>
+    <div class="relative z-10 max-w-[1200px] mx-auto px-6 py-20">
+      <p class="text-sm font-medium tracking-wide text-accent/80 mb-4">Site Guide &middot; 2,100 Years Old &middot; Han Dynasty</p>
+      <h1 class="text-3xl md:text-5xl font-display font-bold tracking-tight leading-tight text-white max-w-3xl">Han Yangling Mausoleum</h1>
+      <p class="mt-4 text-lg text-warm-200/80 max-w-2xl leading-relaxed">Walk on glass floors inches above 2,100-year-old burial pits. Miniature terracotta soldiers, animals, and everyday objects from the Han Dynasty — all without the crowds of the Terracotta Warriors.</p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Overview</h2>
+    <div class="space-y-4 text-warm-700 leading-relaxed">
+      <p>
+        The Han Yangling Mausoleum (<span lang="zh">汉阳陵</span>) is the burial complex of Emperor Jing of Han (188–141 BCE) and his empress. Located just 20 km north of Xi’an, it is the best-preserved Han Dynasty imperial tomb open to visitors — and one of the most underrated archaeological sites in China.
+      </p>
+      <p>
+        What makes Han Yangling special is how you experience it. The entire museum is built <strong>underground, with glass floors</strong> suspended directly above the excavated pits. You walk over rows of miniature terracotta figurines — soldiers, eunuchs, servants, and animals — still in their original positions. Unlike the life-sized Terracotta Warriors, these figures are about 60 cm tall. They were originally dressed in silk clothing with movable wooden arms, long since decayed, leaving the naked clay bodies in their burial formation. The intimacy of being directly above the artifacts, separated only by glass, is a completely different experience from viewing the Warriors from elevated platforms.
+      </p>
+      <p>
+        The site also features an excellent exhibition hall with jade, bronze, and pottery artifacts, and the emperor’s burial mound — a 31-meter-high pyramid-shaped hill. The mound itself has never been excavated. Like Qin Shi Huang’s tomb, it remains sealed, its contents a mystery.
+      </p>
+    </div>
+  </section>
+
+  <!-- Key Facts -->
+  <section class="bg-warm-50 py-12 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-xl font-display font-semibold tracking-tight mb-6">Key Facts</h2>
+      <div class="bg-white rounded-lg border border-border overflow-hidden">
+        <dl class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Tickets</dt><dd class="text-sm font-semibold text-warm-900">¥70</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Opening Hours</dt><dd class="text-sm font-semibold text-warm-900">8:30–17:30</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Suggested Time</dt><dd class="text-sm font-semibold text-warm-900">2–3 hours</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Location</dt><dd class="text-sm font-semibold text-warm-900">20 km north of Xi’an, near the airport</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Dynasty</dt><dd class="text-sm font-semibold text-warm-900">Western Han (2,100 years old)</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Best Feature</dt><dd class="text-sm font-semibold text-warm-900">Glass floors above burial pits</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Get There -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">How to Get There</h2>
+    <div class="space-y-6 text-warm-700 leading-relaxed">
+      <div>
+        <h3 class="font-semibold text-lg mb-2">By metro and bus (budget option)</h3>
+        <p class="text-sm">Take Metro Line 2 north to City Library Station (Shi Tushuguan). From there, catch Tourist Bus 4 (You 4) which runs directly to the Han Yangling Museum. Total journey about 50–60 minutes, cost under ¥20. The bus operates from roughly 8:00 AM to 5:00 PM.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-lg mb-2">By taxi or Didi (recommended)</h3>
+        <p class="text-sm">A taxi from central Xi’an takes 30–40 minutes and costs ¥60–80. This is the most convenient option. If you are flying out the same day, Han Yangling is only 15 minutes from Xi’an Xianyang Airport — an ideal final stop before departure.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-lg mb-2">As an airport stopover</h3>
+        <p class="text-sm">The museum is roughly 15 km from Xi’an Xianyang International Airport. If you have a late flight, visit Han Yangling in the morning, then take a 15-minute taxi to the airport. The museum has luggage storage at the ticket office.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Is It Worth Visiting -->
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Is It Worth Visiting?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-lg p-6 border border-border">
+          <h3 class="font-semibold text-green-700 mb-3">Pros</h3>
+          <ul class="space-y-2 text-sm text-warm-700">
+            <li>• Unique glass-floor experience — nothing else like it in China</li>
+            <li>• Close to Xi’an city center and the airport</li>
+            <li>• Very few international tourists — peaceful and intimate</li>
+            <li>• Cheaper than the Terracotta Warriors (¥70 vs ¥120)</li>
+            <li>• Large collection of everyday Han Dynasty objects, not just soldiers</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-lg p-6 border border-border">
+          <h3 class="font-semibold text-red-700 mb-3">Cons</h3>
+          <ul class="space-y-2 text-sm text-warm-700">
+            <li>• Miniature figures, not life-sized — less dramatic than the Warriors</li>
+            <li>• Dim lighting in the underground museum (for preservation)</li>
+            <li>• Limited English signage</li>
+            <li>• Not well known — tour guides may skip it if you don’t ask</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-6 text-sm text-warm-700 text-center">Best for: travelers who want a quieter archaeological experience, families with children (the glass floors and miniature figures are more engaging for kids), and anyone doing a Xi’an airport stopover. Combine with the Terracotta Warriors for the full Qin–Han experience.</p>
+    </div>
+  </section>
+
+  <!-- Nearby -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Nearby Hotels & Attractions</h2>
+    <div class="space-y-4 text-sm text-warm-700">
+      <p><strong>Hotels:</strong> Stay in Xi’an city center near the Bell Tower for the best dining and transport connections. Han Yangling is close enough for a half-day trip from any central Xi’an hotel. If you need an airport hotel, the Xi’an Airport Hotel is 15 minutes from the museum.</p>
+      <p><strong>What else is nearby:</strong> Xi’an City Wall (bike the full circuit), the Shaanxi History Museum, the Great Mosque, and the Terracotta Warriors (1 hour east). Consider visiting Han Yangling and the Terracotta Warriors on consecutive days to compare Qin and Han Dynasty burial traditions.</p>
+    </div>
+  </section>
+
+  
+
+  <!-- What You Will See -->
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">What You Will See</h2>
+      <div class="space-y-6 text-warm-700 leading-relaxed">
+        <div>
+          <h3 class="font-semibold text-lg mb-2">The Underground Museum — Glass Floors Above the Pits</h3>
+          <p class="text-sm">This is the defining feature of Han Yangling and why it is worth the trip. The museum is built directly over the excavation pits, with glass floors allowing you to walk above the burial chambers and look down at the artifacts in situ. Pit 1 contains terracotta animals — pigs, sheep, goats, dogs — while Pit 2 has human figurines. Unlike the Terracotta Warriors, Han Dynasty figurines are small (about 60 cm), nude (they were originally dressed in silk clothing that has since decayed), and gentle in expression. The experience of standing on glass above a 2,100-year-old tomb is uniquely immersive.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-2">The Burial Mound and Spirit Way</h3>
+          <p class="text-sm">Emperor Jing's tomb mound is a flat-topped pyramid of rammed earth, 31 meters high, surrounded by a walled enclosure. Unlike Qin Shi Huang's sealed mound, you can walk around the perimeter. The Spirit Way leading to the tomb is lined with stone sculptures — a tradition that reached its peak at the Ming tombs but began here in the Han.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-2">The Exhibition Hall — Context and Conservation</h3>
+          <p class="text-sm">A conventional museum building displays the finest individual artifacts removed from the pits: painted pottery figures, bronze weapons, jade ornaments, and architectural models. It also explains how the figurines were mass-produced using molds — one body type with individually applied facial features — and how they were originally painted and dressed. Budget 30 minutes here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insider Tips -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Insider Tips</h2>
+    <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">Visit Han Yangling BEFORE the Terracotta Warriors if possible</h3>
+        <p>The chronology makes more sense: Han Yangling (Han Dynasty, 188–141 BCE) was built just decades after the Terracotta Warriors (Qin Dynasty, 210 BCE), and the contrast between the two is the most dramatic illustration of how Chinese funerary art transformed from the Qin to the Han. The Warriors are massive and intimidating; Han Yangling's figurines are small, peaceful, and domestic. Going from Warriors to Yangling feels like a letdown; going the other way is a revelation.</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">It is on the way to the airport</h3>
+        <p>Han Yangling is located roughly halfway between Xi'an city center and Xi'an Xianyang International Airport. If you have a late flight, visit the museum in the afternoon and head directly to the airport afterward (20 minutes by taxi).</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">Fewer than 5% of Terracotta Warriors visitors come here</h3>
+        <p>Han Yangling gets a tiny fraction of the Warriors' crowds. On a weekday, you may be one of a dozen people in the underground museum. The solitude enhances the experience — walking on glass above 2,000-year-old burial pits with no one around you is genuinely haunting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-warm-900 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6 text-center">
+      <h2 class="text-xl md:text-2xl font-display font-semibold tracking-tight text-white mb-4">Experience Han Dynasty history up close</h2>
+      <p class="text-warm-200 max-w-lg mx-auto mb-8">Han Yangling is on our Xi’an & Chengdu route and the 10-day itinerary. The perfect quieter complement to the Terracotta Warriors.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/xian-chengdu-ancient-sites" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150">Xi’an & Chengdu Route</a>
+        <a href="/terracotta-warriors" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150">Terracotta Warriors Guide</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,221 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Sanxingdui Guide 2026: Tickets, Hours & How to Book as a Foreigner";
+const description = "Complete guide to Sanxingdui Museum near Chengdu. Tickets ¥72, book 7 days ahead. How to get there, what you will see — bronze masks, gold scepters — and whether it is worth visiting this 4,800-year-old lost civilization.";
+
+const faqSchema = {
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", "name": "Can foreigners book Sanxingdui tickets?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, but it requires the WeChat mini-program. Search for “三星堆博物馆” (Sanxingdui Museum), select “Passport” as your ID type, and enter your passport number. Tickets are released 7 days in advance at 8:00 PM Beijing time. Read our full step-by-step booking guide for details." } },
+    { "@type": "Question", "name": "How do I get to Sanxingdui from Chengdu?", "acceptedAnswer": { "@type": "Answer", "text": "Take the intercity train from Chengdu East Railway Station to Guanghan North Station (20 minutes, ¥20). From Guanghan North, take a taxi (15 minutes, ¥25) or bus 13 to the museum entrance. You can also drive or take a Didi from Chengdu city center directly (60–80 minutes, ¥100–150)." } },
+    { "@type": "Question", "name": "Is Sanxingdui worth visiting?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely — it is one of the most extraordinary archaeological museums in the world. The bronze masks, gold scepters, and sacred trees are unlike anything found anywhere else. The new museum building (opened 2023) is world-class. It is essential for anyone interested in ancient civilizations." } },
+    { "@type": "Question", "name": "How old is Sanxingdui?", "acceptedAnswer": { "@type": "Answer", "text": "The Sanxingdui culture flourished from approximately 2800 to 1100 BCE (4,800 to 3,100 years ago), contemporaneous with the Shang Dynasty in the Yellow River valley. The most spectacular artifacts come from sacrificial pits dated to around 1200 BCE." } },
+    { "@type": "Question", "name": "Can I take photos inside Sanxingdui Museum?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, photography without flash is allowed throughout most of the museum. Tripods, selfie sticks, and flash photography are prohibited. Some temporary exhibitions may have additional restrictions." } },
+  ],
+};
+
+const schemaJson = JSON.stringify([
+  {
+    "@type": "TouristAttraction",
+    "name": "Sanxingdui Museum",
+    "description": "A world-class museum displaying bronze masks, gold artifacts, and jade objects from the 4,800-year-old Sanxingdui civilization near Chengdu, China. Features the iconic giant bronze masks, gold scepters, and the sacred tree of the ancient Shu Kingdom.",
+    "touristType": "Archaeology enthusiasts, History lovers, Museum visitors",
+    "address": { "@type": "PostalAddress", "streetAddress": "133 Xi'an Road", "addressLocality": "Guanghan", "addressRegion": "Sichuan", "addressCountry": "CN" },
+    "openingHours": "Mo-Su 08:30-18:00",
+    "offers": { "@type": "Offer", "price": "72", "priceCurrency": "CNY" },
+    "url": "https://5000-year-old-chinese-tomb.com/sanxingdui",
+  },
+    {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
+      { "@type": "ListItem", "position": 2, "name": "Sanxingdui", "item": "https://5000-year-old-chinese-tomb.com/sanxingdui" }
+    ]
+  },
+faqSchema,
+]);
+---
+
+<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
+  <slot name="head">
+    <meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-sanxingdui.webp" />
+  </slot>
+
+  <!-- Hero -->
+  <section class="relative min-h-[40dvh] flex items-center overflow-hidden bg-warm-900">
+    <div class="absolute inset-0 z-0 opacity-25">
+      <img src="/og-sanxingdui.webp" alt="Sanxingdui" width="1200" height="630" class="w-full h-full object-cover" loading="eager" />
+    </div>
+    <div class="relative z-10 max-w-[1200px] mx-auto px-6 py-20">
+      <p class="text-sm font-medium tracking-wide text-accent/80 mb-4">Site Guide &middot; 4,800 Years Old &middot; Ancient Shu Civilization</p>
+      <h1 class="text-3xl md:text-5xl font-display font-bold tracking-tight leading-tight text-white max-w-3xl">Sanxingdui</h1>
+      <p class="mt-4 text-lg text-warm-200/80 max-w-2xl leading-relaxed">A lost civilization nobody knew existed until 1986. Giant bronze masks with bulging eyes, gold scepters, and a 4-meter sacred tree — all from a kingdom that vanished without a written record.</p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Overview</h2>
+    <div class="space-y-4 text-warm-700 leading-relaxed">
+      <p>
+        Sanxingdui (<span lang="zh">三星堆</span>) is one of the most important archaeological discoveries of the 20th century. Located 40 km north of Chengdu in Sichuan Province, the site belonged to the ancient Shu Kingdom — a highly sophisticated Bronze Age civilization that existed at the same time as the Shang Dynasty in the Yellow River valley, yet developed a completely independent artistic tradition.
+      </p>
+      <p>
+        The defining feature of Sanxingdui is its bronze work. Unlike the ritual vessels of the Shang, Sanxingdui’s artisans cast enormous masks with exaggerated features — protruding eyes, angular ears, and enigmatic smiles. The largest mask is 1.3 meters wide. Other treasures include gold foil scepters, a 3.95-meter bronze sacred tree, and hundreds of jade blades and discs. Nothing like these objects has been found anywhere else in China — or the world.
+      </p>
+      <p>
+        The new museum building, which opened in 2023, is itself a destination. With nearly 40,000 square meters of exhibition space, climate-controlled galleries, and excellent English signage, it is one of the best archaeological museums in Asia. A second building housing the site’s sacrificial pits is under construction and expected to open by 2027.
+      </p>
+    </div>
+  </section>
+
+  <!-- Key Facts -->
+  <section class="bg-warm-50 py-12 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-xl font-display font-semibold tracking-tight mb-6">Key Facts</h2>
+      <div class="bg-white rounded-lg border border-border overflow-hidden">
+        <dl class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Tickets</dt><dd class="text-sm font-semibold text-warm-900">¥72 (book 7 days ahead)</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Opening Hours</dt><dd class="text-sm font-semibold text-warm-900">8:30–18:00 (last entry 17:00)</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Suggested Time</dt><dd class="text-sm font-semibold text-warm-900">3–4 hours</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Location</dt><dd class="text-sm font-semibold text-warm-900">Guanghan, 40 km north of Chengdu</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Culture</dt><dd class="text-sm font-semibold text-warm-900">Ancient Shu (Bronze Age)</dd></div>
+          <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">New Museum</dt><dd class="text-sm font-semibold text-warm-900">Opened July 2023</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Get There -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">How to Get There</h2>
+    <div class="space-y-6 text-warm-700 leading-relaxed">
+      <div>
+        <h3 class="font-semibold text-lg mb-2">From Chengdu Tianfu International Airport (TFU)</h3>
+        <p class="text-sm">Take Metro Line 18 to Chengdu South Railway Station (45 min), then transfer to an intercity train to Guanghan North. Alternatively, a direct taxi or Didi from Tianfu Airport takes about 90 minutes and costs ¥200–250.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-lg mb-2">From Chengdu East Railway Station (best option)</h3>
+        <p class="text-sm">Take the Chengdu–Mianyang intercity train from Chengdu East to Guanghan North Station. Trains run every 30–60 minutes, the journey takes 20 minutes, and a second-class ticket costs approximately ¥20. From Guanghan North, a 15-minute taxi (¥25) takes you directly to the museum.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-lg mb-2">From downtown Chengdu by car</h3>
+        <p class="text-sm">A Didi or taxi from central Chengdu takes 60–80 minutes and costs approximately ¥100–150 depending on traffic. Avoid departing between 7:30–9:00 AM on weekdays.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Is It Worth Visiting -->
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Is It Worth Visiting?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-lg p-6 border border-border">
+          <h3 class="font-semibold text-green-700 mb-3">Pros</h3>
+          <ul class="space-y-2 text-sm text-warm-700">
+            <li>• World-class artefacts you cannot see anywhere else</li>
+            <li>• Spectacular new museum (2023) with excellent facilities</li>
+            <li>• Easy day trip from Chengdu (20 min by train)</li>
+            <li>• Good English signage throughout</li>
+            <li>• Less crowded than the Terracotta Warriors</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-lg p-6 border border-border">
+          <h3 class="font-semibold text-red-700 mb-3">Cons</h3>
+          <ul class="space-y-2 text-sm text-warm-700">
+            <li>• Booking requires WeChat and can be confusing for foreigners</li>
+            <li>• Tickets sell out fast during holidays — plan ahead</li>
+            <li>• No onsite excavation visible (unlike Terracotta Warriors)</li>
+            <li>• Guanghan North Station has limited taxi availability at off-peak times</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-6 text-sm text-warm-700 text-center">Best for: museum lovers, ancient history buffs, photographers, and anyone who wants to see one of the world’s most mysterious civilizations up close.</p>
+    </div>
+  </section>
+
+  <!-- Nearby -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Nearby Hotels & Attractions</h2>
+    <div class="space-y-4 text-sm text-warm-700">
+      <p><strong>Hotels:</strong> Most visitors stay in Chengdu rather than Guanghan. The area around Chengdu East Railway Station has budget and mid-range options from ¥200/night. Near Chunxi Road or Taikoo Li, you will find international hotels and boutique options. For convenience, book near Line 2 or Line 7 metro stations.</p>
+      <p><strong>What else is nearby:</strong> Chengdu Research Base of Giant Panda Breeding (see pandas in the morning, Sanxingdui in the afternoon), Jinli Ancient Street, Wuhou Shrine, and the Jinsha Site Museum (another Shu culture site in central Chengdu).</p>
+    </div>
+  </section>
+
+  
+
+  <!-- What You Will See -->
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">What You Will See Inside</h2>
+      <div class="space-y-6 text-warm-700 leading-relaxed">
+        <div>
+          <h3 class="font-semibold text-lg mb-2">The Bronze Mask Gallery (world-famous)</h3>
+          <p class="text-sm">This is what you came for. Sanxingdui's bronze masks are unlike anything else in Chinese art history — huge, angular, with protruding eyes and exaggerated ears. The largest standing mask is 1.32 meters wide and weighs over 70 kg. The eyes bulge 20 cm from the face. No one knows what they represent — deities, ancestors, or something else. The masks are displayed in a darkened gallery with dramatic lighting that makes them feel alive. Budget 30 minutes just in this room.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-2">The Sacred Tree (3.96 meters tall)</h3>
+          <p class="text-sm">A bronze tree over three meters high, assembled from dozens of cast pieces, with branches, leaves, fruit, and perched birds. Scholars believe it represents a mythological "spirit tree" connecting heaven, earth, and the underworld. It took conservators nearly a decade to reconstruct. The tree has its own gallery — you round a corner and it is just there, filling the space.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-2">The Gold Scepter and Gold Mask</h3>
+          <p class="text-sm">A 1.42-meter-long gold scepter weighing 500 grams, covered in incised patterns of human faces, fish, and arrows. A gold face mask beaten from thin sheet gold. These objects signal a level of wealth and craftsmanship previously unknown for the Neolithic/Bronze Age Sichuan Basin.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-2">The Excavation Gallery (ongoing discovery)</h3>
+          <p class="text-sm">The museum includes a gallery showing live excavation footage and recently unearthed artifacts from the sacrificial pits. New objects are discovered every field season — in 2022 alone, a cache including a bronze altar, a box with a tortoise-shell lid, and more masks was announced. Sanxingdui is not a closed site; it is actively rewriting history.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insider Tips -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Insider Tips</h2>
+    <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">Book tickets exactly at 8:00 PM, 7 days before your visit</h3>
+        <p>Sanxingdui releases tickets on WeChat at exactly 20:00 Beijing time, 7 days in advance. They sell out in under 5 minutes during peak seasons. Have your passport number ready and paste it in. Do not wait until 8:01. See our <a href="/sanxingdui-museum-booking" class="text-accent hover:underline">step-by-step booking guide</a>.</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">Take the intercity train, not a taxi</h3>
+        <p>Intercity trains from Chengdu East to Guanghan North take exactly 20 minutes and cost ¥20. A taxi from central Chengdu takes 90+ minutes and costs ¥200–300. From Guanghan North station, it is a 10-minute taxi to the museum. The time savings are significant.</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">Combine with Chengdu Panda Base (it is on the way)</h3>
+        <p>The Chengdu Research Base of Giant Panda Breeding is north of the city on the same general route as Sanxingdui. If you are ambitious, visit the pandas at 7:30 AM when they are most active, then take the intercity train to Guanghan around 10 AM. Two bucket-list China experiences in one day.</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">The museum cafe is surprisingly good</h3>
+        <p>Most Chinese museum cafes are an afterthought. Sanxingdui's cafe on the second floor has decent coffee, good pastries, and a terrace with a view. It is a good place to decompress after sensory overload in the galleries.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Behind -->
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">The Mystery of Sanxingdui</h2>
+      <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
+        <p>Sanxingdui is the greatest archaeological mystery in China. In 1986, workers at a brick factory unearthed two sacrificial pits filled with shattered bronze, gold, and jade objects — then the site was reburied. No one had expected to find a Bronze Age civilization in Sichuan, a region traditionally described in Chinese histories as a remote backwater inhabited by "barbarians."</p>
+        <p>The artifacts were clearly Chinese in some ways — bronze-casting technology similar to the Shang Dynasty — but radically different in others. Shang bronzes are decorated with abstract animal motifs. Sanxingdui masks have bulging eyes, elephantine ears, and human faces on a monumental scale. There is no known parallel anywhere in the ancient world.</p>
+        <p>The site appears to have been deliberately destroyed. The objects in the pits were broken, burned, and ritually buried — not a grave or a treasure hoard, but possibly a mass deconsecration. Why a civilization capable of these extraordinary works would destroy them so thoroughly is unknown. The Shang oracle bones, the earliest Chinese written records, never mention Sanxingdui or anything like it.</p>
+        <p>Six additional pits were discovered in 2020–2022, and excavation is ongoing. The new museum opened in July 2023. If you visit Sanxingdui, you are seeing a site that is still giving up its secrets — a civilization that may force a fundamental rewrite of the story of early China.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-warm-900 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6 text-center">
+      <h2 class="text-xl md:text-2xl font-display font-semibold tracking-tight text-white mb-4">Plan your visit to Sanxingdui</h2>
+      <p class="text-warm-200 max-w-lg mx-auto mb-8">Sanxingdui is a highlight of our Xi’an & Chengdu route. Combine it with the Terracotta Warriors and Han Yangling for the ultimate ancient China tour.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/xian-chengdu-ancient-sites" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150">Xi’an & Chengdu Route</a>
+        <a href="/sanxingdui-museum-booking" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150">How to Book Tickets</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

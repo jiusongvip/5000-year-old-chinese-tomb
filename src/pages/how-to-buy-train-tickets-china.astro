@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "How to Buy Train Tickets in China as a Foreigner (2026 Guide)";
+const description = "Complete guide to buying China high-speed train tickets with a foreign passport. Trip.com, 12306, station purchase, step-by-step instructions for every method.";
+
+const faqSchema = {
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", "name": "Can foreigners buy train tickets in China?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Foreigners can buy tickets through Trip.com (easiest), the official 12306.cn website or app, or at train station ticket counters. At stations, bring your passport. Trip.com accepts international credit cards and has an English interface — it is the recommended option for most travelers." } },
+    { "@type": "Question", "name": "What is the best way for foreigners to book Chinese train tickets?", "acceptedAnswer": { "@type": "Answer", "text": "Trip.com (formerly Ctrip) is the best option. It has a fully English interface, accepts international credit cards, charges a small service fee, and sends e-tickets directly to your email. The official 12306 app also works but requires a Chinese phone number and can be difficult to set up." } },
+    { "@type": "Question", "name": "Do I need to pick up a paper ticket?", "acceptedAnswer": { "@type": "Answer", "text": "No. China has switched to e-ticketing. Your passport is your ticket — simply scan it at the automated gate or show it to the manual lane attendant. You do not need to collect a paper ticket. Trip.com will email you a confirmation with your seat number and train details." } },
+    { "@type": "Question", "name": "How far in advance can I book Chinese train tickets?", "acceptedAnswer": { "@type": "Answer", "text": "Train tickets are typically released 15 days in advance. During major holidays (Chinese New Year, National Day), they may be released earlier. It is advisable to book popular routes 1–2 weeks ahead, especially for weekends and holidays." } },
+  ],
+};
+
+const schemaJson = JSON.stringify([{ "@type": "Article", "headline": title, "description": description, "dateModified": "2026-08-04" }, faqSchema,
+{
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
+      { "@type": "ListItem", "position": 2, "name": "How to Buy Train Tickets", "item": "https://5000-year-old-chinese-tomb.com/how-to-buy-train-tickets-china" }
+    ]
+  },
+]);
+---
+
+<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
+  <slot name="head"><meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-train.webp" /></slot>
+
+  <section class="bg-warm-900 py-20">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <p class="text-sm font-medium tracking-wide text-accent/80 mb-4">Practical Guide</p>
+      <h1 class="text-3xl md:text-5xl font-display font-bold tracking-tight leading-tight text-white max-w-3xl">How to Buy Train Tickets in China as a Foreigner</h1>
+      <p class="mt-4 text-lg text-warm-200/80 max-w-2xl leading-relaxed">Trip.com, 12306, or buy at the station. Which method works best with a foreign passport, what it costs, and how to avoid common mistakes.</p>
+    </div>
+  </section>
+
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Method 1: Trip.com (Recommended)</h2>
+    <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
+      <p>Trip.com is the easiest way for foreigners to book Chinese train tickets. It has a full English interface, accepts international Visa/Mastercard/Amex, and charges a service fee of approximately ¥20–40 per ticket. You will receive your e-ticket confirmation by email instantly after booking.</p>
+      <p><strong>How to book:</strong> Go to Trip.com → Trains → enter your departure and arrival cities → select your train → choose second class (¥20–300 depending on distance) or first class (¥30–50 more) → enter your passport name and number exactly as on your passport → pay with international card → receive email confirmation.</p>
+      <p><strong>At the station:</strong> Scan your passport at the automated gate. If the gate does not recognize it, go to the manual lane and show your passport and Trip.com confirmation. Arrive 30–45 minutes before departure for security screening.</p>
+    </div>
+  </section>
+
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Method 2: 12306 Official App</h2>
+      <p class="text-sm text-warm-700 leading-relaxed mb-6">12306 is the official railway app. It avoids service fees but is more difficult to use: the English version is limited, payment requires WeChat Pay or Alipay, and account registration may require a Chinese phone number. Use this method only if you already have WeChat Pay set up and are comfortable navigating a partially Chinese interface.</p>
+      <div class="bg-accent/5 border border-accent/20 rounded-lg p-4 text-sm">
+        <strong class="text-accent">Tip:</strong> Download 12306 before your trip and attempt to set up an account. Some users succeed with foreign passports and phone numbers; others do not. Trip.com is the reliable fallback.
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Method 3: Buy at the Station</h2>
+    <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
+      <p>You can buy tickets at any train station ticket counter. Bring your passport. Most larger stations (Beijing West, Shanghai Hongqiao, Hangzhou East, Xi’an North) have a dedicated English-speaking counter or at least staff who can handle foreign passports.</p>
+      <p><strong>What to say:</strong> Show the staff a note with your destination written in Chinese characters, the date, and preferred time. For example: “西安, 8月10日, 上午” (Xi’an, August 10, morning). They will find the next available train.</p>
+      <p><strong>Risks:</strong> Popular routes sell out, especially on weekends and holidays. Do not rely on same-day station purchase for long-distance routes like Hangzhou–Chengdu or Xi’an–Anyang. Use Trip.com to book ahead.</p>
+    </div>
+  </section>
+
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Common Train Routes for Ancient China Trips</h2>
+      <div class="overflow-x-auto"><table class="w-full text-sm"><thead><tr class="border-b border-border"><th class="text-left py-2 font-medium">Route</th><th class="text-right py-2 font-medium">Duration</th><th class="text-right py-2 font-medium">Cost (2nd class)</th></tr></thead><tbody class="divide-y divide-border/50"><tr><td class="py-2">Hangzhou → Chengdu</td><td class="text-right py-2">~10 hrs</td><td class="text-right py-2">~¥900</td></tr><tr><td class="py-2">Chengdu → Xi’an</td><td class="text-right py-2">~3.5 hrs</td><td class="text-right py-2">~¥260</td></tr><tr><td class="py-2">Xi’an → Anyang</td><td class="text-right py-2">~2.5 hrs</td><td class="text-right py-2">~¥200</td></tr><tr><td class="py-2">Zhengzhou → Anyang</td><td class="text-right py-2">~40 min</td><td class="text-right py-2">~¥80</td></tr><tr><td class="py-2">Anyang → Beijing</td><td class="text-right py-2">~2.5 hrs</td><td class="text-right py-2">~¥200</td></tr></tbody></table></div>
+    </div>
+  </section>
+
+  <section class="bg-warm-900 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6 text-center">
+      <h2 class="text-xl font-display font-semibold tracking-tight text-white mb-4">Plan your train journey</h2>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/ancient-china-10-day-itinerary" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150">10-Day Itinerary</a>
+        <a href="/china-240-hour-transit-visa" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150">Visa Guide</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

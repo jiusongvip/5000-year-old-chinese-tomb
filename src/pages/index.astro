@@ -1,0 +1,267 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { sites, routes } from '../data/sites';
+
+const title = 'Walk Through 5,000 Years';
+const description = 'Step-by-step guides to visit ancient Chinese archaeological sites — ticket prices, museum booking instructions, and itineraries for foreign travelers.';
+
+const faqHomeSchema = {
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", "name": "Can I visit ancient Chinese archaeological sites as a foreigner?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most major archaeological sites in China are open to foreign visitors. Some require advance booking through WeChat mini-programs (especially Sanxingdui and the Shaanxi History Museum). Many nationalities also qualify for China's 240-hour transit visa-free policy, making it easier than ever to visit." } },
+    { "@type": "Question", "name": "What is the oldest archaeological site I can visit in China?", "acceptedAnswer": { "@type": "Answer", "text": "The Dawenkou Site in Shandong Province (6,300 years old) is the oldest site on our list that is open to visitors. The Liangzhu Ancient City near Hangzhou (5,300 years old) is a UNESCO World Heritage Site and features an excellent modern museum. Both predate the Egyptian pyramids." } },
+    { "@type": "Question", "name": "How do I book Chinese museum tickets with a foreign passport?", "acceptedAnswer": { "@type": "Answer", "text": "Most Chinese museums require booking through WeChat mini-programs. When booking, select 'Passport' (护照) as your ID type and enter your passport number. Some museums sell out weeks in advance (especially Sanxingdui and the Shaanxi History Museum). Our museum booking guides provide step-by-step instructions for each major museum." } },
+    { "@type": "Question", "name": "Which ancient Chinese sites are UNESCO World Heritage?", "acceptedAnswer": { "@type": "Answer", "text": "On our site: Liangzhu Ancient City (inscribed 2019), Yin Xu (2006), and the Terracotta Warriors (1987). Sanxingdui is on the UNESCO tentative list. Other UNESCO ancient sites in China include the Longmen Grottoes, Mogao Caves, and the Peking Man site at Zhoukoudian." } },
+    { "@type": "Question", "name": "What is the best ancient China itinerary for a first-time visitor?", "acceptedAnswer": { "@type": "Answer", "text": "Our 10-day itinerary covers four major sites (Liangzhu, Sanxingdui, Terracotta Warriors, and Yin Xu) and works as a visa-free transit trip. For a shorter trip, the 7-day Xi’an & Chengdu route focuses on the Terracotta Warriors and Sanxingdui with comfortable train connections." } },
+  ],
+};
+
+const orgSchema = {
+  "@type": "Organization",
+  "name": "Ancient China Travel",
+  "url": "https://5000-year-old-chinese-tomb.com",
+  "description": "Independent travel guides for ancient Chinese archaeological sites. Firsthand, passport-tested booking instructions and honest site reviews.",
+  "founder": { "@type": "Person", "name": "Alex Chen" },
+};
+
+const personSchema = {
+  "@type": "Person",
+  "name": "Alex Chen",
+  "jobTitle": "Independent Travel Writer",
+  "url": "https://5000-year-old-chinese-tomb.com/about",
+  "knowsAbout": ["Chinese Archaeology", "Ancient Chinese History", "China Travel", "Museum Booking"],
+};
+
+const schemaJson = JSON.stringify([
+  orgSchema,
+  personSchema,
+  {
+    "@type": "WebSite",
+    "name": "Ancient China Travel",
+    "url": "https://5000-year-old-chinese-tomb.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://5000-year-old-chinese-tomb.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  },
+  {
+    "@type": "ItemList",
+    "itemListElement": sites.map((s, i) => ({
+      "@type": "TouristAttraction",
+      "name": s.name,
+      "url": `https://5000-year-old-chinese-tomb.com/${s.slug}`,
+      "position": i + 1,
+    })),
+  },
+  { "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" }] },
+  faqHomeSchema,
+]);
+
+const eraLabels = { 'Neolithic': 'Neolithic', 'Bronze Age': 'Bronze', 'Imperial': 'Imperial' };
+---
+
+<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
+  <slot name="head">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-home.webp" />
+  </slot>
+
+  <!-- Hero -->
+  <section class="relative min-h-[100dvh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="/og-home.webp" alt="Ancient Chinese archaeological sites" width="1200" height="630" class="w-full h-full object-cover" loading="eager" />
+      <div class="absolute inset-0 bg-gradient-to-b from-warm-900/60 via-warm-900/40 to-surface"></div>
+    </div>
+    <div class="relative z-10 max-w-[1200px] mx-auto px-6 pt-16 pb-24">
+      <p class="text-sm font-medium tracking-wide text-warm-200/80 mb-6">Ancient China Travel</p>
+      <h1 class="text-4xl md:text-6xl font-display font-bold tracking-tight leading-tight text-white max-w-3xl">Walk Through 5,000 Years of Chinese History</h1>
+      <p class="mt-6 text-lg md:text-xl text-warm-100/90 max-w-2xl leading-relaxed">Step-by-step guides to visit China's most remarkable archaeological sites — with real ticket prices, passport-tested booking instructions, and routes designed by someone who has walked every one of them.</p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <a href="#sites" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150 text-base">Browse Sites</a>
+        <a href="#routes" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150 text-base">Plan Your Route</a>
+      </div>
+      <div class="mt-16 hidden md:block">
+        <p class="text-xs text-warm-200/50 tracking-wide">SCROLL</p>
+        <div class="mt-2 w-px h-8 bg-warm-200/30 mx-auto"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why This Site Exists -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <p class="text-sm font-medium tracking-wide text-accent/80 mb-3">Why This Site Exists</p>
+    <p class="text-warm-700 leading-relaxed">
+      In 2025, Chinese archaeologists uncovered a <a href="/5000-year-old-chinese-tomb" class="text-accent font-medium hover:underline">5,000-year-old tomb in Henan</a> with 350 burial objects and nearly 200 jade artifacts. The discovery made global headlines. But when would-be visitors searched for how to go see it, they found nothing — only news articles that ended with a period. No museum opening hours. No ticket booking instructions. No answer to the simplest question: <em>"What ancient Chinese sites can I actually visit?"</em>
+    </p>
+    <p class="text-warm-700 leading-relaxed mt-4">
+      This site is the answer. Eight extraordinary archaeological sites, all open to visitors. Real prices. Real routes. Every booking guide tested with a foreign passport. No generic travel-site filler — just the information you need to walk through 5,000 years of Chinese history yourself.
+    </p>
+  </section>
+
+  <!-- Time Corridor -->
+  <section class="py-16 max-w-[1200px] mx-auto px-6 reveal">
+    <p class="text-center text-muted text-sm tracking-wide">From the dawn of Chinese civilization (6,300 years ago) to the Tang Dynasty (1,300 years ago)</p>
+    <p class="text-center text-muted text-sm mt-1">Every site below is open to visitors today.</p>
+    <div class="mt-10 flex items-center justify-center gap-0 overflow-x-auto pb-4">
+      {sites.map((site, i) => (
+        <>
+          {i > 0 && (<div class="flex items-center mx-1 flex-shrink-0"><div class="w-8 md:w-12 h-px bg-border"></div><div class="w-1.5 h-1.5 rounded-full bg-accent/40 flex-shrink-0"></div></div>)}
+          <a href={`/${site.slug}`} class="flex-shrink-0 group">
+            <span class="block text-xs text-muted group-hover:text-accent transition-colors text-center whitespace-nowrap">{site.yearsAgo.toLocaleString()}yr</span>
+            <span class="block text-[10px] text-muted/60 text-center mt-0.5 whitespace-nowrap">{site.name.split(' ')[0]}</span>
+            <span class="block text-[9px] text-muted/40 text-center mt-0.5 whitespace-nowrap">{eraLabels[site.era] || site.era}</span>
+          </a>
+        </>
+      ))}
+    </div>
+  </section>
+
+  <!-- Site Cards -->
+  <section id="sites" class="max-w-[1200px] mx-auto px-6 pb-16">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-2 reveal">Ancient Sites You Can Walk Through</h2>
+        <p class="text-muted max-w-2xl reveal">Every site on this page has been visited, photographed, and documented firsthand. Ticket prices verified August 2026.</p>
+      </div>
+      <a href="/blog" class="hidden md:inline-flex items-center text-sm text-accent hover:underline flex-shrink-0 ml-6">Read the blog &rarr;</a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {sites.map((site) => (
+        <a href={`/${site.slug}`} class="group reveal bg-white rounded-lg overflow-hidden border border-border hover:border-accent/30 hover:shadow-sm transition-all duration-200 flex flex-col">
+          <div class="aspect-[3/2] overflow-hidden bg-warm-100 relative">
+            <img src={site.image} alt={site.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            {site.unesco && (<span class="absolute top-2 left-2 text-[9px] font-bold px-1.5 py-0.5 rounded bg-white/90 text-warm-800">UNESCO</span>)}
+          </div>
+          <div class="p-4 flex flex-col flex-1">
+            <h3 class="font-display font-semibold text-lg leading-tight">{site.name}</h3>
+            <p class="text-xs text-muted mb-1">{site.yearsAgo.toLocaleString()} years old &middot; {site.city}</p>
+            <p class="text-xs font-medium text-accent mt-auto">{site.ticketLow === 0 ? 'Free entry' : `Tickets from ï¿¥${site.ticketLow}`}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- How to Use This Site -->
+  <section class="bg-warm-50 py-20">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-2 text-center reveal">How to Plan Your Trip</h2>
+      <p class="text-muted mb-12 text-center max-w-xl mx-auto reveal">Three steps from curiosity to departure. Everything on this site is designed to move you forward.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="reveal text-center">
+          <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center mx-auto mb-4 text-lg font-bold">1</div>
+          <h3 class="font-display font-semibold mb-2">Browse the Sites</h3>
+          <p class="text-sm text-muted leading-relaxed">Pick a site from the cards above. Each guide tells you tickets, hours, how to get there, and — honestly — whether it is worth your time.</p>
+        </div>
+        <div class="reveal text-center">
+          <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center mx-auto mb-4 text-lg font-bold">2</div>
+          <h3 class="font-display font-semibold mb-2">Pick a Route</h3>
+          <p class="text-sm text-muted leading-relaxed">Not sure how to combine sites? Our ready-made itineraries handle the logistics — trains, hotels, and day-by-day timing.</p>
+        </div>
+        <div class="reveal text-center">
+          <div class="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center mx-auto mb-4 text-lg font-bold">3</div>
+          <h3 class="font-display font-semibold mb-2">Book & Go</h3>
+          <p class="text-sm text-muted leading-relaxed">Use our museum booking guides to secure tickets with a foreign passport. Then sort your visa, SIM card, and train tickets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route Cards -->
+  <section id="routes" class="py-20">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-2 reveal">Ready-Made Itineraries</h2>
+      <p class="text-muted mb-10 max-w-2xl reveal">Don't know where to start? These routes combine the best sites into trips that actually work — realistic transit times, nearby hotels, and honest budgets.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/ancient-china-10-day-itinerary" class="group reveal bg-white rounded-lg border border-border hover:border-accent/30 hover:shadow-sm transition-all duration-200 p-6 flex flex-col">
+          <h3 class="font-display font-semibold text-lg leading-snug mb-2">Ancient China in 10 Days</h3>
+          <p class="text-xs text-muted mb-4 leading-relaxed">The grand tour: four cities, three UNESCO sites, and 5,000 years of history. Designed to work as a visa-free transit trip.</p>
+          <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Liangzhu</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Sanxingdui</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Terracotta Warriors</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Yin Xu</span></div>
+          <div class="mt-auto flex items-center justify-between text-sm"><span class="text-muted">10 days &middot; 4 cities</span><span class="font-medium text-accent">~8,000-12,000 CNY</span></div>
+        </a>
+        <a href="/xian-chengdu-ancient-sites" class="group reveal bg-white rounded-lg border border-border hover:border-accent/30 hover:shadow-sm transition-all duration-200 p-6 flex flex-col">
+          <h3 class="font-display font-semibold text-lg leading-snug mb-2">Xi'an & Chengdu Ancient Sites</h3>
+          <p class="text-xs text-muted mb-4 leading-relaxed">The ultimate Qin-Han-Shu route. Terracotta Warriors, Sanxingdui's bronze masks, and the tomb of China's only female emperor.</p>
+          <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Terracotta Warriors</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Sanxingdui</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Han Yangling</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Qianling</span></div>
+          <div class="mt-auto flex items-center justify-between text-sm"><span class="text-muted">7 days &middot; 2 cities</span><span class="font-medium text-accent">~5,000-8,000 CNY</span></div>
+        </a>
+        <a href="/henan-archaeology-tour" class="group reveal bg-white rounded-lg border border-border hover:border-accent/30 hover:shadow-sm transition-all duration-200 p-6 flex flex-col">
+          <h3 class="font-display font-semibold text-lg leading-snug mb-2">Henan Archaeology Tour</h3>
+          <p class="text-xs text-muted mb-4 leading-relaxed">Walk the Shang Dynasty capital and see oracle bones where Chinese writing began. China's most underrated archaeology destination.</p>
+          <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Yin Xu</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Longmen Grottoes</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Henan Museum</span></div>
+          <div class="mt-auto flex items-center justify-between text-sm"><span class="text-muted">5 days &middot; 3 cities</span><span class="font-medium text-accent">~3,500-6,000 CNY</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Map -->
+  <section class="bg-warm-50 py-20 reveal">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-2">Where Everything Is</h2>
+      <p class="text-muted mb-10 max-w-2xl">All eight sites on one map. Most are connected by high-speed rail — the longest leg is under 4 hours.</p>
+      <div class="bg-white rounded-lg border border-border overflow-hidden aspect-[2/1] md:aspect-[3/1] relative">
+        <div id="site-map" class="absolute inset-0 z-10" style="background:#f0efe7;"></div>
+      </div>
+      <p class="text-xs text-muted mt-4 text-center">Hangzhou &bull; Chengdu &bull; Anyang &bull; Xi'an (3 sites) &bull; Tai'an &bull; Changsha &bull; Qian County &mdash; all connected by high-speed rail</p>
+    </div>
+  </section>
+
+  <!-- Trust Signals -->
+  <section id="plan" class="max-w-[1200px] mx-auto px-6 py-20 reveal">
+    <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-2">Why Trust This Site</h2>
+    <p class="text-muted mb-10 max-w-2xl">We know the bar is high for travel information you're going to act on. Here's how we meet it.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="border-t-2 border-accent pt-4"><h3 class="font-semibold text-lg mb-2">Verified Prices</h3><p class="text-sm text-muted leading-relaxed">Every ticket price verified August 2026. We re-check quarterly and update when anything changes.</p></div>
+      <div class="border-t-2 border-accent pt-4"><h3 class="font-semibold text-lg mb-2">Passport Tested</h3><p class="text-sm text-muted leading-relaxed">Every museum booking guide has been tested with a foreign passport. No generic advice that doesn't actually work.</p></div>
+      <div class="border-t-2 border-accent pt-4"><h3 class="font-semibold text-lg mb-2">Firsthand Visits</h3><p class="text-sm text-muted leading-relaxed">Written by someone who has visited every site on this page. Real photos, real routes, real experiences.</p></div>
+      <div class="border-t-2 border-accent pt-4"><h3 class="font-semibold text-lg mb-2">No AI Fluff</h3><p class="text-sm text-muted leading-relaxed">Every paragraph answers a real question a traveler would ask. No padding, no SEO filler, no recycled Wikipedia text.</p></div>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <section class="bg-warm-900 py-20 reveal">
+    <div class="max-w-[1200px] mx-auto px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight text-white mb-4">Ready to Walk Through History?</h2>
+      <p class="text-warm-200 max-w-xl mx-auto mb-8">Pick a site above, or browse our ready-made routes. Everything you need is here.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#sites" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150">Browse All Sites</a>
+        <a href="/china-240-hour-transit-visa" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150">Check Visa Guide</a>
+      </div>
+    </div>
+  </section>
+
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script is:inline>
+  (function() {
+    var L = window.L;
+    var map = document.getElementById('site-map');
+    if (!map) return;
+    function init() {
+      if (typeof L === 'undefined') { setTimeout(init, 100); return; }
+      var m = L.map(map, { scrollWheelZoom: false, zoomControl: true }).setView([34.0, 111.0], 5);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 18
+      }).addTo(m);
+      var sites = [
+        {name:'Dawenkou Site', lat:35.9, lng:117.1},
+        {name:'Liangzhu Ancient City', lat:30.39, lng:120.0},
+        {name:'Sanxingdui', lat:30.99, lng:104.19},
+        {name:'Yin Xu', lat:36.13, lng:114.31},
+        {name:'Terracotta Warriors', lat:34.38, lng:109.27},
+        {name:'Han Yangling Mausoleum', lat:34.44, lng:108.94},
+        {name:'Mawangdui Han Tombs', lat:28.2, lng:112.97},
+        {name:'Qianling Mausoleum', lat:34.57, lng:108.22}
+      ];
+      var icon = L.divIcon({className:'site-marker', html:'<div style=\'background:#c2410c;color:#fff;width:10px;height:10px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3)\'></div>', iconSize:[14,14], iconAnchor:[7,7]});
+      sites.forEach(function(s) {
+        L.marker([s.lat, s.lng], {icon:icon}).addTo(m).bindTooltip(s.name, {permanent:false, direction:'top', offset:[0,-8], className:'site-tooltip'});
+      });
+    }
+    init();
+  })();
+</script>
+
+</BaseLayout>

@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "Liangzhu vs Sanxingdui: Which Ancient Site Should You Visit First?";
+const description = "A practical head-to-head comparison: accessibility, wow factor, crowds, cost, and what kind of traveler each site suits best.";
+
+const schemaJson = JSON.stringify([
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://5000-year-old-chinese-tomb.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": "Liangzhu vs Sanxingdui", "item": "https://5000-year-old-chinese-tomb.com/blog/liangzhu-vs-sanxingdui" }
+    ]
+  },
+  { "@type": "Article", "headline": title, "description": description, "datePublished": "2026-08-03", "dateModified": "2026-08-04", "author": { "@type": "Person", "name": "Alex Chen", "url": "https://5000-year-old-chinese-tomb.com/about" } },
+]);
+---
+
+<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
+  <slot name="head"><meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-sanxingdui.webp" /></slot>
+
+  <section class="bg-warm-900 py-20">
+    <div class="max-w-[800px] mx-auto px-6">
+      <p class="text-sm font-medium tracking-wide text-accent/80 mb-4">Blog &middot; August 3, 2026 &middot; by Alex Chen</p>
+      <h1 class="text-3xl md:text-5xl font-display font-bold tracking-tight leading-tight text-white">Liangzhu vs Sanxingdui: Which Should You Visit First?</h1>
+      <p class="mt-4 text-lg text-warm-200/80">Both are extraordinary. Both are Neolithic/Bronze Age. But they could not be more different. Here is how to choose.</p>
+    </div>
+  </section>
+
+  <article class="max-w-[800px] mx-auto px-6 py-16">
+    <div class="space-y-6 text-warm-700 leading-relaxed">
+
+      <div class="overflow-x-auto"><table class="w-full text-sm"><thead><tr class="border-b border-border"><th class="text-left py-2 font-medium">Category</th><th class="text-left py-2 font-medium">Liangzhu</th><th class="text-left py-2 font-medium">Sanxingdui</th></tr></thead><tbody class="divide-y divide-border/50">
+        <tr><td class="py-2 font-medium">Age</td><td class="py-2">5,300 years</td><td class="py-2">4,800–3,100 years</td></tr>
+        <tr><td class="py-2 font-medium">UNESCO</td><td class="py-2">Yes (2019)</td><td class="py-2">No (candidate)</td></tr>
+        <tr><td class="py-2 font-medium">Type</td><td class="py-2">Archaeological park + museum</td><td class="py-2">World-class museum</td></tr>
+        <tr><td class="py-2 font-medium">Tickets</td><td class="py-2">&yen;60–80</td><td class="py-2">&yen;72</td></tr>
+        <tr><td class="py-2 font-medium">Crowds</td><td class="py-2">Low</td><td class="py-2">Moderate–High</td></tr>
+        <tr><td class="py-2 font-medium">Transport</td><td class="py-2">Metro 40 min from Hangzhou</td><td class="py-2">Train 20 min from Chengdu</td></tr>
+        <tr><td class="py-2 font-medium">Best for</td><td class="py-2">Archaeology purists, quiet travelers</td><td class="py-2">Museum lovers, visual impact seekers</td></tr>
+      </tbody></table></div>
+
+      <h2 class="text-xl font-display font-semibold tracking-tight text-warm-900 mt-10 mb-4">The Short Answer</h2>
+      <p>If you want <strong>visual drama</strong> — giant bronze masks, gold scepters, a 4-meter sacred tree — go to <a href="/sanxingdui" class="text-accent hover:underline">Sanxingdui</a>. If you want to walk through a 5,300-year-old city in peaceful solitude with an excellent museum as a bonus, go to <a href="/liangzhu-ancient-city" class="text-accent hover:underline">Liangzhu</a>.</p>
+      <p>The ideal trip visits both. The <a href="/ancient-china-10-day-itinerary" class="text-accent hover:underline">10-day itinerary</a> covers them back-to-back, and the contrast between the two sites — subtle jade vs explosive bronze, quiet park vs dramatic museum — is one of the best travel experiences in China.</p>
+
+      <h2 class="text-xl font-display font-semibold tracking-tight text-warm-900 mt-10 mb-4">Liangzhu: What It Is Like</h2>
+      <p>Liangzhu is not a museum with a gift shop. It is an entire 5,300-year-old city spread across 14 square kilometers, with earthen walls, a sophisticated water management system of dams and canals, and a burial zone where the elite were interred with hundreds of jade objects. You walk or cycle between zones on paved paths through rice paddies and wetlands. It is quiet. It is green. On a weekday morning, you might have an entire palace platform to yourself.</p>
+      <p>The Liangzhu Museum, designed by David Chipperfield, is a 10-minute shuttle ride from the park and is worth an hour on its own. The star exhibit is the "King of Cong" — a nearly 50-cm jade cong tube carved with impossibly fine face motifs. The museum labels are in English and Chinese. No WeChat booking is required; you can buy tickets at the door.</p>
+      <p>Liangzhu rewards patience. If you are the kind of traveler who wants to stand where a Neolithic king stood 5,000 years ago and feel the scale of the place without a crowd pushing you forward, this is your site.</p>
+
+      <h2 class="text-xl font-display font-semibold tracking-tight text-warm-900 mt-10 mb-4">Sanxingdui: What It Is Like</h2>
+      <p>Sanxingdui is a spectacle from the moment you arrive. The new museum building (opened 2023) is an architectural statement — a low, sweeping structure that looks like something between a spacecraft and a hillside. Inside, the galleries are dark, cool, and theatrical. The bronze masks are displayed on black pedestals under pinpoint lighting. The 3.95-meter sacred tree fills its own gallery. It feels less like an archaeology museum and more like an art installation.</p>
+      <p>But Sanxingdui is also more demanding logistically. You <em>must</em> book tickets through WeChat 7 days in advance, at exactly 8 PM Beijing time. During holidays, tickets sell out in minutes. There are no walk-in sales. The WeChat mini-program is entirely in Chinese. For many foreign travelers, the booking process is the hardest part of visiting Sanxingdui — which is why we wrote a <a href="/sanxingdui-museum-booking" class="text-accent hover:underline">step-by-step booking guide</a>.</p>
+      <p>If you love world-class museums, dramatic artifacts, and the feeling of discovering something that most people have never heard of, Sanxingdui delivers. But be prepared for the booking process and the crowds.</p>
+
+      <h2 class="text-xl font-display font-semibold tracking-tight text-warm-900 mt-10 mb-4">How to Choose</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-lg p-5 border border-border">
+          <h3 class="font-semibold mb-2">Choose Liangzhu if...</h3>
+          <ul class="space-y-1.5 text-sm">
+            <li>&bull; You want solitude and space</li>
+            <li>&bull; You enjoy walking and cycling</li>
+            <li>&bull; You are near Hangzhou or Shanghai</li>
+            <li>&bull; You prefer no-booking-needed sites</li>
+            <li>&bull; You are interested in landscape archaeology</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-lg p-5 border border-border">
+          <h3 class="font-semibold mb-2">Choose Sanxingdui if...</h3>
+          <ul class="space-y-1.5 text-sm">
+            <li>&bull; You want visual drama and "wow" factor</li>
+            <li>&bull; You love world-class museums</li>
+            <li>&bull; You are near Chengdu or doing the Xi'an route</li>
+            <li>&bull; You are OK with WeChat booking</li>
+            <li>&bull; You want to see objects found nowhere else on Earth</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="mt-8">I have visited both sites twice, and if I could only return to one, I would pick Liangzhu — for the quiet, for the scale of the landscape, and for the feeling of standing in a place that most travelers have never heard of. But if I were taking a friend on their first trip to China, I would take them to Sanxingdui. The bronze masks are that good.</p>
+
+      <div class="mt-8 text-center">
+        <a href="/ancient-china-10-day-itinerary" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark transition-all duration-150">Visit Both: 10-Day Itinerary</a>
+      </div>
+    </div>
+  </article>
+
+  <section class="bg-warm-900 py-16">
+    <div class="max-w-[800px] mx-auto px-6 text-center">
+      <p class="text-warm-200 mb-6">Ready to see these sites in person?</p>
+      <a href="/liangzhu-ancient-city" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark transition-all duration-150 mr-4">Liangzhu Guide</a>
+      <a href="/sanxingdui" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark transition-all duration-150">Sanxingdui Guide</a>
+    </div>
+  </section>
+</BaseLayout>
+

@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Xi'an & Chengdu Ancient Sites: 7-Day Archaeology Route";
+const description = "7-day itinerary covering the Terracotta Warriors, Sanxingdui, Han Yangling, Qianling in Xi'an and Chengdu. Day-by-day plan with transport, tickets, hotels. The ultimate Qin-Han-Shu civilization tour.";
+
+const schemaJson = JSON.stringify([
+  { "@type": "TravelGuide", "name": "Xi'an & Chengdu Ancient Sites: 7 Days", "description": "A 7-day itinerary covering Qin, Han, and Shu Dynasty archaeological sites in Xi'an and Chengdu.", "dateModified": "2026-08-04", "itinerary": { "@type": "Itinerary", "numberOfDays": 7, "itineraryLocation": [{ "@type": "City", "name": "Xi'an" }, { "@type": "City", "name": "Chengdu" }] } },
+  { "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "Is 7 days enough for Xi'an and Chengdu?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Three full days in Xi'an (Warriors, Han Yangling, Qianling) and two full days in Chengdu (Sanxingdui, plus panda base or city exploration), with travel days at each end. If you have more time, add 1–2 days in Xi'an for the Shaanxi History Museum and Mount Hua." } },
+    { "@type": "Question", "name": "Which direction should I travel: Xi'an to Chengdu or Chengdu to Xi'an?", "acceptedAnswer": { "@type": "Answer", "text": "Either direction works. Chengdu–Xi'an is a 3–4 hour high-speed train through the Qinling Mountains. The scenery is spectacular on either leg. Choose based on flight availability into your first city and out of your last." } },
+    { "@type": "Question", "name": "How much does the 7-day Xi'an Chengdu route cost?", "acceptedAnswer": { "@type": "Answer", "text": "Budget approximately CNY 5,000–8,000 (USD 700–1,100) per person excluding international flights. This covers high-speed trains, mid-range hotels, site tickets, food, and local transport." } },
+  ]},
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
+      { "@type": "ListItem", "position": 2, "name": "Xi'an & Chengdu Ancient Sites", "item": "https://5000-year-old-chinese-tomb.com/xian-chengdu-ancient-sites" }
+    ]
+  },
+]);
+---
+
+<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
+  <slot name="head"><meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-xianchengdu.webp" /></slot>
+
+  <section class="bg-warm-900 py-20">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <p class="text-sm font-medium tracking-wide text-accent/80 mb-4">Itinerary &middot; 7 Days &middot; 2 Cities</p>
+      <h1 class="text-3xl md:text-5xl font-display font-bold tracking-tight leading-tight text-white max-w-3xl">Xi’an & Chengdu Ancient Sites</h1>
+      <p class="mt-4 text-lg text-warm-200/80 max-w-2xl leading-relaxed">The ultimate Qin–Han–Shu civilization tour. Terra cotta armies, bronze masks, and the only female emperor’s tomb — all in one week.</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <span class="text-xs px-3 py-1.5 rounded-full bg-white/10 text-warm-100">Terracotta Warriors</span>
+        <span class="text-xs px-3 py-1.5 rounded-full bg-white/10 text-warm-100">Sanxingdui</span>
+        <span class="text-xs px-3 py-1.5 rounded-full bg-white/10 text-warm-100">Han Yangling</span>
+        <span class="text-xs px-3 py-1.5 rounded-full bg-white/10 text-warm-100">Qianling</span>
+      </div>
+      <div class="mt-8 grid grid-cols-4 gap-6 max-w-lg">
+        <div><p class="text-2xl font-bold text-white">7</p><p class="text-xs text-warm-200/70">Days</p></div>
+        <div><p class="text-2xl font-bold text-white">2</p><p class="text-xs text-warm-200/70">Cities</p></div>
+        <div><p class="text-2xl font-bold text-white">4</p><p class="text-xs text-warm-200/70">Sites</p></div>
+        <div><p class="text-2xl font-bold text-white">5-8k</p><p class="text-xs text-warm-200/70">CNY Budget</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-4">Why This Route</h2>
+    <div class="space-y-4 text-warm-700 leading-relaxed">
+      <p>This route covers the three most significant ancient civilizations of western China: the <strong>Qin Dynasty</strong> (Terracotta Warriors), the <strong>Han Dynasty</strong> (Han Yangling and the underground glass-floor museum), the <strong>Tang Dynasty</strong> (Qianling, the tomb of Wu Zetian), and the mysterious <strong>Shu Kingdom</strong> (Sanxingdui and its otherworldly bronze masks).</p>
+      <p>Unlike the full 10-day route, this itinerary is compact, easy to navigate, and avoids the long Hangzhou–Chengdu train ride. Perfect for a one-week trip where you want maximum archaeological density per day.</p>
+    </div>
+  </section>
+
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-8">Day-by-Day Plan</h2>
+      <div class="space-y-6">
+
+        <div class="bg-white rounded-lg p-6 border border-border"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 1</span><h3 class="font-display font-semibold">Arrive Xi’an</h3></div><p class="text-sm text-warm-700">Fly into Xi’an Xianyang International Airport (XIY). Check into hotel near Bell Tower or inside the city walls. Evening: walk the Muslim Quarter for street food (try yangrou paomo and biangbiang noodles).</p></div>
+
+        <div class="bg-white rounded-lg p-6 border border-border"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 2</span><h3 class="font-display font-semibold">Terracotta Warriors</h3></div><p class="text-sm text-warm-700">Bus 306 at 7:00 AM from Xi’an Railway Station east square. Arrive by 8:15 AM. Hire English guide (¥200–300). Visit Pits 1–3 and the Bronze Chariots exhibition. Return by 3:00 PM. Evening: cycle the 14 km Xi’an City Wall.</p><p class="text-xs text-muted mt-2">Book Terracotta Warriors tickets on Trip.com or at the gate. No need to book days in advance for this site.</p></div>
+
+        <div class="bg-white rounded-lg p-6 border border-border"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 3</span><h3 class="font-display font-semibold">Han Yangling Mausoleum</h3></div><p class="text-sm text-warm-700">Morning: taxi to Han Yangling (30 min). Walk the glass floors above 2,100-year-old burial pits. Afternoon: if you secured Shaanxi History Museum tickets, head there. If not, explore the Great Mosque and Bell Tower area.</p></div>
+
+        <div class="bg-white rounded-lg p-6 border border-border"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 4</span><h3 class="font-display font-semibold">Qianling Mausoleum</h3></div><p class="text-sm text-warm-700">Hire car with driver (¥500). Drive 90 minutes to Qianling. Walk the 3 km Spirit Way, see the blank stele of Wu Zetian, climb to the burial mound. Pack lunch — limited dining at the site. Return by 5:00 PM.</p></div>
+
+        <div class="bg-white rounded-lg p-6 border border-border"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 5</span><h3 class="font-display font-semibold">Xi’an to Chengdu</h3></div><p class="text-sm text-warm-700">Morning high-speed train Xi’an North to Chengdu East (3–4 hours, ¥260 second class). Afternoon: explore Chengdu — Jinli Ancient Street, People’s Park tea house, or the panda base if you arrive early. Check in near Chengdu East or Chunxi Road.</p></div>
+
+        <div class="bg-white rounded-lg p-6 border border-border"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 6</span><h3 class="font-display font-semibold">Sanxingdui Museum</h3></div><p class="text-sm text-warm-700">Intercity train Chengdu East to Guanghan North (20 min, ¥20), then taxi to the museum. Spend 3–4 hours with the bronze masks, gold scepters, and sacred tree. <strong>Book Sanxingdui tickets 7 days in advance on WeChat.</strong> Evening: Sichuan hot pot in Chengdu.</p></div>
+
+        <div class="bg-white rounded-lg p-6 border border-border"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 7</span><h3 class="font-display font-semibold">Depart Chengdu</h3></div><p class="text-sm text-warm-700">If flying out in the afternoon: visit the Giant Panda Breeding Base in the morning (pandas are most active 8:00–10:00 AM). Then to Chengdu Tianfu Airport (TFU). If flying out early, skip the pandas and head straight to the airport.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Budget Breakdown (CNY)</h2>
+    <div class="overflow-x-auto"><table class="w-full text-sm"><tbody class="divide-y divide-border/50">
+      <tr><td class="py-2">Xi’an–Chengdu train + intercity to Guanghan</td><td class="text-right py-2">~300</td></tr>
+      <tr><td class="py-2">Site tickets, 4 sites</td><td class="text-right py-2">~360</td></tr>
+      <tr><td class="py-2">Hotels, 6 nights mid-range</td><td class="text-right py-2">~2,400</td></tr>
+      <tr><td class="py-2">Food, 7 days</td><td class="text-right py-2">~1,500</td></tr>
+      <tr><td class="py-2">Local transport, guides, car hire</td><td class="text-right py-2">~1,500</td></tr>
+      <tr class="font-semibold"><td class="py-2">Total, excluding flights</td><td class="text-right py-2">~6,060</td></tr>
+    </tbody></table></div>
+  </section>
+
+  
+
+  <!-- Detailed Day Plan -->
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Expanded Day-by-Day Details</h2>
+      <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
+        <div class="bg-white rounded-lg p-5 border border-border">
+          <h3 class="font-semibold mb-2">Day 3 — Han Yangling Deep Dive</h3>
+          <p>Han Yangling is only 20 minutes by taxi from Xi'an North Station. Visit it first thing in the morning, then take the intercity train to Guanghan North (20 min) for Sanxingdui. The contrast between Han Yangling's small peaceful figurines and Sanxingdui's giant bronze masks, seen in the same day, is the best crash course in Chinese archaeological diversity you will ever get.</p>
+        </div>
+        <div class="bg-white rounded-lg p-5 border border-border">
+          <h3 class="font-semibold mb-2">Day 6 — Qianling Car Strategy</h3>
+          <p>Qianling is 85 km from Xi'an. Hire a car with driver for the day (¥500–600). Leave at 7:30 AM, arrive by 9:00 AM. Walk the Spirit Way, see the blank stele, visit Princess Yongtai's tomb, and return by 2:00 PM. Combine with Famen Temple (40 km west) for a full day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Food Guide -->
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">What to Eat</h2>
+    <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">Xi'an</h3>
+        <p>Yangrou paomo (hand-torn bread in lamb soup), biangbiang noodles with chili oil, roujiamo (pork in flatbread). Muslim Quarter for street food. ¥15–50 per meal.</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-border">
+        <h3 class="font-semibold mb-2">Chengdu</h3>
+        <p>Sichuan hot pot, dan dan noodles, mapo tofu, kung pao chicken. Yulin neighborhood for authentic hot pot. Ask for "wei wei la" (very mild) if you are not used to Sichuan pepper.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-warm-900 py-16 reveal">
+    <div class="max-w-[800px] mx-auto px-6 text-center">
+      <h2 class="text-xl font-display font-semibold tracking-tight text-white mb-4">Ready to walk the Qin–Han–Shu trail?</h2>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/terracotta-warriors" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150">Terracotta Warriors Guide</a>
+        <a href="/sanxingdui" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150">Sanxingdui Guide</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

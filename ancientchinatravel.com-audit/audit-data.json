@@ -1,0 +1,293 @@
+ {
+   "summary": {
+     "health_score": 72,
+     "business_type": "Travel / Informational — Chinese archaeology tourism guides",
+     "top_findings": [
+       "OG images are 1.8–2.6 MB each (target: <300 KB)",
+       "Sitemap missing 3 blog pages",
+       "No llms.txt for AI crawler visibility",
+       "No lastmod/changefreq on sitemap URLs",
+       "Homepage hero image has no srcset",
+       "No Unsplash preconnect or font preloading",
+       "Blog index page is thin (216 words) and has no schema",
+       "No security headers configured",
+       "Title tags contain HTML entities in rendered output"
+     ],
+     "quick_wins": [
+       "Compress OG images to quality 75 (80-150 KB each)",
+       "Add 3 missing blog URLs to sitemap",
+       "Create llms.txt with key page descriptions",
+       "Add lastmod dates to all sitemap URLs",
+       "Add preconnect for images.unsplash.com"
+     ]
+   },
+   "categories": [
+     {
+       "name": "Technical SEO",
+       "score": 68,
+       "what_works": [
+         "Clean static HTML — all content immediately crawlable",
+         "robots.txt correctly allows all crawlers with sitemap declaration",
+         "Every page has proper canonical URL and hreflang tags",
+         "Clean URL structure with descriptive slugs",
+         "Solid internal linking: 24-28 unique links per page"
+       ],
+       "findings": [
+         {
+           "title": "Sitemap missing 3 pages",
+           "severity": "Critical",
+           "description": "The blog index (/blog) and both blog posts are absent from sitemap.xml. Sitemap has 20 URLs vs 23 actual pages.",
+           "recommendation": "Add /blog, /blog/chinese-neolithic-jade-guide, and /blog/liangzhu-vs-sanxingdui to sitemap.xml."
+         },
+         {
+           "title": "No lastmod or changefreq in sitemap",
+           "severity": "High",
+           "description": "0/20 sitemap URLs have lastmod or changefreq. Google must guess content freshness.",
+           "recommendation": "Add <lastmod> and <changefreq>monthly</changefreq> to every sitemap URL."
+         },
+         {
+           "title": "No security headers",
+           "severity": "High",
+           "description": "Missing Content-Security-Policy, X-Content-Type-Options, X-Frame-Options, HSTS, Referrer-Policy.",
+           "recommendation": "Configure at CDN/server level (Cloudflare, Netlify). See ACTION-PLAN.md for full config."
+         }
+       ]
+     },
+     {
+       "name": "Content Quality",
+       "score": 85,
+       "what_works": [
+         "Strong E-E-A-T: firsthand visits, passport-tested, verified prices",
+         "Genuinely useful content — real ticket prices, step-by-step booking",
+         "Clear audience targeting for English-speaking foreign travelers",
+         "Good word counts on core pages: 645-1049 words"
+       ],
+       "findings": [
+         {
+           "title": "Blog index page is thin (216 words)",
+           "severity": "High",
+           "description": "The blog index at /blog has only 216 words with 2 real posts and 2 placeholder links.",
+           "recommendation": "Expand to 300+ words with category descriptions, or merge into main site."
+         },
+         {
+           "title": "Blog post 'Liangzhu vs Sanxingdui' is thin (247 words)",
+           "severity": "Medium",
+           "description": "Strong comparison topic but execution is brief with only 1 H2 heading.",
+           "recommendation": "Expand to 600+ words with comparison table, add sections on cost, crowds, accessibility."
+         },
+         {
+           "title": "No author pages or bylines",
+           "severity": "Medium",
+           "description": "No author property in Article schema, no About page, no visible author credentials.",
+           "recommendation": "Create an About page and add author metadata to Article schema."
+         }
+       ]
+     },
+     {
+       "name": "On-Page SEO",
+       "score": 78,
+       "what_works": [
+         "Well-crafted title tags with keyword placement and branding",
+         "Unique meta descriptions: 125-221 characters, keyword-rich",
+         "Exactly 1 H1 per page with clear heading hierarchy",
+         "Clean, descriptive URL slugs",
+         "Comprehensive OG tags and Twitter Card markup"
+       ],
+       "findings": [
+         {
+           "title": "Title tag HTML entities in rendered output",
+           "severity": "High",
+           "description": "Titles show &#39; instead of ' and &amp; instead of & in rendered HTML.",
+           "recommendation": "Fix Astro template to avoid double-encoding. Use set:html or @html directives."
+         },
+         {
+           "title": "All pages use generic og-default.webp",
+           "severity": "Medium",
+           "description": "23 pages all use the same OG image despite 12 site-specific ones existing on disk.",
+           "recommendation": "Map each page to its specific OG image in the layout component."
+         },
+         {
+           "title": "No breadcrumb markup outside homepage",
+           "severity": "Medium",
+           "description": "Only the homepage has BreadcrumbList schema. Site guides and blog posts should too.",
+           "recommendation": "Add BreadcrumbList schema to all site guide and blog pages."
+         }
+       ]
+     },
+     {
+       "name": "Schema & Structured Data",
+       "score": 88,
+       "what_works": [
+         "All 22 JSON-LD blocks parse as valid JSON",
+         "Rich type coverage: TouristAttraction, TravelGuide, HowTo, FAQPage, Article, ItemList",
+         "PostalAddress and Offer markup on site guide pages",
+         "FAQPage markup on key pages for direct answer SERP features"
+       ],
+       "findings": [
+         {
+           "title": "Blog index has zero schema",
+           "severity": "High",
+           "description": "The /blog page is the only page with no structured data at all.",
+           "recommendation": "Add Blog + ItemList + BlogPosting schema to blog index."
+         },
+         {
+           "title": "Unconventional schema wrapper on booking guides",
+           "severity": "Medium",
+           "description": "Booking guides wrap schema as [\"...\", \"...\"] (JSON strings in array) instead of [{...}, {...}] (objects in array).",
+           "recommendation": "Use proper object array syntax for wider validator compatibility."
+         }
+       ]
+     },
+     {
+       "name": "Performance (CWV)",
+       "score": 52,
+       "what_works": [
+         "Static HTML — near-instant TTFB on CDN",
+         "CSS: single file, 22.1 KB",
+         "Self-hosted fonts: 328 KB total",
+         "No render-blocking JavaScript",
+         "No third-party tracking scripts"
+       ],
+       "findings": [
+         {
+           "title": "OG images are 1.8-2.6 MB each",
+           "severity": "Critical",
+           "description": "12 OG images total 27 MB. Largest: og-terracotta.webp at 2.6 MB for a 1200x630 image.",
+           "recommendation": "Recompress all OG images to quality 75, target 80-150 KB each."
+         },
+         {
+           "title": "No srcset on hero image",
+           "severity": "High",
+           "description": "Homepage hero loads a single 1800x1200 image eagerly. Mobile users download desktop-sized image.",
+           "recommendation": "Generate responsive sizes and add srcset + sizes attributes."
+         },
+         {
+           "title": "No preconnect for Unsplash CDN",
+           "severity": "High",
+           "description": "9 homepage images from images.unsplash.com with no DNS pre-resolution.",
+           "recommendation": "Add <link rel='preconnect' href='https://images.unsplash.com'>"
+         },
+         {
+           "title": "No font preloading",
+           "severity": "High",
+           "description": "20 font files load via CSS discovery only. First text paint waits for font resolution.",
+           "recommendation": "Preload Outfit 700 and Geist Sans 400 as critical font files."
+         }
+       ]
+     },
+     {
+       "name": "AI Search Readiness",
+       "score": 42,
+       "what_works": [
+         "All content is static HTML — fully crawlable by AI bots",
+         "robots.txt allows all crawlers",
+         "FAQPage schema provides direct answer candidates",
+         "Clear topical focus per page"
+       ],
+       "findings": [
+         {
+           "title": "No llms.txt or ai.txt file",
+           "severity": "Critical",
+           "description": "AI crawlers from ChatGPT, Perplexity, Gemini, and Claude use llms.txt for structured content discovery.",
+           "recommendation": "Create /llms.txt with structured listing of all key pages."
+         },
+         {
+           "title": "No AI-specific crawler rules in robots.txt",
+           "severity": "High",
+           "description": "robots.txt uses User-agent: * but doesn't explicitly address GPTBot, CCBot, PerplexityBot, etc.",
+           "recommendation": "Add explicit Allow directives for major AI crawler bots."
+         }
+       ]
+     },
+     {
+       "name": "Images",
+       "score": 68,
+       "what_works": [
+         "All images have descriptive alt text",
+         "Explicit loading attributes: eager for hero, lazy for below-fold",
+         "OG images in WebP format",
+         "CSS preserves aspect ratios with aspect-[3/2] and object-cover"
+       ],
+       "findings": [
+         {
+           "title": "OG images are 12 files, 27 MB total",
+           "severity": "Critical",
+           "description": "See Performance section. Recompress from lossless to quality 75.",
+           "recommendation": "Use cwebp -q 75 or sharp to recompress all OG images."
+         },
+         {
+           "title": "Unsplash images at fixed resolutions",
+           "severity": "High",
+           "description": "Hero at 1800x1200, cards at 600x400 — no responsive image sizes.",
+           "recommendation": "Add srcset with 600w, 900w, 1200w, 1800w breakpoints."
+         },
+         {
+           "title": "No width/height attributes on Unsplash images",
+           "severity": "Medium",
+           "description": "Images lack explicit dimensions, creating CLS risk if CSS fails to load.",
+           "recommendation": "Add width and height attributes matching aspect-[3/2] container."
+         },
+         {
+           "title": "Content pages have zero inline images",
+           "severity": "Medium",
+           "description": "8 site guides with 600-800 words and no supporting images.",
+           "recommendation": "Add 1-2 relevant images per content page to improve engagement and SEO."
+         }
+       ]
+     }
+   ],
+   "action_plan": {
+     "phases": [
+       {
+         "name": "Phase 1: Critical Fixes",
+         "timeframe": "Week 1",
+         "items": [
+           "Compress OG images to <150 KB each",
+           "Add 3 missing blog URLs to sitemap",
+           "Add lastmod and changefreq to all sitemap URLs",
+           "Create llms.txt",
+           "Fix title tag HTML entities"
+         ]
+       },
+       {
+         "name": "Phase 2: High-Impact Improvements",
+         "timeframe": "Weeks 2-3",
+         "items": [
+           "Add preconnect for images.unsplash.com",
+           "Preload critical fonts",
+           "Add responsive srcset to hero image",
+           "Use page-specific OG images",
+           "Configure security headers at CDN level",
+           "Add Blog schema to blog index",
+           "Add AI crawler rules to robots.txt"
+         ]
+       },
+       {
+         "name": "Phase 3: Content & Authority",
+         "timeframe": "Month 2",
+         "items": [
+           "Expand thin blog posts to 600+ words",
+           "Create About page with author credentials",
+           "Add inline images to content pages",
+           "Add BreadcrumbList schema to all pages",
+           "Add aggregateRating to TouristAttraction schema"
+         ]
+       },
+       {
+         "name": "Phase 4: Monitoring & Iteration",
+         "timeframe": "Ongoing",
+         "items": [
+           "Set up Google Search Console and Bing Webmaster Tools",
+           "Submit sitemap to both engines",
+           "Monitor Core Web Vitals in GSC",
+           "Track AI citation rates",
+           "Monthly sitemap audit"
+         ]
+       }
+     ]
+   },
+   "artifacts": {
+     "findings_dir": "findings/",
+     "screenshots_dir": "screenshots/"
+   }
+ }

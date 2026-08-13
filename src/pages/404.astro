@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Page Not Found';
+const description = 'This page could not be found. Head back to browse China\'s ancient archaeological sites.';
+---
+
+<BaseLayout {title} {description} noindex>
+  <section class="max-w-[800px] mx-auto px-6 py-24 md:py-32 text-center reveal">
+    <p class="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4">404 &middot; Not Found</p>
+    <h1 class="text-3xl md:text-5xl font-display font-bold tracking-tight text-warm-900">This relic has been lost to time.</h1>
+    <p class="mt-4 text-muted max-w-lg mx-auto leading-relaxed">The page you are looking for does not exist — but the 5,000 years of history on this site are still standing. Start at the homepage and walk through them.</p>
+    <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+      <a href="/" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-primary">Browse All Sites</a>
+      <a href="/ancient-china-10-day-itinerary" class="inline-flex items-center justify-center px-8 py-3.5 border border-border text-warm-700 font-medium rounded-lg hover:bg-warm-50 transition-all duration-150">10-Day Itinerary</a>
+    </div>
+  </section>
+</BaseLayout>

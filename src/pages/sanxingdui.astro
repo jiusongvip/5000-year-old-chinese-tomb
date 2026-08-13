@@ -1,46 +1,23 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import AttractionSchema from "../components/AttractionSchema.astro";
 
 const title = "Sanxingdui Guide 2026: Tickets, Hours & How to Book as a Foreigner";
 const description = "Complete guide to Sanxingdui Museum near Chengdu. Tickets ¥72, book 7 days ahead. How to get there, what you will see — bronze masks, gold scepters — and whether it is worth visiting this 4,800-year-old lost civilization.";
 
-const faqSchema = {
-  "@type": "FAQPage",
-  mainEntity: [
-    { "@type": "Question", "name": "Can foreigners book Sanxingdui tickets?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, but it requires the WeChat mini-program. Search for “三星堆博物馆” (Sanxingdui Museum), select “Passport” as your ID type, and enter your passport number. Tickets are released 7 days in advance at 8:00 PM Beijing time. Read our full step-by-step booking guide for details." } },
-    { "@type": "Question", "name": "How do I get to Sanxingdui from Chengdu?", "acceptedAnswer": { "@type": "Answer", "text": "Take the intercity train from Chengdu East Railway Station to Guanghan North Station (20 minutes, ¥20). From Guanghan North, take a taxi (15 minutes, ¥25) or bus 13 to the museum entrance. You can also drive or take a Didi from Chengdu city center directly (60–80 minutes, ¥100–150)." } },
-    { "@type": "Question", "name": "Is Sanxingdui worth visiting?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely — it is one of the most extraordinary archaeological museums in the world. The bronze masks, gold scepters, and sacred trees are unlike anything found anywhere else. The new museum building (opened 2023) is world-class. It is essential for anyone interested in ancient civilizations." } },
-    { "@type": "Question", "name": "How old is Sanxingdui?", "acceptedAnswer": { "@type": "Answer", "text": "The Sanxingdui culture flourished from approximately 2800 to 1100 BCE (4,800 to 3,100 years ago), contemporaneous with the Shang Dynasty in the Yellow River valley. The most spectacular artifacts come from sacrificial pits dated to around 1200 BCE." } },
-    { "@type": "Question", "name": "Can I take photos inside Sanxingdui Museum?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, photography without flash is allowed throughout most of the museum. Tripods, selfie sticks, and flash photography are prohibited. Some temporary exhibitions may have additional restrictions." } },
-  ],
-};
-
-const schemaJson = JSON.stringify([
-  {
-    "@type": "TouristAttraction",
-    "name": "Sanxingdui Museum",
-    "description": "A world-class museum displaying bronze masks, gold artifacts, and jade objects from the 4,800-year-old Sanxingdui civilization near Chengdu, China. Features the iconic giant bronze masks, gold scepters, and the sacred tree of the ancient Shu Kingdom.",
-    "touristType": "Archaeology enthusiasts, History lovers, Museum visitors",
-    "address": { "@type": "PostalAddress", "streetAddress": "133 Xi'an Road", "addressLocality": "Guanghan", "addressRegion": "Sichuan", "addressCountry": "CN" },
-    "openingHours": "Mo-Su 08:30-18:00",
-    "offers": { "@type": "Offer", "price": "72", "priceCurrency": "CNY" },
-    "url": "https://5000-year-old-chinese-tomb.com/sanxingdui",
-  },
-    {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
-      { "@type": "ListItem", "position": 2, "name": "Sanxingdui", "item": "https://5000-year-old-chinese-tomb.com/sanxingdui" }
-    ]
-  },
-faqSchema,
-]);
+const faqs = [
+  { q: "Can foreigners book Sanxingdui tickets?", a: "Yes, but it requires the WeChat mini-program. Search for “三星堆博物馆” (Sanxingdui Museum), select “Passport” as your ID type, and enter your passport number. Tickets are released 7 days in advance at 8:00 PM Beijing time. Read our full step-by-step booking guide for details." },
+  { q: "How do I get to Sanxingdui from Chengdu?", a: "Take the intercity train from Chengdu East Railway Station to Guanghan North Station (20 minutes, ¥20). From Guanghan North, take a taxi (15 minutes, ¥25) or bus 13 to the museum entrance. You can also drive or take a Didi from Chengdu city center directly (60–80 minutes, ¥100–150)." },
+  { q: "Is Sanxingdui worth visiting?", a: "Absolutely — it is one of the most extraordinary archaeological museums in the world. The bronze masks, gold scepters, and sacred trees are unlike anything found anywhere else. The new museum building (opened 2023) is world-class. It is essential for anyone interested in ancient civilizations." },
+  { q: "How old is Sanxingdui?", a: "The Sanxingdui culture flourished from approximately 2800 to 1100 BCE (4,800 to 3,100 years ago), contemporaneous with the Shang Dynasty in the Yellow River valley. The most spectacular artifacts come from sacrificial pits dated to around 1200 BCE." },
+  { q: "Can I take photos inside Sanxingdui Museum?", a: "Yes, photography without flash is allowed throughout most of the museum. Tripods, selfie sticks, and flash photography are prohibited. Some temporary exhibitions may have additional restrictions." },
+];
 ---
 
-<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
-  <slot name="head">
-    <meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-sanxingdui.webp" />
-  </slot>
+<BaseLayout {title} {description} author="Alex Chen" datePublished="2026-08-04" dateModified="2026-08-04">
+  <Fragment slot="head">
+    <AttractionSchema slug="sanxingdui" faqs={faqs} />
+  </Fragment>
 
   <!-- Hero -->
   <section class="relative min-h-[40dvh] flex items-center overflow-hidden bg-warm-900">
@@ -74,7 +51,7 @@ faqSchema,
   <section class="bg-warm-50 py-12 reveal">
     <div class="max-w-[800px] mx-auto px-6">
       <h2 class="text-xl font-display font-semibold tracking-tight mb-6">Key Facts</h2>
-      <div class="bg-white rounded-lg border border-border overflow-hidden">
+      <div class="card overflow-hidden">
         <dl class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
           <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Tickets</dt><dd class="text-sm font-semibold text-warm-900">¥72 (book 7 days ahead)</dd></div>
           <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Opening Hours</dt><dd class="text-sm font-semibold text-warm-900">8:30–18:00 (last entry 17:00)</dd></div>
@@ -111,7 +88,7 @@ faqSchema,
     <div class="max-w-[800px] mx-auto px-6">
       <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Is It Worth Visiting?</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-lg p-6 border border-border">
+        <div class="card p-6">
           <h3 class="font-semibold text-green-700 mb-3">Pros</h3>
           <ul class="space-y-2 text-sm text-warm-700">
             <li>• World-class artefacts you cannot see anywhere else</li>
@@ -121,7 +98,7 @@ faqSchema,
             <li>• Less crowded than the Terracotta Warriors</li>
           </ul>
         </div>
-        <div class="bg-white rounded-lg p-6 border border-border">
+        <div class="card p-6">
           <h3 class="font-semibold text-red-700 mb-3">Cons</h3>
           <ul class="space-y-2 text-sm text-warm-700">
             <li>• Booking requires WeChat and can be confusing for foreigners</li>
@@ -175,19 +152,19 @@ faqSchema,
   <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
     <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Insider Tips</h2>
     <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Book tickets exactly at 8:00 PM, 7 days before your visit</h3>
         <p>Sanxingdui releases tickets on WeChat at exactly 20:00 Beijing time, 7 days in advance. They sell out in under 5 minutes during peak seasons. Have your passport number ready and paste it in. Do not wait until 8:01. See our <a href="/sanxingdui-museum-booking" class="text-accent hover:underline">step-by-step booking guide</a>.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Take the intercity train, not a taxi</h3>
         <p>Intercity trains from Chengdu East to Guanghan North take exactly 20 minutes and cost ¥20. A taxi from central Chengdu takes 90+ minutes and costs ¥200–300. From Guanghan North station, it is a 10-minute taxi to the museum. The time savings are significant.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Combine with Chengdu Panda Base (it is on the way)</h3>
         <p>The Chengdu Research Base of Giant Panda Breeding is north of the city on the same general route as Sanxingdui. If you are ambitious, visit the pandas at 7:30 AM when they are most active, then take the intercity train to Guanghan around 10 AM. Two bucket-list China experiences in one day.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">The museum cafe is surprisingly good</h3>
         <p>Most Chinese museum cafes are an afterthought. Sanxingdui's cafe on the second floor has decent coffee, good pastries, and a terrace with a view. It is a good place to decompress after sensory overload in the galleries.</p>
       </div>
@@ -213,8 +190,8 @@ faqSchema,
       <h2 class="text-xl md:text-2xl font-display font-semibold tracking-tight text-white mb-4">Plan your visit to Sanxingdui</h2>
       <p class="text-warm-200 max-w-lg mx-auto mb-8">Sanxingdui is a highlight of our Xi’an & Chengdu route. Combine it with the Terracotta Warriors and Han Yangling for the ultimate ancient China tour.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="/xian-chengdu-ancient-sites" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150">Xi’an & Chengdu Route</a>
-        <a href="/sanxingdui-museum-booking" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150">How to Book Tickets</a>
+        <a href="/xian-chengdu-ancient-sites" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-primary">Xi’an & Chengdu Route</a>
+        <a href="/sanxingdui-museum-booking" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-ghost-light">How to Book Tickets</a>
       </div>
     </div>
   </section>

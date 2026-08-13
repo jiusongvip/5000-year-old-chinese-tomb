@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import CTACard from '../components/CTACard.astro';
+import { faqSchema, articleSchema } from '../data/schemas';
+import { SITE } from '../data/siteMeta';
+
+const title = 'Best Time to Visit China for Ancient Sites (Month-by-Month)';
+const description = 'The best time to visit China\'s ancient archaeological sites — month-by-month weather, crowds, and ticket availability for Liangzhu, Sanxingdui, Yin Xu, the Terracotta Warriors and more.';
+
+const faqs = [
+  { q: 'What is the best overall time to visit Chinese ancient sites?', a: 'April–May and September–October. Temperatures are mild (15–28°C across most sites), humidity is low, and crowds are manageable. The window around April 20–30 is ideal for jade-green landscapes at Liangzhu and the terra-cotta fields near Xi\'an.' },
+  { q: 'Should I avoid Chinese holidays?', a: 'Yes. National Day (October 1–7), May Day (around May 1), and Spring Festival (late January or February) bring enormous domestic crowds. Sanxingdui and the Terracotta Warriors sell out for the whole holiday period, and queues can exceed two hours. Book every ticket the moment the window opens.' },
+  { q: 'Is summer a bad time to visit?', a: 'July–August is the hottest and wettest period. Xi\'an and Chengdu regularly pass 35°C, and afternoon thunderstorms are common across the Yangtze region. Sites stay open, but expect heat, humidity, and peak-season crowds with school holidays. Visit in the morning and you can still enjoy it.' },
+  { q: 'Is winter worth it?', a: 'Yes — it is the quietest season and tickets are easiest to get. Anyang and Xi\'an can drop below freezing in December–January, but the museum sites (Sanxingdui, Shaanxi History Museum, Henan Museum) are climate-controlled. The Terracotta Warriors are far less crowded in winter.' },
+];
+
+const schemaJson = JSON.stringify([
+  articleSchema({
+    title,
+    description,
+    canonicalURL: `${SITE.url}/best-time-to-visit-china`,
+    author: SITE.author,
+    datePublished: '2026-08-04',
+    image: `${SITE.url}/og-default.webp`,
+  }),
+  faqSchema(faqs),
+]);
+
+const months = [
+  { name: 'Jan', range: '0–8°C', best: 'Winter quiet', notes: 'Freezing in Anyang & Xi\'an. Museum sites comfortable. Lowest crowds of the year.', verdict: 'Good' },
+  { name: 'Feb', range: '2–10°C', best: 'Spring Festival warning', notes: 'Avoid National Spring Festival dates. Otherwise quiet and cheap.', verdict: 'Mixed' },
+  { name: 'Mar', range: '7–16°C', best: 'Early spring', notes: 'Temperatures rising. Liangzhu greenery begins. Crowds still light.', verdict: 'Good' },
+  { name: 'Apr', range: '12–22°C', best: 'Peak season begins', notes: 'Best overall month. Mild, dry, everything open. Book Sanxingdui 7 days ahead.', verdict: 'Best' },
+  { name: 'May', range: '17–27°C', best: 'Late spring', notes: 'Excellent. Avoid May 1–5 holiday. After that, quiet and lovely.', verdict: 'Best' },
+  { name: 'Jun', range: '22–31°C', best: 'Early summer', notes: 'Getting hot and humid. Rain possible. Crowds moderate.', verdict: 'Good' },
+  { name: 'Jul', range: '25–35°C', best: 'Summer peak', notes: 'Hottest. Xi\'an & Chengdu exceed 35°C. School holidays bring crowds.', verdict: 'Fair' },
+  { name: 'Aug', range: '25–34°C', best: 'Hot & crowded', notes: 'Same as July with more rain. Morning visits essential.', verdict: 'Fair' },
+  { name: 'Sep', range: '20–29°C', best: 'Autumn begins', notes: 'Heat breaks. Best month for photography. Crowds rising toward the end.', verdict: 'Best' },
+  { name: 'Oct', range: '14–23°C', best: 'Golden autumn', notes: 'Gorgeous weather. Avoid Oct 1–7 (National Day). After the 8th: superb.', verdict: 'Best' },
+  { name: 'Nov', range: '7–16°C', best: 'Late autumn', notes: 'Cool, dry, quiet. Great for Terracotta Warriors and Qianling.', verdict: 'Good' },
+  { name: 'Dec', range: '1–9°C', best: 'Winter quiet', notes: 'Cold in the north. Museums comfortable. Cheapest flights and hotels.', verdict: 'Good' },
+];
+
+const relatedLinks = [
+  { href: '/china-240-hour-transit-visa', label: 'china transit visa free 240 hours' },
+  { href: '/ancient-china-10-day-itinerary', label: '10 day ancient china itinerary' },
+  { href: '/terracotta-warriors', label: 'when to visit terracotta warriors' },
+  { href: '/sanxingdui-museum-booking', label: 'sanxingdui ticket release time' },
+  { href: '/faq', label: 'visiting ancient china sites faq' },
+];
+---
+
+<BaseLayout {title} {description} schemaJson={schemaJson} author="Alex Chen" datePublished="2026-08-04" dateModified="2026-08-04" ogType="article">
+  <section class="bg-warm-900 py-20">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <SectionHeader
+        eyebrow="Planning Guide"
+        title={title}
+        subtitle="Two windows dominate: April–May and September–October. Here is every month broken down by weather, crowds, and what to book in advance."
+        dark
+      />
+      <div class="mt-8 flex flex-wrap gap-3">
+        <span class="text-xs px-3 py-1.5 rounded-full bg-white/10 text-warm-100">Peak: Apr–May, Sep–Oct</span>
+        <span class="text-xs px-3 py-1.5 rounded-full bg-white/10 text-warm-100">Avoid: National Day &amp; May Day</span>
+        <span class="text-xs px-3 py-1.5 rounded-full bg-white/10 text-warm-100">Quiet: Nov–Feb</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-4">The Short Answer</h2>
+    <div class="space-y-4 text-warm-700 leading-relaxed">
+      <p><strong>Plan for late April through May, or September through mid-October.</strong> These are the two windows where mild temperatures, low humidity, and manageable crowds overlap. The exact sweet spot is the week after Chinese National Day (October 8–15) — the weather is still golden but the holiday crowds have gone home.</p>
+      <p>Winter (November–February) is the underrated choice. The big museum sites are climate-controlled, the Terracotta Warriors are dramatically less crowded, and flights and hotels drop in price. The trade-off is cold weather in the north: Anyang and Xi'an can fall below freezing in December and January.</p>
+      <p>Summer (July–August) is the only genuinely difficult season — heat above 35°C in Xi'an and Chengdu, afternoon thunderstorms, and school-holiday crowds. It is still worth visiting if that is when your dates fall; just start every day early.</p>
+    </div>
+  </section>
+
+  <section class="bg-warm-50 py-16 reveal">
+    <div class="max-w-[1000px] mx-auto px-6">
+      <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Month-by-Month</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="border-b border-border">
+              <th class="text-left py-3 pr-4 font-semibold text-muted">Month</th>
+              <th class="text-left py-3 pr-4 font-semibold text-muted">Temps</th>
+              <th class="text-left py-3 pr-4 font-semibold text-muted">Character</th>
+              <th class="text-left py-3 font-semibold text-muted">Notes</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border/50">
+            {months.map((m) => (
+              <tr class="hover:bg-white transition-colors">
+                <td class="py-3 pr-4 font-semibold text-warm-900 whitespace-nowrap">{m.name}</td>
+                <td class="py-3 pr-4 text-warm-700 whitespace-nowrap">{m.range}</td>
+                <td class="py-3 pr-4 whitespace-nowrap">
+                  <span class={`text-xs font-semibold px-2 py-0.5 rounded-full ${m.verdict === 'Best' ? 'bg-jade-100 text-jade-700' : m.verdict === 'Fair' || m.verdict === 'Mixed' ? 'bg-clay-100 text-clay-700' : 'bg-warm-100 text-warm-700'}`}>{m.best}</span>
+                </td>
+                <td class="py-3 text-warm-700">{m.notes}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">When to Book What</h2>
+    <div class="space-y-4 text-sm text-warm-700">
+      <div class="card p-5">
+        <h3 class="font-semibold mb-1">Sanxingdui — 7 days out, 8:00 PM Beijing time</h3>
+        <p>Tickets open exactly 7 days before your visit at 8:00 PM. In peak months they sell out in minutes. During National Day they sell out within the hour for the entire week. Set an alarm.</p>
+      </div>
+      <div class="card p-5">
+        <h3 class="font-semibold mb-1">Shaanxi History Museum — 7 days out, 10:00 AM</h3>
+        <p>Free but capacity-limited. Releases tickets in batches at 10:00 AM and 6:00 PM Beijing time, 7 days ahead. Book both slots if you can and keep whichever works.</p>
+      </div>
+      <div class="card p-5">
+        <h3 class="font-semibold mb-1">Liangzhu, Yin Xu, Terracotta Warriors, Qianling — bookable at the door</h3>
+        <p>These sell on-site (Liangzhu and Yin Xu also sell through mini-programs). No advance reservation needed, but arrive before 10 AM in peak season to skip the longest queues.</p>
+      </div>
+      <div class="card p-5">
+        <h3 class="font-semibold mb-1">High-speed trains — 15 days out</h3>
+        <p>Train tickets open 15 days before departure at 8:00 AM and sell out for holiday travel. Book on Trip.com with a passport, or at the station counter if the app is blocked.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTACard title="Ready to pick a date?" subtitle="Everything you need to book your trip is one click away." primaryHref="/ancient-china-10-day-itinerary" primaryLabel="View the 10-Day Itinerary" secondaryHref="/china-240-hour-transit-visa" secondaryLabel="Check the Visa Guide" />
+
+  <RelatedLinks links={relatedLinks} />
+</BaseLayout>

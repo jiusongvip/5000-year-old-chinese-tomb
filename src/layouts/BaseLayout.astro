@@ -2,9 +2,104 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import {
+  SITE,
+  pageMeta,
+  lastUpdatedFor,
+  ogFor,
+  humanDate,
+} from '../data/siteMeta';
+import {
+  organizationSchema,
+  personSchema,
+  websiteSchema,
+  breadcrumbSchema,
+  articleSchema,
+} from '../data/schemas';
 
-const { title, description, schemaJson, lastUpdated } = Astro.props;
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+export interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  ogType?: string;
+  noindex?: boolean;
+  author?: string;
+  datePublished?: string;
+  dateModified?: string;
+  lastUpdated?: string;
+  schemaJson?: string;
+  articleType?: 'Article' | 'BlogPosting';
+}
+
+const {
+  title,
+  description,
+  ogImage,
+  ogImageWidth = SITE.ogWidth,
+  ogImageHeight = SITE.ogHeight,
+  ogType = 'website',
+  noindex = false,
+  author = '',
+  datePublished = '',
+  dateModified = datePublished,
+  lastUpdated,
+  schemaJson = '',
+  articleType = 'Article',
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+const canonicalURL = new URL(pathname, Astro.site).href.replace(/\/$/, '');
+const ogImageURL = new URL(ogImage ?? ogFor(pathname), Astro.site).href;
+const robotsContent = noindex ? 'noindex, follow' : 'index, follow';
+const titleSuffix = SITE.name;
+
+// Breadcrumb trail (UI + JSON-LD) from the URL path
+const crumbs: { name: string; item: string }[] = [{ name: 'Home', item: '/' }];
+let crumbSchema = '';
+if (!noindex) {
+  const parts = pathname.split('/').filter(Boolean);
+  let path = '';
+  let crumbsAdded = false;
+  parts.forEach((part) => {
+    path += '/' + part;
+    const meta = pageMeta[path];
+    const name =
+      meta?.label ??
+      part.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase());
+    crumbs.push({ name, item: path });
+    crumbsAdded = true;
+  });
+  if (crumbsAdded) {
+    crumbSchema = JSON.stringify(breadcrumbSchema(crumbs));
+  }
+}
+
+// Article schema when the page supplies author + dates
+const pageHasArticle = Boolean(author && datePublished);
+const articleJson = pageHasArticle
+  ? JSON.stringify(
+      articleSchema({
+        title,
+        description,
+        canonicalURL,
+        author,
+        datePublished,
+        dateModified,
+        image: ogImageURL,
+        type: articleType,
+      })
+    )
+  : '';
+
+const siteJson = JSON.stringify([
+  organizationSchema(),
+  personSchema(),
+  websiteSchema(),
+]);
+
+const displayUpdated = lastUpdated ?? lastUpdatedFor(pathname);
 ---
 
 <!doctype html>
@@ -12,41 +107,102 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title set:html={`${title} | Ancient China Travel`} />
+    <meta name="theme-color" content="#2d2218" />
+    <title>{title} | {titleSuffix}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={robotsContent} />
+    {!noindex && <link rel="canonical" href={canonicalURL} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" hreflang="en" href={canonicalUrl} />
-    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="dns-prefetch" href="https://images.unsplash.com" />
-    <link rel="preload" href="/_astro/outfit-latin-700-normal.Cu9v6i1X.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/_astro/geist-sans-latin-400-normal.gapTbOY8.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/_astro/outfit-latin-400-normal.BGsTXAXT.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/_astro/outfit-latin-600-normal.B7SfZ07L.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/_astro/outfit-latin-500-normal.DKnIMDSk.woff2" as="font" type="font/woff2" crossorigin />
-    <meta property="og:title" content={`${title} | Ancient China Travel`} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${title} | Ancient China Travel`} />
-    <meta name="twitter:description" content={description} />
-    <slot name="head" />
-    {schemaJson && (
-      <script type="application/ld+json" set:html={schemaJson}></script>
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+
+    {!noindex && (
+      <>
+        <meta property="og:title" content={`${title} | ${titleSuffix}`} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={ogImageURL} />
+        <meta property="og:image:width" content={String(ogImageWidth)} />
+        <meta property="og:image:height" content={String(ogImageHeight)} />
+        <meta property="og:image:alt" content={title} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:type" content={ogType} />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content={titleSuffix} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${title} | ${titleSuffix}`} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImageURL} />
+      </>
     )}
+
+    <script type="application/ld+json" is:inline set:html={siteJson}></script>
+    {pageHasArticle && <script type="application/ld+json" is:inline set:html={articleJson}></script>}
+    {!noindex && crumbSchema && <script type="application/ld+json" is:inline set:html={crumbSchema}></script>}
+    {schemaJson && <script type="application/ld+json" is:inline set:html={schemaJson}></script>}
+
+    {import.meta.env.PROD && import.meta.env.GA_MEASUREMENT_ID && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.GA_MEASUREMENT_ID}`}></script>
+        <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${import.meta.env.GA_MEASUREMENT_ID}');`}></script>
+      </>
+    )}
+
+    <slot name="head" />
   </head>
   <body class="min-h-screen flex flex-col">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-clay-600 focus:text-white focus:rounded-lg focus:outline-none">
+      Skip to content
+    </a>
     <Header />
-    <main class="flex-1">
+
+    {!noindex && crumbs.length > 1 && (
+      <nav aria-label="Breadcrumb" class="max-w-[1200px] mx-auto px-6 py-3">
+        <ol class="flex flex-wrap items-center gap-1.5 text-xs text-muted">
+          {crumbs.map((c, i) => (
+            <li class="flex items-center gap-1.5">
+              {i > 0 && <span class="text-border">/</span>}
+              {i < crumbs.length - 1 ? (
+                <a href={c.item} class="hover:text-accent transition-colors">{c.name}</a>
+              ) : (
+                <span class="text-warm-700 font-medium" aria-current="page">{c.name}</span>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
+
+    {pageHasArticle && (
+      <div class="max-w-[800px] mx-auto px-6 pt-6">
+        <div class="flex items-center gap-4 text-xs text-muted border-b border-border pb-4">
+          <span>By <strong class="text-warm-700">{author}</strong></span>
+          {datePublished && (
+            <>
+              <span class="text-border">|</span>
+              <span>Published {humanDate(datePublished)}</span>
+            </>
+          )}
+          {dateModified && dateModified !== datePublished && (
+            <>
+              <span class="text-border">|</span>
+              <span>Updated {humanDate(dateModified)}</span>
+            </>
+          )}
+        </div>
+      </div>
+    )}
+
+    <main id="main-content" class="flex-1">
       <slot />
-      {lastUpdated && (
+      {pageHasArticle && (
         <div class="max-w-[800px] mx-auto px-6 pb-8">
-          <p class="text-xs text-muted text-center">Last updated: {lastUpdated}. <a href="/about" class="text-accent hover:underline">About the author</a>.</p>
+          <p class="text-xs text-muted text-center">
+            Last updated: {displayUpdated}. Written by <a href="/about" class="text-accent hover:underline">Alex Chen</a>.
+          </p>
         </div>
       )}
     </main>
+
     <Footer />
     <script>
       const observer = new IntersectionObserver(
@@ -57,4 +213,3 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
     </script>
   </body>
 </html>
-

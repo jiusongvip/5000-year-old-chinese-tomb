@@ -1,46 +1,23 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import AttractionSchema from "../components/AttractionSchema.astro";
 
 const title = "Mawangdui Han Tombs Guide 2026: the 2,100-Year-Old Lady Dai at Hunan Museum";
 const description = "Complete guide to the Mawangdui Han Tombs and Lady Dai at Hunan Museum in Changsha. 2,100 years old, free entry. See one of the world’s best-preserved mummies and Han Dynasty silk manuscripts.";
 
-const faqSchema = {
-  "@type": "FAQPage",
-  mainEntity: [
-    { "@type": "Question", "name": "Where can I see the Mawangdui artifacts now?", "acceptedAnswer": { "@type": "Answer", "text": "The Mawangdui artifacts, including the body of Lady Dai (Xin Zhui), are displayed at the Hunan Provincial Museum in Changsha. The original tomb site is not open to visitors. The museum is free but requires advance booking through the official WeChat mini-program." } },
-    { "@type": "Question", "name": "Who was Lady Dai?", "acceptedAnswer": { "@type": "Answer", "text": "Lady Dai (Xin Zhui) was the wife of Li Cang, the Marquis of Dai, who died around 163 BCE during the Western Han Dynasty. Her body is one of the best-preserved ancient human remains ever discovered. When her tomb was opened in 1972, her skin was still elastic, her limbs could be manipulated, and her internal organs were intact after 2,100 years." } },
-    { "@type": "Question", "name": "Is the Mawangdui exhibition worth visiting?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, absolutely. The Hunan Museum’s Mawangdui exhibition is world-class. Beyond Lady Dai’s body, you will see her burial shrouds, lacquerware, silk paintings, and the earliest known version of the Dao De Jing (Tao Te Ching) written on silk, dating to the 2nd century BCE. The exhibition is well-organized with English labels." } },
-    { "@type": "Question", "name": "How do I book Hunan Museum tickets?", "acceptedAnswer": { "@type": "Answer", "text": "Tickets are free but must be reserved through the Hunan Museum WeChat mini-program. Search “湖南省博物馆” (Hunan Museum). Tickets are released 7 days in advance. Choose “Passport” as your ID type and enter your passport number. The Mawangdui exhibition is a permanent gallery on the 3rd floor." } },
-    { "@type": "Question", "name": "Can I take photos inside the Hunan Museum?", "acceptedAnswer": { "@type": "Answer", "text": "Photography without flash is generally allowed in most galleries. Photography of Lady Dai’s body is sometimes restricted — check the signs in the gallery. Flash, tripods, and selfie sticks are prohibited throughout the museum." } },
-  ],
-};
-
-const schemaJson = JSON.stringify([
-  {
-    "@type": "TouristAttraction",
-    "name": "Hunan Museum (Mawangdui Exhibition)",
-    "description": "Home to the 2,100-year-old Mawangdui Han tomb artifacts, including the preserved body of Lady Dai (Xin Zhui), silk manuscripts, and burial goods from the Western Han Dynasty. Located in Changsha, Hunan Province. Free entry with reservation.",
-    "touristType": "History lovers, Museum visitors, Archaeology enthusiasts",
-    "address": { "@type": "PostalAddress", "streetAddress": "50 Dongfeng Road", "addressLocality": "Changsha", "addressRegion": "Hunan", "addressCountry": "CN" },
-    "openingHours": "Tu-Su 09:00-17:00",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
-    "url": "https://5000-year-old-chinese-tomb.com/mawangdui-han-tombs",
-  },
-    {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
-      { "@type": "ListItem", "position": 2, "name": "Mawangdui Han Tombs", "item": "https://5000-year-old-chinese-tomb.com/mawangdui-han-tombs" }
-    ]
-  },
-faqSchema,
-]);
+const faqs = [
+  { q: "Where can I see the Mawangdui artifacts now?", a: "The Mawangdui artifacts, including the body of Lady Dai (Xin Zhui), are displayed at the Hunan Provincial Museum in Changsha. The original tomb site is not open to visitors. The museum is free but requires advance booking through the official WeChat mini-program." },
+  { q: "Who was Lady Dai?", a: "Lady Dai (Xin Zhui) was the wife of Li Cang, the Marquis of Dai, who died around 163 BCE during the Western Han Dynasty. Her body is one of the best-preserved ancient human remains ever discovered. When her tomb was opened in 1972, her skin was still elastic, her limbs could be manipulated, and her internal organs were intact after 2,100 years." },
+  { q: "Is the Mawangdui exhibition worth visiting?", a: "Yes, absolutely. The Hunan Museum’s Mawangdui exhibition is world-class. Beyond Lady Dai’s body, you will see her burial shrouds, lacquerware, silk paintings, and the earliest known version of the Dao De Jing (Tao Te Ching) written on silk, dating to the 2nd century BCE. The exhibition is well-organized with English labels." },
+  { q: "How do I book Hunan Museum tickets?", a: "Tickets are free but must be reserved through the Hunan Museum WeChat mini-program. Search “湖南省博物馆” (Hunan Museum). Tickets are released 7 days in advance. Choose “Passport” as your ID type and enter your passport number. The Mawangdui exhibition is a permanent gallery on the 3rd floor." },
+  { q: "Can I take photos inside the Hunan Museum?", a: "Photography without flash is generally allowed in most galleries. Photography of Lady Dai’s body is sometimes restricted — check the signs in the gallery. Flash, tripods, and selfie sticks are prohibited throughout the museum." },
+];
 ---
 
-<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
-  <slot name="head">
-    <meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-mawangdui.webp" />
-  </slot>
+<BaseLayout {title} {description} author="Alex Chen" datePublished="2026-08-04" dateModified="2026-08-04">
+  <Fragment slot="head">
+    <AttractionSchema slug="mawangdui-han-tombs" faqs={faqs} />
+  </Fragment>
 
   <!-- Hero -->
   <section class="relative min-h-[40dvh] flex items-center overflow-hidden bg-warm-900">
@@ -74,7 +51,7 @@ faqSchema,
   <section class="bg-warm-50 py-12 reveal">
     <div class="max-w-[800px] mx-auto px-6">
       <h2 class="text-xl font-display font-semibold tracking-tight mb-6">Key Facts</h2>
-      <div class="bg-white rounded-lg border border-border overflow-hidden">
+      <div class="card overflow-hidden">
         <dl class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
           <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Tickets</dt><dd class="text-sm font-semibold text-warm-900">Free (reservation required)</dd></div>
           <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Museum Hours</dt><dd class="text-sm font-semibold text-warm-900">9:00–17:00, closed Mondays</dd></div>
@@ -110,7 +87,7 @@ faqSchema,
     <div class="max-w-[800px] mx-auto px-6">
       <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Is It Worth Visiting?</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-lg p-6 border border-border">
+        <div class="card p-6">
           <h3 class="font-semibold text-green-700 mb-3">Pros</h3>
           <ul class="space-y-2 text-sm text-warm-700">
             <li>• Lady Dai’s preserved body is a genuinely unique attraction</li>
@@ -120,7 +97,7 @@ faqSchema,
             <li>• Changsha is a vibrant city with great food and nightlife</li>
           </ul>
         </div>
-        <div class="bg-white rounded-lg p-6 border border-border">
+        <div class="card p-6">
           <h3 class="font-semibold text-red-700 mb-3">Cons</h3>
           <ul class="space-y-2 text-sm text-warm-700">
             <li>• Original tomb site is not visitable — it is a museum experience</li>
@@ -161,15 +138,15 @@ faqSchema,
   <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
     <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Insider Tips</h2>
     <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">The relics are at the Hunan Museum, NOT at the tomb site</h3>
         <p>The actual tomb pits are in a suburb east of Changsha and are not maintained for tourism — they are essentially empty holes with a small fee to enter (¥2). All the artifacts, including Lady Dai herself, are at the <strong>Hunan Museum</strong> in downtown Changsha. Go there. The tomb site is skippable unless you are a purist.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Book Hunan Museum tickets 3 days ahead on WeChat</h3>
         <p>The Hunan Museum is free but requires WeChat reservation. Tickets are released 3 days in advance and go quickly on weekends. Search for "Hunan Museum" in WeChat or use the official mini-program. Bring your passport for entry. See our museum booking guides for WeChat setup instructions.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Allow 3 hours minimum — the museum is large</h3>
         <p>The Mawangdui exhibit occupies the entire third floor. Start there, then work your way down through the Shang-Zhou bronze gallery (second floor) and the Hunan historical gallery (first floor). The museum closes at 17:00 — last entry 16:00. Arrive by 1:00 PM to see everything without rushing.</p>
       </div>
@@ -182,8 +159,8 @@ faqSchema,
       <h2 class="text-xl md:text-2xl font-display font-semibold tracking-tight text-white mb-4">Discover the secrets of the Han Dynasty</h2>
       <p class="text-warm-200 max-w-lg mx-auto mb-8">Browse all 8 ancient Chinese sites and plan your journey through time.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="/" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150">Browse All Sites</a>
-        <a href="/ancient-china-10-day-itinerary" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150">10-Day Itinerary</a>
+        <a href="/" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-primary">Browse All Sites</a>
+        <a href="/ancient-china-10-day-itinerary" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-ghost-light">10-Day Itinerary</a>
       </div>
     </div>
   </section>

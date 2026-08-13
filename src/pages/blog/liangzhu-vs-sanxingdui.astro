@@ -3,23 +3,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const title = "Liangzhu vs Sanxingdui: Which Ancient Site Should You Visit First?";
 const description = "A practical head-to-head comparison: accessibility, wow factor, crowds, cost, and what kind of traveler each site suits best.";
-
-const schemaJson = JSON.stringify([
-  {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
-      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://5000-year-old-chinese-tomb.com/blog" },
-      { "@type": "ListItem", "position": 3, "name": "Liangzhu vs Sanxingdui", "item": "https://5000-year-old-chinese-tomb.com/blog/liangzhu-vs-sanxingdui" }
-    ]
-  },
-  { "@type": "Article", "headline": title, "description": description, "datePublished": "2026-08-03", "dateModified": "2026-08-04", "author": { "@type": "Person", "name": "Alex Chen", "url": "https://5000-year-old-chinese-tomb.com/about" } },
-]);
 ---
 
-<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
-  <slot name="head"><meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-sanxingdui.webp" /></slot>
-
+<BaseLayout {title} {description} author="Alex Chen" datePublished="2026-08-03" dateModified="2026-08-04" articleType="BlogPosting">
   <section class="bg-warm-900 py-20">
     <div class="max-w-[800px] mx-auto px-6">
       <p class="text-sm font-medium tracking-wide text-accent/80 mb-4">Blog &middot; August 3, 2026 &middot; by Alex Chen</p>
@@ -57,7 +43,7 @@ const schemaJson = JSON.stringify([
 
       <h2 class="text-xl font-display font-semibold tracking-tight text-warm-900 mt-10 mb-4">How to Choose</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-lg p-5 border border-border">
+        <div class="card p-5">
           <h3 class="font-semibold mb-2">Choose Liangzhu if...</h3>
           <ul class="space-y-1.5 text-sm">
             <li>&bull; You want solitude and space</li>
@@ -67,7 +53,7 @@ const schemaJson = JSON.stringify([
             <li>&bull; You are interested in landscape archaeology</li>
           </ul>
         </div>
-        <div class="bg-white rounded-lg p-5 border border-border">
+        <div class="card p-5">
           <h3 class="font-semibold mb-2">Choose Sanxingdui if...</h3>
           <ul class="space-y-1.5 text-sm">
             <li>&bull; You want visual drama and "wow" factor</li>
@@ -82,7 +68,7 @@ const schemaJson = JSON.stringify([
       <p class="mt-8">I have visited both sites twice, and if I could only return to one, I would pick Liangzhu — for the quiet, for the scale of the landscape, and for the feeling of standing in a place that most travelers have never heard of. But if I were taking a friend on their first trip to China, I would take them to Sanxingdui. The bronze masks are that good.</p>
 
       <div class="mt-8 text-center">
-        <a href="/ancient-china-10-day-itinerary" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark transition-all duration-150">Visit Both: 10-Day Itinerary</a>
+        <a href="/ancient-china-10-day-itinerary" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-primary">Visit Both: 10-Day Itinerary</a>
       </div>
     </div>
   </article>
@@ -90,8 +76,8 @@ const schemaJson = JSON.stringify([
   <section class="bg-warm-900 py-16">
     <div class="max-w-[800px] mx-auto px-6 text-center">
       <p class="text-warm-200 mb-6">Ready to see these sites in person?</p>
-      <a href="/liangzhu-ancient-city" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark transition-all duration-150 mr-4">Liangzhu Guide</a>
-      <a href="/sanxingdui" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark transition-all duration-150">Sanxingdui Guide</a>
+      <a href="/liangzhu-ancient-city" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-primary mr-4">Liangzhu Guide</a>
+      <a href="/sanxingdui" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-primary">Sanxingdui Guide</a>
     </div>
   </section>
 </BaseLayout>

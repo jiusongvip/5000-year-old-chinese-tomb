@@ -4,6 +4,8 @@
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'self'; img-src 'self' data: https://*.tile.openstreetmap.org; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org; frame-src 'self'
 
 # Cache static assets with hashed filenames for 1 year
 /_astro/*
@@ -18,7 +20,9 @@
   Cache-Control: public, max-age=604800
 
 # Sitemap and robots
-/sitemap.xml
+/sitemap-index.xml
+  Cache-Control: public, max-age=3600
+/sitemap-0.xml
   Cache-Control: public, max-age=3600
 /robots.txt
   Cache-Control: public, max-age=3600

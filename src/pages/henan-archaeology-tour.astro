@@ -10,19 +10,11 @@ const schemaJson = JSON.stringify([
     { "@type": "Question", "name": "Why visit Henan for archaeology?", "acceptedAnswer": { "@type": "Answer", "text": "Henan is the heartland of early Chinese civilization. Four of China’s eight ancient capitals are in Henan. The province is home to Yin Xu (the Shang Dynasty capital where Chinese writing was born), the Longmen Grottoes (UNESCO Buddhist caves), and the Henan Museum (one of China’s best). It receives remarkably few international tourists despite its historical significance." } },
     { "@type": "Question", "name": "How do I get around Henan?", "acceptedAnswer": { "@type": "Answer", "text": "Henan has an excellent high-speed rail network. Zhengzhou is the hub — 40 minutes to Anyang, 40 minutes to Luoyang, and 2 hours to Beijing. All three cities on this itinerary are connected by frequent trains. No city requires more than a 1-hour train ride from Zhengzhou." } },
     { "@type": "Question", "name": "Is 5 days enough for Henan?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, 5 days covers the three essential stops: Zhengzhou (Henan Museum), Anyang (Yin Xu), and Luoyang (Longmen Grottoes). If you have more time, add 1 day for the Shaolin Temple near Dengfeng or Kaifeng’s Song Dynasty sites." } },
-  ]},
-  {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
-      { "@type": "ListItem", "position": 2, "name": "Henan Archaeology Tour", "item": "https://5000-year-old-chinese-tomb.com/henan-archaeology-tour" }
-    ]
-  },
+  ]}
 ]);
 ---
 
-<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
-  <slot name="head"><meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-henan.webp" /></slot>
+<BaseLayout {title} {description} schemaJson={schemaJson} author="Alex Chen" datePublished="2026-08-04" dateModified="2026-08-04" ogType="article">
 
   <section class="bg-warm-900 py-20">
     <div class="max-w-[1200px] mx-auto px-6">
@@ -56,15 +48,15 @@ const schemaJson = JSON.stringify([
       <h2 class="text-2xl font-display font-semibold tracking-tight mb-8">Day-by-Day Plan</h2>
       <div class="space-y-6">
 
-        <div class="bg-white rounded-lg p-6 border border-border"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 1</span><h3 class="font-display font-semibold">Arrive Zhengzhou — Henan Museum</h3></div><p class="text-sm text-warm-700">Fly into Zhengzhou Xinzheng International Airport (CGO) or take a high-speed train to Zhengzhou East. Afternoon: Henan Museum (free, reserve on WeChat 3 days ahead). See Jiahu bone flutes (9,000 years), Shang bronzes, and Tang sancai pottery. This museum sets the context for everything you will see in the following days. Stay near Zhengzhou East Station.</p></div>
+        <div class="card p-6"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 1</span><h3 class="font-display font-semibold">Arrive Zhengzhou — Henan Museum</h3></div><p class="text-sm text-warm-700">Fly into Zhengzhou Xinzheng International Airport (CGO) or take a high-speed train to Zhengzhou East. Afternoon: Henan Museum (free, reserve on WeChat 3 days ahead). See Jiahu bone flutes (9,000 years), Shang bronzes, and Tang sancai pottery. This museum sets the context for everything you will see in the following days. Stay near Zhengzhou East Station.</p></div>
 
-        <div class="bg-white rounded-lg p-6 border border-border"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 2</span><h3 class="font-display font-semibold">Anyang — Yin Xu</h3></div><p class="text-sm text-warm-700">Morning train Zhengzhou East to Anyang East (40 min, ¥80). Taxi to Yin Xu (20 min, ¥30). Spend 3–4 hours: the new museum (2024), the palace-temple area, Fu Hao’s tomb, chariot pits. Afternoon: National Museum of Chinese Writing (Zhongguo Wenzi Bowuguan) nearby. Stay overnight in Anyang or return to Zhengzhou.</p></div>
+        <div class="card p-6"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 2</span><h3 class="font-display font-semibold">Anyang — Yin Xu</h3></div><p class="text-sm text-warm-700">Morning train Zhengzhou East to Anyang East (40 min, ¥80). Taxi to Yin Xu (20 min, ¥30). Spend 3–4 hours: the new museum (2024), the palace-temple area, Fu Hao’s tomb, chariot pits. Afternoon: National Museum of Chinese Writing (Zhongguo Wenzi Bowuguan) nearby. Stay overnight in Anyang or return to Zhengzhou.</p></div>
 
-        <div class="bg-white rounded-lg p-6 border border-border"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 3</span><h3 class="font-display font-semibold">Luoyang — Longmen Grottoes</h3></div><p class="text-sm text-warm-700">Train Anyang East to Luoyang Longmen (1.5 hours, ¥120). Longmen Grottoes is a UNESCO site with over 100,000 Buddhist statues carved into limestone cliffs from the 5th to 12th centuries. The largest Buddha is 17 meters tall. Spend 3 hours. Taxi from Luoyang Longmen Station is 10 minutes. Evening: Luoyang old town and water banquet dinner.</p></div>
+        <div class="card p-6"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 3</span><h3 class="font-display font-semibold">Luoyang — Longmen Grottoes</h3></div><p class="text-sm text-warm-700">Train Anyang East to Luoyang Longmen (1.5 hours, ¥120). Longmen Grottoes is a UNESCO site with over 100,000 Buddhist statues carved into limestone cliffs from the 5th to 12th centuries. The largest Buddha is 17 meters tall. Spend 3 hours. Taxi from Luoyang Longmen Station is 10 minutes. Evening: Luoyang old town and water banquet dinner.</p></div>
 
-        <div class="bg-white rounded-lg p-6 border border-border"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 4</span><h3 class="font-display font-semibold">Luoyang — White Horse Temple & Return</h3></div><p class="text-sm text-warm-700">Morning: White Horse Temple (Baima Si), China’s first Buddhist temple, established 68 CE. A peaceful contrast to the Longmen crowds. Afternoon: train back to Zhengzhou (40 min). Evening: explore Zhengzhou’s Erqi District for dinner and street food.</p></div>
+        <div class="card p-6"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 4</span><h3 class="font-display font-semibold">Luoyang — White Horse Temple & Return</h3></div><p class="text-sm text-warm-700">Morning: White Horse Temple (Baima Si), China’s first Buddhist temple, established 68 CE. A peaceful contrast to the Longmen crowds. Afternoon: train back to Zhengzhou (40 min). Evening: explore Zhengzhou’s Erqi District for dinner and street food.</p></div>
 
-        <div class="bg-white rounded-lg p-6 border border-border"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 5</span><h3 class="font-display font-semibold">Depart Zhengzhou</h3></div><p class="text-sm text-warm-700">Morning: if you have time, visit the Zhengzhou Shang Dynasty City Wall ruins in the city center (free, open air). Then to Zhengzhou Airport (CGO) or train to your next destination: Beijing (2 hours), Xi’an (2 hours), or continue to Shanghai.</p></div>
+        <div class="card p-6"><div class="flex items-center gap-3 mb-3"><span class="text-xs font-bold px-3 py-1 bg-accent text-white rounded-full">Day 5</span><h3 class="font-display font-semibold">Depart Zhengzhou</h3></div><p class="text-sm text-warm-700">Morning: if you have time, visit the Zhengzhou Shang Dynasty City Wall ruins in the city center (free, open air). Then to Zhengzhou Airport (CGO) or train to your next destination: Beijing (2 hours), Xi’an (2 hours), or continue to Shanghai.</p></div>
       </div>
     </div>
   </section>
@@ -89,11 +81,11 @@ const schemaJson = JSON.stringify([
     <div class="max-w-[800px] mx-auto px-6">
       <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">What to Expect in Henan</h2>
       <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
-        <div class="bg-white rounded-lg p-5 border border-border">
+        <div class="card p-5">
           <h3 class="font-semibold mb-2">Henan is not on the tourist trail — that is the point</h3>
           <p>Henan is China's third most populous province but receives a fraction of international tourism. Four of China's eight ancient capitals are here. The lack of tourism infrastructure means more self-sufficiency is needed — but it also means extraordinary sites largely to yourself. Yin Xu on a weekday morning is genuinely quiet.</p>
         </div>
-        <div class="bg-white rounded-lg p-5 border border-border">
+        <div class="card p-5">
           <h3 class="font-semibold mb-2">Getting around is easier than you think</h3>
           <p>Zhengzhou is the hub. High-speed trains connect to Anyang (40 min) and Luoyang (40 min). All three cities on this itinerary are reachable within an hour from the hub. Trains run every 30 minutes. You can base in Zhengzhou or move between cities.</p>
         </div>
@@ -105,15 +97,15 @@ const schemaJson = JSON.stringify([
   <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
     <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Insider Tips</h2>
     <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Henan Museum on Day 1 for context</h3>
         <p>The Henan Museum gives an overview from Neolithic to Qing. Its Shang and Zhou galleries are world-class. The Jiahu bone flute — a 9,000-year-old instrument made from a crane wing bone — is here. Do not miss it. Then Yin Xu on Day 3 will make much more sense.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Anyang has almost no English — be ready</h3>
         <p>Anyang has the least English infrastructure of any city on this site. Menus are Chinese-only. Download offline translation app with Chinese pack. The Yin Xu Museum has English labels, but getting around requires preparation.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Longmen Grottoes on Day 5 — afternoon for best light</h3>
         <p>Over 100,000 Buddhist statues carved into limestone cliffs. The largest Buddha is 17 meters tall. Visit in the afternoon (2:00–5:00 PM) when the western cliffs are lit by the setting sun. Longmen Station is next to the grottoes.</p>
       </div>
@@ -124,8 +116,8 @@ const schemaJson = JSON.stringify([
     <div class="max-w-[800px] mx-auto px-6 text-center">
       <h2 class="text-xl font-display font-semibold tracking-tight text-white mb-4">Walk where Chinese writing was born</h2>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="/yin-xu-anyang" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150">Yin Xu Site Guide</a>
-        <a href="/henan-museum-booking" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150">Book Henan Museum</a>
+        <a href="/yin-xu-anyang" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-primary">Yin Xu Site Guide</a>
+        <a href="/henan-museum-booking" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-ghost-light">Book Henan Museum</a>
       </div>
     </div>
   </section>

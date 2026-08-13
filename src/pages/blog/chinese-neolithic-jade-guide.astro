@@ -3,23 +3,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const title = "A Foreigner's Guide to Neolithic Chinese Jade: Cong, Bi, and What They Mean";
 const description = "How to understand the jade objects you will see at Liangzhu, Sanxingdui, and every Chinese museum. What cong and bi disks actually represented.";
-
-const schemaJson = JSON.stringify([
-  {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
-      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://5000-year-old-chinese-tomb.com/blog" },
-      { "@type": "ListItem", "position": 3, "name": "Neolithic Chinese Jade Guide", "item": "https://5000-year-old-chinese-tomb.com/blog/chinese-neolithic-jade-guide" }
-    ]
-  },
-  { "@type": "Article", "headline": title, "description": description, "datePublished": "2026-08-04", "dateModified": "2026-08-04", "author": { "@type": "Person", "name": "Alex Chen", "url": "https://5000-year-old-chinese-tomb.com/about" } },
-]);
 ---
 
-<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
-  <slot name="head"><meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-liangzhu.webp" /></slot>
-
+<BaseLayout {title} {description} author="Alex Chen" datePublished="2026-08-04" dateModified="2026-08-04" articleType="BlogPosting">
   <section class="bg-warm-900 py-20">
     <div class="max-w-[800px] mx-auto px-6">
       <p class="text-sm font-medium tracking-wide text-accent/80 mb-4">Blog &middot; August 4, 2026 &middot; by Alex Chen</p>
@@ -57,7 +43,7 @@ const schemaJson = JSON.stringify([
   <section class="bg-warm-900 py-16">
     <div class="max-w-[800px] mx-auto px-6 text-center">
       <p class="text-warm-200 mb-6">Ready to see Neolithic jade in person?</p>
-      <a href="/liangzhu-ancient-city" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark transition-all duration-150">Liangzhu Ancient City Guide</a>
+      <a href="/liangzhu-ancient-city" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-primary">Liangzhu Ancient City Guide</a>
     </div>
   </section>
 </BaseLayout>

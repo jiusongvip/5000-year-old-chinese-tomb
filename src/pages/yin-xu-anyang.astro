@@ -1,46 +1,23 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import AttractionSchema from "../components/AttractionSchema.astro";
 
 const title = "Yin Xu (Anyang) Guide 2026: Tickets, Hours & How to Get There";
 const description = "Complete guide to Yin Xu, the 3,300-year-old Shang Dynasty capital and UNESCO World Heritage Site. Oracle bones, royal tombs, tickets ¥90. How to get there from Zhengzhou and Beijing.";
 
-const faqSchema = {
-  "@type": "FAQPage",
-  mainEntity: [
-    { "@type": "Question", "name": "How do I get to Yin Xu from Zhengzhou?", "acceptedAnswer": { "@type": "Answer", "text": "Take a high-speed train from Zhengzhou East to Anyang East Station (40–50 minutes, ¥80–120). From Anyang East, take a taxi to Yin Xu (20 minutes, ¥30). Trains run frequently throughout the day." } },
-    { "@type": "Question", "name": "Is Yin Xu worth visiting?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, if you are interested in Chinese history. Yin Xu is where oracle bones — the earliest known Chinese writing — were discovered in 1899. The new museum (opened 2024) is outstanding, and the site receives few international tourists, making for an uncrowded experience." } },
-    { "@type": "Question", "name": "What are oracle bones?", "acceptedAnswer": { "@type": "Answer", "text": "Oracle bones are turtle shells and animal bones used for divination by Shang Dynasty kings. Questions about warfare, harvests, and royal hunts were carved onto the bones, which were then heated until they cracked. The cracks were interpreted as answers from ancestors. These inscriptions are the earliest known form of Chinese writing, dating to around 1250 BCE." } },
-    { "@type": "Question", "name": "Can I visit the actual excavation pits at Yin Xu?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Yin Xu site includes the excavated foundations of palaces and temples, royal tombs, and chariot burial pits. The famous Tomb of Fu Hao (Lady Hao) is preserved in situ and can be viewed. The new museum displays thousands of bronze vessels, jade objects, and oracle bones from the site." } },
-    { "@type": "Question", "name": "How old is Yin Xu?", "acceptedAnswer": { "@type": "Answer", "text": "Yin Xu served as the capital of the Shang Dynasty from approximately 1300 to 1046 BCE, making it roughly 3,300 years old. It is the earliest Chinese capital city confirmed by both archaeological evidence and contemporaneous written records." } },
-  ],
-};
-
-const schemaJson = JSON.stringify([
-  {
-    "@type": "TouristAttraction",
-    "name": "Yin Xu",
-    "description": "The 3,300-year-old archaeological site of the Shang Dynasty capital in Anyang, Henan Province. UNESCO World Heritage Site. Features royal tombs, palace foundations, chariot pits, and a new museum displaying oracle bones and bronze ritual vessels.",
-    "touristType": "Archaeology enthusiasts, History lovers, Students",
-    "address": { "@type": "PostalAddress", "streetAddress": "Yin Xu Road", "addressLocality": "Anyang", "addressRegion": "Henan", "addressCountry": "CN" },
-    "openingHours": "Mo-Su 08:00-18:30",
-    "offers": { "@type": "Offer", "price": "90", "priceCurrency": "CNY" },
-    "url": "https://5000-year-old-chinese-tomb.com/yin-xu-anyang",
-  },
-    {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
-      { "@type": "ListItem", "position": 2, "name": "Yin Xu", "item": "https://5000-year-old-chinese-tomb.com/yin-xu-anyang" }
-    ]
-  },
-faqSchema,
-]);
+const faqs = [
+  { q: "How do I get to Yin Xu from Zhengzhou?", a: "Take a high-speed train from Zhengzhou East to Anyang East Station (40–50 minutes, ¥80–120). From Anyang East, take a taxi to Yin Xu (20 minutes, ¥30). Trains run frequently throughout the day." },
+  { q: "Is Yin Xu worth visiting?", a: "Yes, if you are interested in Chinese history. Yin Xu is where oracle bones — the earliest known Chinese writing — were discovered in 1899. The new museum (opened 2024) is outstanding, and the site receives few international tourists, making for an uncrowded experience." },
+  { q: "What are oracle bones?", a: "Oracle bones are turtle shells and animal bones used for divination by Shang Dynasty kings. Questions about warfare, harvests, and royal hunts were carved onto the bones, which were then heated until they cracked. The cracks were interpreted as answers from ancestors. These inscriptions are the earliest known form of Chinese writing, dating to around 1250 BCE." },
+  { q: "Can I visit the actual excavation pits at Yin Xu?", a: "Yes. The Yin Xu site includes the excavated foundations of palaces and temples, royal tombs, and chariot burial pits. The famous Tomb of Fu Hao (Lady Hao) is preserved in situ and can be viewed. The new museum displays thousands of bronze vessels, jade objects, and oracle bones from the site." },
+  { q: "How old is Yin Xu?", a: "Yin Xu served as the capital of the Shang Dynasty from approximately 1300 to 1046 BCE, making it roughly 3,300 years old. It is the earliest Chinese capital city confirmed by both archaeological evidence and contemporaneous written records." },
+];
 ---
 
-<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
-  <slot name="head">
-    <meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-yinxu.webp" />
-  </slot>
+<BaseLayout {title} {description} author="Alex Chen" datePublished="2026-08-04" dateModified="2026-08-04">
+  <Fragment slot="head">
+    <AttractionSchema slug="yin-xu-anyang" faqs={faqs} />
+  </Fragment>
 
   <!-- Hero -->
   <section class="relative min-h-[40dvh] flex items-center overflow-hidden bg-warm-900">
@@ -74,7 +51,7 @@ faqSchema,
   <section class="bg-warm-50 py-12 reveal">
     <div class="max-w-[800px] mx-auto px-6">
       <h2 class="text-xl font-display font-semibold tracking-tight mb-6">Key Facts</h2>
-      <div class="bg-white rounded-lg border border-border overflow-hidden">
+      <div class="card overflow-hidden">
         <dl class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
           <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Tickets</dt><dd class="text-sm font-semibold text-warm-900">¥90</dd></div>
           <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Opening Hours</dt><dd class="text-sm font-semibold text-warm-900">8:00–18:30 (winter 8:00–17:30)</dd></div>
@@ -111,7 +88,7 @@ faqSchema,
     <div class="max-w-[800px] mx-auto px-6">
       <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Is It Worth Visiting?</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-lg p-6 border border-border">
+        <div class="card p-6">
           <h3 class="font-semibold text-green-700 mb-3">Pros</h3>
           <ul class="space-y-2 text-sm text-warm-700">
             <li>• Where Chinese writing was born — unparalleled historical significance</li>
@@ -121,7 +98,7 @@ faqSchema,
             <li>• Good high-speed train connections from major cities</li>
           </ul>
         </div>
-        <div class="bg-white rounded-lg p-6 border border-border">
+        <div class="card p-6">
           <h3 class="font-semibold text-red-700 mb-3">Cons</h3>
           <ul class="space-y-2 text-sm text-warm-700">
             <li>• Anyang is a smaller city with fewer hotel and dining options</li>
@@ -175,15 +152,15 @@ faqSchema,
   <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
     <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Insider Tips</h2>
     <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Start at the National Museum of Chinese Writing first</h3>
         <p>Visit this museum (Zhongguo Wenzi Bowuguan) in downtown Anyang <em>before</em> Yin Xu. It explains the evolution of Chinese characters from oracle bones to modern script with excellent English displays. Then when you see the oracle bones at Yin Xu, you will actually understand what you are looking at. Open 9:00–17:00, free, closed Mondays.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Anyang is very few foreign tourists — be prepared</h3>
         <p>Unlike Xi'an or Chengdu, Anyang has almost no English infrastructure. Menus are Chinese-only. Hotel staff rarely speak English. Download an offline translation app and save the Chinese names of your destinations. This is part of the appeal — you are not on the tourist trail — but it requires preparation.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Combine with the Anyang Museum (free, downtown)</h3>
         <p>The city museum has a smaller but well-organized collection of Shang artifacts and offers a broader view of Anyang's history. It is a good complement to Yin Xu and takes about an hour. Free entry, open 9:00–17:00, closed Mondays.</p>
       </div>
@@ -196,8 +173,8 @@ faqSchema,
       <h2 class="text-xl md:text-2xl font-display font-semibold tracking-tight text-white mb-4">Explore Yin Xu on an archaeology tour</h2>
       <p class="text-warm-200 max-w-lg mx-auto mb-8">Yin Xu is the anchor of our Henan Archaeology Tour — a 3-city, 5-day journey through the heartland of early Chinese civilization.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="/henan-archaeology-tour" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150">Henan Archaeology Tour</a>
-        <a href="/ancient-china-10-day-itinerary" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150">10-Day Itinerary</a>
+        <a href="/henan-archaeology-tour" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-primary">Henan Archaeology Tour</a>
+        <a href="/ancient-china-10-day-itinerary" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-ghost-light">10-Day Itinerary</a>
       </div>
     </div>
   </section>

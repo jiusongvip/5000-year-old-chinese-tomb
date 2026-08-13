@@ -1,187 +1,212 @@
- export interface Site {
-   slug: string;
-   name: string;
-   nameZh: string;
-   yearsAgo: number;
-   era: string;
-   culture: string;
-   unesco: boolean;
-   unescoYear?: number;
-   city: string;
-   province: string;
-   ticketLow: number;
-   ticketHigh: number;
-   hours: string;
-   visitTime: string;
-   image: string;
- }
+export interface Site {
+  slug: string;
+  name: string;
+  nameZh: string;
+  yearsAgo: number;
+  era: string;
+  culture: string;
+  unesco: boolean;
+  unescoYear?: number;
+  city: string;
+  province: string;
+  ticketLow: number;
+  ticketHigh: number;
+  hours: string;
+  visitTime: string;
+  image: string;
+  description: string;
+  lat?: number;
+  lng?: number;
+}
 
- export const sites: Site[] = [
-   {
-     slug: 'dawenkou-site',
-     name: 'Dawenkou Site',
-     nameZh: '大汶口遗址',
-     yearsAgo: 6300,
-     era: 'Neolithic',
-     culture: 'Dawenkou Culture',
-     unesco: false,
-     city: 'Tai\'an',
-     province: 'Shandong',
-     ticketLow: 0,
-     ticketHigh: 0,
-     hours: 'Open access (museum: 9:00-17:00, closed Mon)',
-     visitTime: '2-3 hours',
-     image: '/dawenkou-card.webp',
-   },
-   {
-     slug: 'liangzhu-ancient-city',
-     name: 'Liangzhu Ancient City',
-     nameZh: '良渚古城',
-     yearsAgo: 5300,
-     era: 'Neolithic',
-     culture: 'Liangzhu Culture',
-     unesco: true,
-     unescoYear: 2019,
-     city: 'Hangzhou',
-     province: 'Zhejiang',
-     ticketLow: 60,
-     ticketHigh: 80,
-     hours: '9:00-17:00 (last entry 16:00)',
-     visitTime: '3-4 hours',
-     image: '/liangzhu-card.webp',
-   },
-   {
-     slug: 'sanxingdui',
-     name: 'Sanxingdui',
-     nameZh: '三星堆',
-     yearsAgo: 4800,
-     era: 'Bronze Age',
-     culture: 'Ancient Shu Civilization',
-     unesco: false,
-     city: 'Guanghan / Chengdu',
-     province: 'Sichuan',
-     ticketLow: 72,
-     ticketHigh: 72,
-     hours: '8:30-18:00 (last entry 17:00)',
-     visitTime: '3-4 hours',
-     image: '/sanxingdui-card.webp',
-   },
-   {
-     slug: 'yin-xu-anyang',
-     name: 'Yin Xu',
-     nameZh: '殷墟',
-     yearsAgo: 3300,
-     era: 'Bronze Age',
-     culture: 'Shang Dynasty',
-     unesco: true,
-     unescoYear: 2006,
-     city: 'Anyang',
-     province: 'Henan',
-     ticketLow: 90,
-     ticketHigh: 90,
-     hours: '8:00-18:30 (summer) / 8:00-17:30 (winter)',
-     visitTime: '3-4 hours',
-     image: '/yinxu-card.webp',
-   },
-   {
-     slug: 'terracotta-warriors',
-     name: 'Terracotta Warriors',
-     nameZh: '兵马俑',
-     yearsAgo: 2200,
-     era: 'Imperial',
-     culture: 'Qin Dynasty',
-     unesco: true,
-     unescoYear: 1987,
-     city: 'Xi\'an',
-     province: 'Shaanxi',
-     ticketLow: 120,
-     ticketHigh: 120,
-     hours: '8:30-17:00',
-     visitTime: '3-4 hours',
-     image: '/terracotta-card.webp',
-   },
-   {
-     slug: 'han-yangling-mausoleum',
-     name: 'Han Yangling Mausoleum',
-     nameZh: '汉阳陵',
-     yearsAgo: 2100,
-     era: 'Imperial',
-     culture: 'Han Dynasty',
-     unesco: false,
-     city: 'Xi\'an',
-     province: 'Shaanxi',
-     ticketLow: 70,
-     ticketHigh: 70,
-     hours: '8:30-17:30',
-     visitTime: '2-3 hours',
-     image: '/hanyangling-card.webp',
-   },
-   {
-     slug: 'mawangdui-han-tombs',
-     name: 'Mawangdui Han Tombs',
-     nameZh: '马王堆汉墓',
-     yearsAgo: 2100,
-     era: 'Imperial',
-     culture: 'Han Dynasty',
-     unesco: false,
-     city: 'Changsha',
-     province: 'Hunan',
-     ticketLow: 0,
-     ticketHigh: 0,
-     hours: 'Relics at Hunan Museum: 9:00-17:00, closed Mon',
-     visitTime: '2-3 hours',
-     image: '/mawangdui-card.webp',
-   },
-   {
-     slug: 'qianling-mausoleum',
-     name: 'Qianling Mausoleum',
-     nameZh: '乾陵',
-     yearsAgo: 1300,
-     era: 'Imperial',
-     culture: 'Tang Dynasty',
-     unesco: false,
-     city: 'Xi\'an / Xianyang',
-     province: 'Shaanxi',
-     ticketLow: 100,
-     ticketHigh: 100,
-     hours: '8:00-18:00 (Mar-Nov) / 8:30-17:30 (Dec-Feb)',
-     visitTime: '3-4 hours',
-     image: '/qianling-card.webp',
-   },
- ];
+export const sites: Site[] = [
+  {
+    slug: 'dawenkou-site',
+    name: 'Dawenkou Site',
+    nameZh: '大汶口遗址',
+    yearsAgo: 6300,
+    era: 'Neolithic',
+    culture: 'Dawenkou Culture',
+    unesco: false,
+    city: "Tai'an",
+    province: 'Shandong',
+    ticketLow: 0,
+    ticketHigh: 0,
+    hours: 'Open access (museum: 9:00-17:00, closed Mon)',
+    visitTime: '2-3 hours',
+    image: '/dawenkou-card.webp',
+    description: "The 6,300-year-old Dawenkou culture site in Shandong — the oldest site on this guide and open free of charge. Pottery, jade, and one of China's first written marks.",
+    lat: 35.9,
+    lng: 117.1,
+  },
+  {
+    slug: 'liangzhu-ancient-city',
+    name: 'Liangzhu Ancient City',
+    nameZh: '良渚古城',
+    yearsAgo: 5300,
+    era: 'Neolithic',
+    culture: 'Liangzhu Culture',
+    unesco: true,
+    unescoYear: 2019,
+    city: 'Hangzhou',
+    province: 'Zhejiang',
+    ticketLow: 60,
+    ticketHigh: 80,
+    hours: '9:00-17:00 (last entry 16:00)',
+    visitTime: '3-4 hours',
+    image: '/liangzhu-card.webp',
+    description: 'A 5,300-year-old UNESCO World Heritage city near Hangzhou with a vast earthen city wall and the world-class Liangzhu Museum of jade cong and bi disks.',
+    lat: 30.39,
+    lng: 120.0,
+  },
+  {
+    slug: 'sanxingdui',
+    name: 'Sanxingdui',
+    nameZh: '三星堆',
+    yearsAgo: 4800,
+    era: 'Bronze Age',
+    culture: 'Ancient Shu Civilization',
+    unesco: false,
+    city: 'Guanghan / Chengdu',
+    province: 'Sichuan',
+    ticketLow: 72,
+    ticketHigh: 72,
+    hours: '8:30-18:00 (last entry 17:00)',
+    visitTime: '3-4 hours',
+    image: '/sanxingdui-card.webp',
+    description: "The lost Shu civilization's bronze masks, gold scepters, and sacred tree — a mysterious Bronze Age culture near Chengdu with a spectacular new museum.",
+    lat: 30.99,
+    lng: 104.19,
+  },
+  {
+    slug: 'yin-xu-anyang',
+    name: 'Yin Xu',
+    nameZh: '殷墟',
+    yearsAgo: 3300,
+    era: 'Bronze Age',
+    culture: 'Shang Dynasty',
+    unesco: true,
+    unescoYear: 2006,
+    city: 'Anyang',
+    province: 'Henan',
+    ticketLow: 90,
+    ticketHigh: 90,
+    hours: '8:00-18:30 (summer) / 8:00-17:30 (winter)',
+    visitTime: '3-4 hours',
+    image: '/yinxu-card.webp',
+    description: "The 3,300-year-old capital of the Shang Dynasty and birthplace of Chinese writing — oracle bones, bronze vessels, and the tomb of Fu Hao, a female general.",
+    lat: 36.13,
+    lng: 114.31,
+  },
+  {
+    slug: 'terracotta-warriors',
+    name: 'Terracotta Warriors',
+    nameZh: '兵马俑',
+    yearsAgo: 2200,
+    era: 'Imperial',
+    culture: 'Qin Dynasty',
+    unesco: true,
+    unescoYear: 1987,
+    city: "Xi'an",
+    province: 'Shaanxi',
+    ticketLow: 120,
+    ticketHigh: 120,
+    hours: '8:30-17:00',
+    visitTime: '3-4 hours',
+    image: '/terracotta-card.webp',
+    description: "The 2,200-year-old army of Emperor Qin Shi Huang in Xi'an — 8,000 life-size terracotta warriors guarding China's first emperor, a UNESCO site since 1987.",
+    lat: 34.38,
+    lng: 109.27,
+  },
+  {
+    slug: 'han-yangling-mausoleum',
+    name: 'Han Yangling Mausoleum',
+    nameZh: '汉阳陵',
+    yearsAgo: 2100,
+    era: 'Imperial',
+    culture: 'Han Dynasty',
+    unesco: false,
+    city: "Xi'an",
+    province: 'Shaanxi',
+    ticketLow: 70,
+    ticketHigh: 70,
+    hours: '8:30-17:30',
+    visitTime: '2-3 hours',
+    image: '/hanyangling-card.webp',
+    description: "A 2,100-year-old Han Dynasty imperial tomb outside Xi'an with an underground glass-floor corridor over 50,000 miniature terracotta figures — barely a tourist in sight.",
+    lat: 34.44,
+    lng: 108.94,
+  },
+  {
+    slug: 'mawangdui-han-tombs',
+    name: 'Mawangdui Han Tombs',
+    nameZh: '马王堆汉墓',
+    yearsAgo: 2100,
+    era: 'Imperial',
+    culture: 'Han Dynasty',
+    unesco: false,
+    city: 'Changsha',
+    province: 'Hunan',
+    ticketLow: 0,
+    ticketHigh: 0,
+    hours: 'Relics at Hunan Museum: 9:00-17:00, closed Mon',
+    visitTime: '2-3 hours',
+    image: '/mawangdui-card.webp',
+    description: "The tomb of Lady Dai — a 2,100-year-old mummy so well preserved her skin still has elasticity — now displayed at the Hunan Museum in Changsha, free entry.",
+    lat: 28.2,
+    lng: 112.97,
+  },
+  {
+    slug: 'qianling-mausoleum',
+    name: 'Qianling Mausoleum',
+    nameZh: '乾陵',
+    yearsAgo: 1300,
+    era: 'Imperial',
+    culture: 'Tang Dynasty',
+    unesco: false,
+    city: "Xi'an / Xianyang",
+    province: 'Shaanxi',
+    ticketLow: 100,
+    ticketHigh: 100,
+    hours: '8:00-18:00 (Mar-Nov) / 8:30-17:30 (Dec-Feb)',
+    visitTime: '3-4 hours',
+    image: '/qianling-card.webp',
+    description: 'The unopened Tang Dynasty tomb of Wu Zetian, China\'s only female emperor, and her husband — with 120 giant stone statues and the famous "characterless stele".',
+    lat: 34.57,
+    lng: 108.22,
+  },
+];
 
- export const highlightedSites = sites.filter(s =>
-   ['liangzhu-ancient-city', 'sanxingdui', 'yin-xu-anyang', 'dawenkou-site', 'han-yangling-mausoleum'].includes(s.slug)
- );
+export const highlightedSites = sites.filter(s =>
+  ['liangzhu-ancient-city', 'sanxingdui', 'yin-xu-anyang', 'dawenkou-site', 'han-yangling-mausoleum'].includes(s.slug)
+);
 
- export const routes = [
-   {
-     name: 'Ancient China in 10 Days',
-     slug: 'ancient-china-10-day-itinerary',
-     sites: ['Liangzhu', 'Sanxingdui', 'Terracotta Warriors', 'Yin Xu'],
-     days: 10,
-     cities: 4,
-     costLow: 8000,
-     costHigh: 12000,
-   },
-   {
-     name: 'Xi\'an & Chengdu Ancient Sites',
-     slug: 'xian-chengdu-ancient-sites',
-     sites: ['Terracotta Warriors', 'Han Yangling', 'Qianling', 'Sanxingdui'],
-     days: 7,
-     cities: 2,
-     costLow: 5000,
-     costHigh: 8000,
-   },
-   {
-     name: 'Henan Archaeology Tour',
-     slug: 'henan-archaeology-tour',
-     sites: ['Yin Xu', 'Wangzhuang (drive-by)', 'Longmen Grottoes'],
-     days: 5,
-     cities: 3,
-     costLow: 3500,
-     costHigh: 6000,
-   },
- ];
-
-
+export const routes = [
+  {
+    name: 'Ancient China in 10 Days',
+    slug: 'ancient-china-10-day-itinerary',
+    sites: ['Liangzhu', 'Sanxingdui', 'Terracotta Warriors', 'Yin Xu'],
+    days: 10,
+    cities: 4,
+    costLow: 8000,
+    costHigh: 12000,
+  },
+  {
+    name: "Xi'an & Chengdu Ancient Sites",
+    slug: 'xian-chengdu-ancient-sites',
+    sites: ['Terracotta Warriors', 'Han Yangling', 'Qianling', 'Sanxingdui'],
+    days: 7,
+    cities: 2,
+    costLow: 5000,
+    costHigh: 8000,
+  },
+  {
+    name: 'Henan Archaeology Tour',
+    slug: 'henan-archaeology-tour',
+    sites: ['Yin Xu', 'Wangzhuang (drive-by)', 'Longmen Grottoes'],
+    days: 5,
+    cities: 3,
+    costLow: 3500,
+    costHigh: 6000,
+  },
+];

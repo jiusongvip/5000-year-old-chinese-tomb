@@ -1,52 +1,146 @@
- @import '@fontsource/outfit/400.css';
- @import '@fontsource/outfit/500.css';
- @import '@fontsource/outfit/600.css';
- @import '@fontsource/outfit/700.css';
- @import '@fontsource/geist-sans/400.css';
- @import '@fontsource/geist-sans/500.css';
+@import "@fontsource-variable/outfit";
+ @import "@fontsource-variable/geist";
+ @import "tailwindcss";
 
- @tailwind base;
- @tailwind components;
- @tailwind utilities;
+ @theme {
+   --font-sans: "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
+   --font-display: "Outfit Variable", "Outfit", ui-sans-serif, system-ui, sans-serif;
 
- body {
-   font-family: var(--font-sans);
-   color: #2d2218;
-   background: #faf8f5;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
+   /* Paper — warm parchment neutrals (site background & surfaces) */
+   --color-paper-50: #fdfcfa;
+   --color-paper-100: #faf8f5;
+   --color-paper-200: #f3eee6;
+   --color-paper-300: #e8dfd2;
+   --color-paper-400: #d4c5b0;
+   --color-paper-500: #b5a183;
+   --color-paper-600: #8f7a5c;
+   --color-paper-700: #6f5c45;
+   --color-paper-800: #52422f;
+   --color-paper-900: #33291f;
+
+   /* Clay — terracotta accent (baked-earth brand color) */
+   --color-clay-50: #fdf4ef;
+   --color-clay-100: #fbe7db;
+   --color-clay-200: #f6c9b2;
+   --color-clay-300: #efa585;
+   --color-clay-400: #e57c53;
+   --color-clay-500: #d46139;
+   --color-clay-600: #b6553a;
+   --color-clay-700: #93402c;
+   --color-clay-800: #753328;
+   --color-clay-900: #5b281f;
+
+   /* Jade — secondary accent (jade artifacts, Neolithic museum tone) */
+   --color-jade-50: #eef7f2;
+   --color-jade-100: #d9eee3;
+   --color-jade-200: #b2dcc7;
+   --color-jade-300: #86c4a7;
+   --color-jade-400: #55a582;
+   --color-jade-500: #3b8a68;
+   --color-jade-600: #2f6f54;
+   --color-jade-700: #295b46;
+   --color-jade-800: #234a3a;
+   --color-jade-900: #1e3d30;
+
+   /* Bronze — Bronze Age era tone */
+   --color-bronze-100: #f9efdd;
+   --color-bronze-200: #eeddb4;
+   --color-bronze-300: #ddbb7e;
+   --color-bronze-400: #c99a4e;
+   --color-bronze-500: #b07f2f;
+   --color-bronze-600: #8f6326;
+   --color-bronze-700: #6f4d20;
+   --color-bronze-800: #543918;
+   --color-bronze-900: #3c2a12;
+
+   /* Legacy aliases so existing components keep working unchanged */
+   --color-surface: #faf8f5;
+   --color-border: #e5ded6;
+   --color-muted: #6b6560;
+   --color-accent: #b6553a;
+   --color-accent-dark: #8b3e2a;
+   --color-warm-50: #faf5ee;
+   --color-warm-100: #f3ecdf;
+   --color-warm-200: #e6d9c2;
+   --color-warm-300: #d5bf9d;
+   --color-warm-400: #bd9f76;
+   --color-warm-500: #a48358;
+   --color-warm-600: #886a43;
+   --color-warm-700: #5c4a3a;
+   --color-warm-800: #46362a;
+   --color-warm-900: #2d2218;
  }
 
- h1, h2, h3, h4 {
-   font-family: var(--font-display);
-   font-weight: 600;
-   letter-spacing: -0.02em;
+ @layer base {
+   html {
+     scroll-behavior: smooth;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+   }
+body {
+      font-family: var(--font-sans);
+      color: var(--color-warm-900);
+      background: var(--color-paper-50);
+    }
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+   ::selection {
+     background: var(--color-clay-200);
+     color: var(--color-clay-900);
+   }
+   img {
+     height: auto;
+   }
  }
 
- p {
-   color: #5c4a3a;
-   line-height: 1.7;
+ @layer components {
+   .section-container {
+     @apply max-w-[1200px] mx-auto px-6;
+   }
+   .prose-ancient p {
+     @apply text-warm-700 leading-relaxed;
+   }
+   /* Cards — soft warm paper cards with gentle depth */
+   .card {
+     @apply bg-white rounded-2xl border border-warm-200/60 shadow-[0_1px_2px_rgba(45,34,24,0.04),0_12px_28px_-14px_rgba(45,34,24,0.12)];
+   }
+   .card-hover {
+     @apply transition-all duration-200 hover:border-clay-300 hover:-translate-y-1 hover:shadow-[0_2px_4px_rgba(45,34,24,0.05),0_20px_40px_-18px_rgba(45,34,24,0.24)];
+   }
+   /* Buttons — consistent anatomy + accessible focus states */
+   .btn {
+     @apply inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-paper-50;
+   }
+   .btn-primary {
+     @apply bg-accent text-white shadow-[0_4px_14px_-6px_rgba(182,85,58,0.5)] hover:bg-accent-dark hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-8px_rgba(182,85,58,0.55)];
+   }
+   .btn-ghost-light {
+     @apply border border-white/40 text-white hover:border-white/60 hover:bg-white/10 hover:-translate-y-0.5;
+   }
  }
 
- ::selection {
-   background: #b6553a;
-   color: #ffffff;
- }
-
- .reveal {
-   opacity: 0;
-   transform: translateY(24px);
-   transition: opacity 0.7s ease-out, transform 0.7s ease-out;
- }
- .reveal.visible {
-   opacity: 1;
-   transform: translateY(0);
- }
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
  @media (prefers-reduced-motion: reduce) {
    .reveal {
      opacity: 1;
      transform: none;
      transition: none;
+   }
+   html {
+     scroll-behavior: auto;
    }
  }

@@ -14,19 +14,10 @@ const faqSchema = {
   ],
 };
 
-const schemaJson = JSON.stringify([{ "@type": "Article", "headline": title, "description": description, "dateModified": "2026-08-04" }, faqSchema,
-{
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
-      { "@type": "ListItem", "position": 2, "name": "China SIM Card Tourist", "item": "https://5000-year-old-chinese-tomb.com/china-sim-card-tourist" }
-    ]
-  },
-]);
+const schemaJson = JSON.stringify([faqSchema]);
 ---
 
-<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
-  <slot name="head"><meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-sim.webp" /></slot>
+<BaseLayout {title} {description} schemaJson={schemaJson} author="Alex Chen" datePublished="2026-08-04" dateModified="2026-08-04">
 
   <section class="bg-warm-900 py-20">
     <div class="max-w-[1200px] mx-auto px-6">
@@ -48,7 +39,7 @@ const schemaJson = JSON.stringify([{ "@type": "Article", "headline": title, "des
     <div class="max-w-[800px] mx-auto px-6">
       <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Option 2: eSIM (Data-Only, No Phone Number)</h2>
       <p class="text-sm text-warm-700 leading-relaxed mb-6">eSIM services like Airalo, Holafly, and Nomad offer data-only plans for China. They are convenient — you install them before you fly and have internet the moment you land, no passport registration required. <strong>However, they do not provide a Chinese phone number.</strong> You will not be able to use WeChat mini-programs that require a phone number for registration.</p>
-      <div class="bg-white rounded-lg p-5 border border-border text-sm text-warm-700">
+      <div class="card p-5 text-sm text-warm-700">
         <strong>Workaround:</strong> Use an eSIM for internet and ask your hotel front desk to help with museum bookings that require a phone number. Most hotels are happy to do this. This is the simplest combination for short trips.
       </div>
     </div>
@@ -71,8 +62,8 @@ const schemaJson = JSON.stringify([{ "@type": "Article", "headline": title, "des
     <div class="max-w-[800px] mx-auto px-6 text-center">
       <h2 class="text-xl font-display font-semibold tracking-tight text-white mb-4">Got your SIM sorted?</h2>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="/sanxingdui-museum-booking" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150">Book Sanxingdui Tickets</a>
-        <a href="/china-240-hour-transit-visa" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150">Visa Guide</a>
+        <a href="/sanxingdui-museum-booking" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-primary">Book Sanxingdui Tickets</a>
+        <a href="/china-240-hour-transit-visa" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-ghost-light">Visa Guide</a>
       </div>
     </div>
   </section>

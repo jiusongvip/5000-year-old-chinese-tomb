@@ -1,46 +1,23 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import AttractionSchema from "../components/AttractionSchema.astro";
 
 const title = "Terracotta Warriors Guide 2026: Tickets, Hours & How to Avoid Crowds";
 const description = "Complete guide to the Terracotta Warriors in Xi'an. Tickets ¥120, 8,000 life-sized soldiers. How to get there, when to arrive, whether hire a guide, and tips for avoiding the largest crowds.";
 
-const faqSchema = {
-  "@type": "FAQPage",
-  mainEntity: [
-    { "@type": "Question", "name": "How do I get to the Terracotta Warriors from Xi'an?", "acceptedAnswer": { "@type": "Answer", "text": "Take public bus 306 (also labeled Tour Bus 5) from Xi'an Railway Station east square. The bus runs every 10–15 minutes, takes about 60 minutes, and costs ¥7. Alternatively, a taxi or Didi from central Xi'an takes 50 minutes and costs ¥100–150." } },
-    { "@type": "Question", "name": "What is the best time to visit the Terracotta Warriors?", "acceptedAnswer": { "@type": "Answer", "text": "Arrive at 8:15 AM, before the official 8:30 opening, to be among the first through the gates. Pit 1 will be nearly empty for the first 30 minutes. Avoid weekends, Chinese public holidays (especially Golden Week in October), and the summer months of July and August when crowds are heaviest." } },
-    { "@type": "Question", "name": "Should I hire a guide at the Terracotta Warriors?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, an English-speaking guide (approximately ¥200–300) is worth it. They will point out details you would miss on your own — individual soldier expressions, chariot construction techniques, and the story behind specific warriors. Guides can be hired at the ticket office." } },
-    { "@type": "Question", "name": "Can I take photos inside the Terracotta Warriors museum?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, photography without flash is allowed in all three pits and the exhibition halls. Selfie sticks and tripods are discouraged due to crowd density. Flash photography is prohibited to protect the artifacts." } },
-    { "@type": "Question", "name": "How long do I need at the Terracotta Warriors?", "acceptedAnswer": { "@type": "Answer", "text": "Plan for 3–4 hours. Start with Pit 1 (the largest and most impressive), then visit Pits 2 and 3, followed by the Bronze Chariots exhibition hall. The site is large; wear comfortable shoes." } },
-  ],
-};
-
-const schemaJson = JSON.stringify([
-  {
-    "@type": "TouristAttraction",
-    "name": "Terracotta Warriors (Museum of the Mausoleum of the First Qin Emperor)",
-    "description": "UNESCO World Heritage Site featuring over 8,000 life-sized terracotta soldiers, horses, and chariots buried with China's first emperor, Qin Shi Huang, in 210–209 BCE. Located 40 km east of Xi'an.",
-    "touristType": "History lovers, Archaeology enthusiasts, First-time China visitors",
-    "address": { "@type": "PostalAddress", "streetAddress": "Qinling North Road, Lintong District", "addressLocality": "Xi'an", "addressRegion": "Shaanxi", "addressCountry": "CN" },
-    "openingHours": "Mo-Su 08:30-17:00",
-    "offers": { "@type": "Offer", "price": "120", "priceCurrency": "CNY" },
-    "url": "https://5000-year-old-chinese-tomb.com/terracotta-warriors",
-  },
-    {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
-      { "@type": "ListItem", "position": 2, "name": "Terracotta Warriors", "item": "https://5000-year-old-chinese-tomb.com/terracotta-warriors" }
-    ]
-  },
-faqSchema,
-]);
+const faqs = [
+  { q: "How do I get to the Terracotta Warriors from Xi'an?", a: "Take public bus 306 (also labeled Tour Bus 5) from Xi'an Railway Station east square. The bus runs every 10–15 minutes, takes about 60 minutes, and costs ¥7. Alternatively, a taxi or Didi from central Xi'an takes 50 minutes and costs ¥100–150." },
+  { q: "What is the best time to visit the Terracotta Warriors?", a: "Arrive at 8:15 AM, before the official 8:30 opening, to be among the first through the gates. Pit 1 will be nearly empty for the first 30 minutes. Avoid weekends, Chinese public holidays (especially Golden Week in October), and the summer months of July and August when crowds are heaviest." },
+  { q: "Should I hire a guide at the Terracotta Warriors?", a: "Yes, an English-speaking guide (approximately ¥200–300) is worth it. They will point out details you would miss on your own — individual soldier expressions, chariot construction techniques, and the story behind specific warriors. Guides can be hired at the ticket office." },
+  { q: "Can I take photos inside the Terracotta Warriors museum?", a: "Yes, photography without flash is allowed in all three pits and the exhibition halls. Selfie sticks and tripods are discouraged due to crowd density. Flash photography is prohibited to protect the artifacts." },
+  { q: "How long do I need at the Terracotta Warriors?", a: "Plan for 3–4 hours. Start with Pit 1 (the largest and most impressive), then visit Pits 2 and 3, followed by the Bronze Chariots exhibition hall. The site is large; wear comfortable shoes." },
+];
 ---
 
-<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
-  <slot name="head">
-    <meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-terracotta.webp" />
-  </slot>
+<BaseLayout {title} {description} author="Alex Chen" datePublished="2026-08-04" dateModified="2026-08-04">
+  <Fragment slot="head">
+    <AttractionSchema slug="terracotta-warriors" faqs={faqs} />
+  </Fragment>
 
   <!-- Hero -->
   <section class="relative min-h-[40dvh] flex items-center overflow-hidden bg-warm-900">
@@ -74,7 +51,7 @@ faqSchema,
   <section class="bg-warm-50 py-12 reveal">
     <div class="max-w-[800px] mx-auto px-6">
       <h2 class="text-xl font-display font-semibold tracking-tight mb-6">Key Facts</h2>
-      <div class="bg-white rounded-lg border border-border overflow-hidden">
+      <div class="card overflow-hidden">
         <dl class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
           <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Tickets</dt><dd class="text-sm font-semibold text-warm-900">¥120</dd></div>
           <div class="flex justify-between sm:flex-col px-6 py-3.5 sm:gap-1"><dt class="text-xs text-muted font-medium">Opening Hours</dt><dd class="text-sm font-semibold text-warm-900">8:30–17:00</dd></div>
@@ -114,7 +91,7 @@ faqSchema,
     <div class="max-w-[800px] mx-auto px-6">
       <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Is It Worth Visiting?</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-lg p-6 border border-border">
+        <div class="card p-6">
           <h3 class="font-semibold text-green-700 mb-3">Pros</h3>
           <ul class="space-y-2 text-sm text-warm-700">
             <li>• One of the greatest archaeological discoveries in human history</li>
@@ -124,7 +101,7 @@ faqSchema,
             <li>• Easy day trip from Xi’an</li>
           </ul>
         </div>
-        <div class="bg-white rounded-lg p-6 border border-border">
+        <div class="card p-6">
           <h3 class="font-semibold text-red-700 mb-3">Cons</h3>
           <ul class="space-y-2 text-sm text-warm-700">
             <li>• Extremely crowded by 10:00 AM — the viewing platforms feel like rush hour</li>
@@ -180,23 +157,23 @@ faqSchema,
   <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
     <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Insider Tips</h2>
     <div class="space-y-4 text-sm text-warm-700 leading-relaxed">
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Arrive at 8:15 AM, not 8:30</h3>
         <p>The ticket office opens slightly before the posted time. If you are through the gate by 8:25, you get roughly 30 minutes in Pit 1 before the first tour buses unload. That half hour — standing at the front railing looking down at 2,000 warriors with maybe 20 other people — is worth every minute of the early wake-up.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Visit the pits in reverse order: 3 → 2 → 1</h3>
         <p>Everyone rushes to Pit 1 first. Going backwards means you have Pits 3 and 2 largely to yourself, then arrive at Pit 1 when the initial crowd has already moved through. By the time you get to Pit 1 around 10:00 AM, the first wave of tour groups is dispersing.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Hire an English-speaking guide at the ticket office</h3>
         <p>Guides cost ¥200–300 for a private tour (negotiate, especially on weekdays). A good guide will point out details you cannot see from the platform — the differences in armor between ranks, the remnants of original paint on specific warriors, the way the chariot wheels were constructed. Skip the audio guide; it is generic and does not adapt to your interests.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Ignore the touts at Xi'an Railway Station</h3>
         <p>People at the station will tell you bus 306 is not running or that it takes 3 hours. They are trying to sell you a private car or a tour to a "Terracotta Army factory." Bus 306 is government-operated, departs every 10–15 minutes from the east square, costs ¥7, and takes 60 minutes. It runs. Stand your ground.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Combine with Han Yangling for the full Qin-Han picture</h3>
         <p>The Terracotta Warriors are Qin Dynasty (221–206 BCE). <a href="/han-yangling-mausoleum" class="text-accent hover:underline">Han Yangling</a>, 30 km northwest, is Han Dynasty (from 206 BCE) — built just decades later but showing a completely different philosophy: small, gentle figurines instead of life-sized warriors. Visiting both in one trip gives you the most dramatic before-and-after of Chinese imperial burial art. Han Yangling has glass floors above the actual pits and receives a fraction of the Warriors' crowds.</p>
       </div>
@@ -221,8 +198,8 @@ faqSchema,
       <h2 class="text-xl md:text-2xl font-display font-semibold tracking-tight text-white mb-4">Walk through the ranks of the Terracotta Army</h2>
       <p class="text-warm-200 max-w-lg mx-auto mb-8">The Warriors are on both our Xi’an & Chengdu route and the 10-day itinerary. Pair them with Han Yangling for the complete Qin–Han experience.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="/xian-chengdu-ancient-sites" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150">Xi’an & Chengdu Route</a>
-        <a href="/shaanxi-history-museum-booking" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150">Shaanxi Museum Booking</a>
+        <a href="/xian-chengdu-ancient-sites" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-primary">Xi’an & Chengdu Route</a>
+        <a href="/shaanxi-history-museum-booking" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-ghost-light">Shaanxi Museum Booking</a>
       </div>
     </div>
   </section>

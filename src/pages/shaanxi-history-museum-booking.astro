@@ -4,19 +4,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const title = "How to Book Shaanxi History Museum Tickets as a Foreigner (2026)";
 const description = "The hardest museum ticket in China. Step-by-step guide for foreigners to book Shaanxi History Museum with a passport. Ticket release times, WeChat mini-program tips, and what to do when tickets are sold out.";
 
-const howToSchema = {
-  "@type": "HowTo",
-  "name": "How to Book Shaanxi History Museum Tickets with a Foreign Passport",
-  "step": [
-    { "@type": "HowToStep", "position": 1, "name": "Prepare in advance", "text": "Set an alarm for 8:00 PM Beijing time (12:00 UTC) exactly 7 days before your visit date. Open the Shaanxi History Museum WeChat mini-program and log in." },
-    { "@type": "HowToStep", "position": 2, "name": "Search for the mini-program", "text": "In WeChat, search for “陕西历史博物馆” (Shaanxi History Museum). Open the official mini-program with the verified checkmark." },
-    { "@type": "HowToStep", "position": 3, "name": "Select time slot the moment tickets drop", "text": "At exactly 8:00 PM, tap “预约参观” (Reserve Visit). Select your date and the time slot — morning or afternoon. Speed matters: popular slots fill in under 30 seconds." },
-    { "@type": "HowToStep", "position": 4, "name": "Enter passport and submit immediately", "text": "Select “护照” (Passport) as ID type. Enter your passport number, name, and phone number as fast as possible. Do not pause to double-check — you will lose the slot." },
-    { "@type": "HowToStep", "position": 5, "name": "Screenshot confirmation", "text": "After successful reservation, immediately screenshot the QR code. Bring your passport to the museum. Arrive 15 minutes before your time slot." },
-  ],
-  "totalTime": "PT10M"
-};
-
 const faqSchema = {
   "@type": "FAQPage",
   mainEntity: [
@@ -27,21 +14,10 @@ const faqSchema = {
   ],
 };
 
-const schemaJson = JSON.stringify([howToSchema, faqSchema,
-{
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://5000-year-old-chinese-tomb.com" },
-      { "@type": "ListItem", "position": 2, "name": "Shaanxi History Museum Booking", "item": "https://5000-year-old-chinese-tomb.com/shaanxi-history-museum-booking" }
-    ]
-  },
-]);
+const schemaJson = JSON.stringify([faqSchema]);
 ---
 
-<BaseLayout {title} {description} schemaJson={schemaJson} lastUpdated="August 4, 2026">
-  <slot name="head">
-    <meta property="og:image" content="https://5000-year-old-chinese-tomb.com/og-booking-shaanxi.webp" />
-  </slot>
+<BaseLayout {title} {description} schemaJson={schemaJson} author="Alex Chen" datePublished="2026-08-04" dateModified="2026-08-04">
 
   <!-- Hero -->
   <section class="bg-warm-900 py-20">
@@ -75,7 +51,7 @@ const schemaJson = JSON.stringify([howToSchema, faqSchema,
       <h2 class="text-2xl font-display font-semibold tracking-tight mb-8">Step-by-Step: The 8 PM Sprint</h2>
 
       <div class="space-y-6">
-        <div class="bg-white rounded-lg p-6 border border-border flex gap-4">
+        <div class="card p-6 flex gap-4">
           <span class="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-white text-sm font-bold flex items-center justify-center">1</span>
           <div>
             <h3 class="font-semibold mb-1">Prepare before 8:00 PM</h3>
@@ -83,7 +59,7 @@ const schemaJson = JSON.stringify([howToSchema, faqSchema,
           </div>
         </div>
 
-        <div class="bg-white rounded-lg p-6 border border-border flex gap-4">
+        <div class="card p-6 flex gap-4">
           <span class="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-white text-sm font-bold flex items-center justify-center">2</span>
           <div>
             <h3 class="font-semibold mb-1">Hit refresh at exactly 8:00 PM</h3>
@@ -91,7 +67,7 @@ const schemaJson = JSON.stringify([howToSchema, faqSchema,
           </div>
         </div>
 
-        <div class="bg-white rounded-lg p-6 border border-border flex gap-4">
+        <div class="card p-6 flex gap-4">
           <span class="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-white text-sm font-bold flex items-center justify-center">3</span>
           <div>
             <h3 class="font-semibold mb-1">Choose the paid ticket option</h3>
@@ -99,7 +75,7 @@ const schemaJson = JSON.stringify([howToSchema, faqSchema,
           </div>
         </div>
 
-        <div class="bg-white rounded-lg p-6 border border-border flex gap-4">
+        <div class="card p-6 flex gap-4">
           <span class="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-white text-sm font-bold flex items-center justify-center">4</span>
           <div>
             <h3 class="font-semibold mb-1">Enter passport at lightning speed</h3>
@@ -107,7 +83,7 @@ const schemaJson = JSON.stringify([howToSchema, faqSchema,
           </div>
         </div>
 
-        <div class="bg-white rounded-lg p-6 border border-border flex gap-4">
+        <div class="card p-6 flex gap-4">
           <span class="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-white text-sm font-bold flex items-center justify-center">5</span>
           <div>
             <h3 class="font-semibold mb-1">Screenshot everything</h3>
@@ -122,15 +98,15 @@ const schemaJson = JSON.stringify([howToSchema, faqSchema,
   <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
     <h2 class="text-2xl font-display font-semibold tracking-tight mb-6">Backup Plans: What to Do If You Fail</h2>
     <div class="space-y-4 text-sm text-warm-700">
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Option 1: Try the new Qinhan Museum branch</h3>
         <p>The Shaanxi History Museum opened a satellite branch, the Qinhan Museum, near Xi’an Xianyang Airport in 2024. It displays equally impressive collections with far less competition for tickets. The same booking system applies, but availability is much better. Highly recommended as a backup.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Option 2: Book through Klook</h3>
         <p>Klook and GetYourGuide sometimes have reserved ticket blocks for the Shaanxi History Museum bundled with guided tours. Prices range from ¥200–400. While more expensive than the free ticket, this is the most reliable backup. Book at least 2 weeks in advance.</p>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-border">
+      <div class="card p-5">
         <h3 class="font-semibold mb-2">Option 3: Try different time slots</h3>
         <p>Not all time slots are equally competitive. Tuesday and Wednesday afternoon slots have the best availability. Monday is closed. The 8:30 AM weekday slots also tend to have slightly less competition than weekend slots. If your first attempt fails, try a different day.</p>
       </div>
@@ -143,8 +119,8 @@ const schemaJson = JSON.stringify([howToSchema, faqSchema,
       <h2 class="text-xl font-display font-semibold tracking-tight text-white mb-4">In Xi’an? See the Terracotta Warriors too</h2>
       <p class="text-warm-200 max-w-lg mx-auto mb-8">The Shaanxi Museum + Terracotta Warriors + Han Yangling = the perfect Xi’an trilogy. Here’s how to fit them all into a single trip.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="/terracotta-warriors" class="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-medium rounded-lg hover:bg-accent-dark active:scale-[0.98] transition-all duration-150">Terracotta Warriors Guide</a>
-        <a href="/xian-chengdu-ancient-sites" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white font-medium rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all duration-150">Xi’an & Chengdu Route</a>
+        <a href="/terracotta-warriors" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-primary">Terracotta Warriors Guide</a>
+        <a href="/xian-chengdu-ancient-sites" class="inline-flex items-center justify-center px-8 py-3.5 btn btn-ghost-light">Xi’an & Chengdu Route</a>
       </div>
     </div>
   </section>

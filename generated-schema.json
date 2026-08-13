@@ -1,0 +1,51 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Ancient China Travel",
+      "url": "https://5000-year-old-chinese-tomb.com",
+      "email": "hello@5000-year-old-chinese-tomb.com",
+      "founder": { "@type": "Person", "name": "Alex Chen" }
+    },
+    {
+      "@type": "WebSite",
+      "name": "Ancient China Travel",
+      "url": "https://5000-year-old-chinese-tomb.com",
+      "inLanguage": "en",
+      "publisher": { "@type": "Organization", "name": "Ancient China Travel" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Liangzhu vs Sanxingdui: Two Ancient Civilizations Compared",
+      "author": { "@type": "Person", "name": "Alex Chen" },
+      "publisher": { "@type": "Organization", "name": "Ancient China Travel" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://5000-year-old-chinese-tomb.com/blog/liangzhu-vs-sanxingdui" }
+    },
+    {
+      "@type": "TouristAttraction",
+      "name": "Sanxingdui",
+      "url": "https://5000-year-old-chinese-tomb.com/sanxingdui",
+      "touristType": "Archaeology enthusiasts, History lovers, Museum visitors",
+      "isAccessibleForFree": false,
+      "geo": { "@type": "GeoCoordinates", "latitude": 31.0, "longitude": 104.2 },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Guanghan",
+        "addressRegion": "Sichuan",
+        "addressCountry": "CN"
+      },
+      "offers": { "@type": "Offer", "price": "72", "priceCurrency": "CNY" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I visit ancient Chinese archaeological sites as a foreigner?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most major archaeological sites in China are open to foreign visitors." }
+        }
+      ]
+    }
+  ]
+}

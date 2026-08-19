@@ -26,7 +26,7 @@ export function personSchema() {
     "@type": "Person",
     name: SITE.author,
     jobTitle: "Independent Travel Writer",
-    url: absolute("/about"),
+    url: SITE.url,
     knowsAbout: [
       "Chinese Archaeology",
       "Ancient Chinese History",

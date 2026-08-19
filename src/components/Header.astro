@@ -2,11 +2,10 @@
 import { Menu, X, ArrowRight, Landmark } from '@lucide/astro';
 
 const navLinks = [
-  { label: 'Sites', href: '/#sites' },
-  { label: 'Itineraries', href: '/ancient-china-10-day-itinerary' },
-  { label: 'Booking', href: '/china-museum-booking-guide' },
-  { label: 'Practical', href: '/china-240-hour-transit-visa' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Sites', href: '#sites' },
+  { label: 'Itineraries', href: '#routes' },
+  { label: 'Map', href: '#map' },
+  { label: 'Plan', href: '#plan' },
 ];
 ---
 
@@ -28,7 +27,7 @@ const navLinks = [
         </li>
       ))}
     </ul>
-    <a href="/ancient-china-10-day-itinerary" class="hidden lg:inline-flex items-center justify-center px-4 py-2 bg-accent text-white text-sm font-medium rounded-lg hover:bg-accent-dark transition-colors duration-150 shadow-[0_2px_8px_-3px_rgba(182,85,58,0.5)]">
+    <a href="#plan" class="hidden lg:inline-flex items-center justify-center px-4 py-2 bg-accent text-white text-sm font-medium rounded-lg hover:bg-accent-dark transition-colors duration-150 shadow-[0_2px_8px_-3px_rgba(182,85,58,0.5)]">
       Plan a Trip
     </a>
     <button id="mobile-menu-btn" class="md:hidden text-warm-700 p-1" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -49,7 +48,7 @@ const navLinks = [
         </li>
       ))}
       <li class="pt-2">
-        <a href="/ancient-china-10-day-itinerary" class="block py-3 text-sm font-semibold text-accent flex items-center gap-1.5">
+        <a href="#plan" class="block py-3 text-sm font-semibold text-accent flex items-center gap-1.5">
           Plan a Trip <ArrowRight class="w-4 h-4" />
         </a>
       </li>

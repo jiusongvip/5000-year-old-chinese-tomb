@@ -1,6 +1,6 @@
 ---
 import type { Site } from '../data/sites';
-import { Landmark, ArrowRight } from '@lucide/astro';
+import { Landmark } from '@lucide/astro';
 
 interface Props {
   site: Site;
@@ -9,7 +9,7 @@ interface Props {
 const { site } = Astro.props;
 ---
 
-<a href={`/${site.slug}`} class="group reveal card card-hover overflow-hidden flex flex-col no-underline">
+<div class="group reveal card card-hover overflow-hidden flex flex-col">
   <div class="aspect-[3/2] overflow-hidden bg-warm-100 relative">
     <img src={site.image} alt={site.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="640" height="427" />
     {site.unesco && (<span class="absolute top-2 left-2 text-[9px] font-bold px-1.5 py-0.5 rounded bg-white/90 text-warm-800 flex items-center gap-1"><Landmark class="w-2.5 h-2.5 text-accent" />UNESCO</span>)}
@@ -19,7 +19,6 @@ const { site } = Astro.props;
     <p class="text-xs text-muted mb-1">{site.yearsAgo.toLocaleString()} years old &middot; {site.city}</p>
     <div class="mt-auto flex items-center justify-between gap-2">
       <p class="text-xs font-medium text-accent">{site.ticketLow === 0 ? 'Free entry' : `Tickets from ¥${site.ticketLow}`}</p>
-      <ArrowRight class="w-4 h-4 text-clay-400 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
     </div>
   </div>
-</a>
+</div>

@@ -4,7 +4,7 @@ import { sites } from '../data/sites';
 import SiteCard from '../components/SiteCard.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import CTACard from '../components/CTACard.astro';
-import { Landmark, Route, MapPin, Map, Ticket, BadgeCheck, ShieldCheck, Footprints, Ban, ArrowRight } from '@lucide/astro';
+import { Landmark, Route, MapPin, Map, Ticket, BadgeCheck, ShieldCheck, Footprints, Ban, ArrowRight, ChevronDown } from '@lucide/astro';
 
 const title = 'Walk Through 5,000 Years';
 const description = 'Step-by-step guides to visit ancient Chinese archaeological sites — ticket prices, museum booking instructions, and itineraries for foreign travelers.';
@@ -28,7 +28,7 @@ const schemaJson = JSON.stringify([
     "itemListElement": sites.map((s, i) => ({
       "@type": "TouristAttraction",
       "name": s.name,
-      "url": `https://5000-year-old-chinese-tomb.com/${s.slug}`,
+      "url": `https://5000-year-old-chinese-tomb.com/#sites`,
       "position": i + 1,
     })),
   },
@@ -60,12 +60,12 @@ const eraTimeline = ['Neolithic', 'Bronze Age', 'Imperial'].map((era) => {
 });
 
 const relatedLinks = [
-  { href: '/best-time-to-visit-china', label: 'best time to visit china for ancient sites' },
-  { href: '/terracotta-warriors', label: 'terracotta warriors tickets' },
-  { href: '/sanxingdui-museum-booking', label: 'how to book sanxingdui tickets with foreign passport' },
-  { href: '/china-240-hour-transit-visa', label: 'china 240 hour transit visa free' },
-  { href: '/dawenkou-site', label: 'oldest archaeological site in china' },
-  { href: '/ancient-china-10-day-itinerary', label: 'ancient china itinerary 10 days' },
+  { href: '#plan', label: 'best time to visit china for ancient sites' },
+  { href: '#sites', label: 'terracotta warriors tickets' },
+  { href: '#sites', label: 'how to book sanxingdui tickets with foreign passport' },
+  { href: '#plan', label: 'china 240 hour transit visa free' },
+  { href: '#sites', label: 'oldest archaeological site in china' },
+  { href: '#routes', label: 'ancient china itinerary 10 days' },
 ];
 ---
 
@@ -100,15 +100,23 @@ const relatedLinks = [
   <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
     <p class="text-sm font-medium tracking-wide text-accent/80 mb-3">Why This Site Exists</p>
     <p class="text-warm-700 leading-relaxed">
-      In October 2024, Chinese archaeologists uncovered a <a href="/5000-year-old-chinese-tomb" class="text-accent font-medium hover:underline">5,000-year-old tomb in Henan</a> with 350 burial objects and nearly 200 jade artifacts. The discovery made global headlines. But when would-be visitors searched for how to go see it, they found nothing — only news articles that ended with a period. No museum opening hours. No ticket booking instructions. No answer to the simplest question: <em>"What ancient Chinese sites can I actually visit?"</em>
+      In October 2024, Chinese archaeologists uncovered a <a href="#sites" class="text-accent font-medium hover:underline">5,000-year-old tomb in Henan</a> with 350 burial objects and nearly 200 jade artifacts. The discovery made global headlines. But when would-be visitors searched for how to go see it, they found nothing — only news articles that ended with a period. No museum opening hours. No ticket booking instructions. No answer to the simplest question: <em>"What ancient Chinese sites can I actually visit?"</em>
     </p>
     <p class="text-warm-700 leading-relaxed mt-4">
       This site is the answer. Eight extraordinary archaeological sites, all open to visitors. Real prices. Real routes. Every booking guide tested with a foreign passport. No generic travel-site filler — just the information you need to walk through 5,000 years of Chinese history yourself.
     </p>
+    <div class="mt-6 flex flex-wrap items-center gap-2 text-xs text-muted">
+      <span class="inline-block h-px w-6 bg-accent/40" aria-hidden="true"></span>
+      Written by <strong class="text-warm-700 font-medium">Alex Chen</strong>
+      <span aria-hidden="true">&middot;</span>
+      Updated August 2026
+      <span aria-hidden="true">&middot;</span>
+      Every site visited firsthand
+    </div>
   </section>
 
   <!-- Time Corridor -->
-  <section class="py-16 max-w-[1200px] mx-auto px-6 reveal">
+  <section id="timeline" class="py-16 max-w-[1200px] mx-auto px-6 reveal">
     <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-2 text-center">The Time Corridor</h2>
     <p class="text-center text-muted text-sm max-w-2xl mx-auto">From the dawn of Chinese civilization (6,300 years ago) to the Tang Dynasty (1,300 years ago) — three eras, at scale. Every site below is open to visitors today.</p>
     <div class="mt-12 overflow-x-auto pb-4">
@@ -126,7 +134,7 @@ const relatedLinks = [
               <div class={`absolute left-0 right-0 top-1/2 -translate-y-1/2 h-1.5 rounded-full ${era.track}`} aria-hidden="true"></div>
               {era.sites.map((n) => (
                 <a
-                  href={`/${n.site.slug}`}
+                  href="#sites"
                   class="group absolute top-1/2 -translate-x-1/2 -translate-y-1/2"
                   style={`left:${n.pct}%`}
                 >
@@ -158,7 +166,7 @@ const relatedLinks = [
         <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-2 reveal">Ancient Sites You Can Walk Through</h2>
         <p class="text-muted max-w-2xl reveal">Every site on this page has been visited, photographed, and documented firsthand. Ticket prices verified August 2026.</p>
       </div>
-      <a href="/blog" class="hidden md:inline-flex items-center gap-2 text-sm text-accent hover:underline flex-shrink-0 ml-6">Read the blog <ArrowRight class="w-4 h-4" /></a>
+      <a href="#plan" class="hidden md:inline-flex items-center gap-2 text-sm text-accent hover:underline flex-shrink-0 ml-6">Plan your trip <ArrowRight class="w-4 h-4" /></a>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {sites.map((site) => (
@@ -198,30 +206,30 @@ const relatedLinks = [
       <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-2 reveal">Ready-Made Itineraries</h2>
       <p class="text-muted mb-10 max-w-2xl reveal">Don't know where to start? These routes combine the best sites into trips that actually work — realistic transit times, nearby hotels, and honest budgets.</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="/ancient-china-10-day-itinerary" class="group reveal card card-hover p-6 flex flex-col no-underline">
+        <div class="reveal card card-hover p-6 flex flex-col">
           <h3 class="font-display font-semibold text-lg leading-snug mb-2">Ancient China in 10 Days</h3>
           <p class="text-xs text-muted mb-4 leading-relaxed">The grand tour: four cities, three UNESCO sites, and 5,000 years of history. Designed to work as a visa-free transit trip.</p>
           <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Liangzhu</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Sanxingdui</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Terracotta Warriors</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Yin Xu</span></div>
           <div class="mt-auto flex items-center justify-between text-sm"><span class="text-muted">10 days &middot; 4 cities</span><span class="flex items-center gap-2"><span class="font-medium text-accent">~8,000-12,000 CNY</span><ArrowRight class="w-4 h-4 text-clay-400 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" /></span></div>
-        </a>
-        <a href="/xian-chengdu-ancient-sites" class="group reveal card card-hover p-6 flex flex-col no-underline">
+        </div>
+        <div class="reveal card card-hover p-6 flex flex-col">
           <h3 class="font-display font-semibold text-lg leading-snug mb-2">Xi'an & Chengdu Ancient Sites</h3>
           <p class="text-xs text-muted mb-4 leading-relaxed">The ultimate Qin-Han-Shu route. Terracotta Warriors, Sanxingdui's bronze masks, and the tomb of China's only female emperor.</p>
           <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Terracotta Warriors</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Sanxingdui</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Han Yangling</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Qianling</span></div>
           <div class="mt-auto flex items-center justify-between text-sm"><span class="text-muted">7 days &middot; 2 cities</span><span class="flex items-center gap-2"><span class="font-medium text-accent">~5,000-8,000 CNY</span><ArrowRight class="w-4 h-4 text-clay-400 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" /></span></div>
-        </a>
-        <a href="/henan-archaeology-tour" class="group reveal card card-hover p-6 flex flex-col no-underline">
+        </div>
+        <div class="reveal card card-hover p-6 flex flex-col">
           <h3 class="font-display font-semibold text-lg leading-snug mb-2">Henan Archaeology Tour</h3>
           <p class="text-xs text-muted mb-4 leading-relaxed">Walk the Shang Dynasty capital and see oracle bones where Chinese writing began. China's most underrated archaeology destination.</p>
           <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Yin Xu</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Longmen Grottoes</span><span class="text-xs px-2 py-1 rounded-full bg-warm-100 text-warm-700">Henan Museum</span></div>
           <div class="mt-auto flex items-center justify-between text-sm"><span class="text-muted">5 days &middot; 3 cities</span><span class="flex items-center gap-2"><span class="font-medium text-accent">~3,500-6,000 CNY</span><ArrowRight class="w-4 h-4 text-clay-400 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" /></span></div>
-        </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Interactive Map -->
-  <section class="py-20 reveal">
+  <section id="map" class="py-20 reveal">
     <div class="max-w-[1200px] mx-auto px-6">
       <div class="mb-8 flex items-end gap-4">
         <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
@@ -261,7 +269,24 @@ const relatedLinks = [
     </div>
   </section>
 
-  <CTACard primaryHref="#sites" primaryLabel="Browse All Sites" secondaryHref="/china-240-hour-transit-visa" secondaryLabel="Check Visa Guide" />
+  <!-- FAQ -->
+  <section id="faq" class="max-w-[800px] mx-auto px-6 py-20 reveal">
+    <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-2 text-center">Frequently Asked Questions</h2>
+    <p class="text-muted mb-10 text-center max-w-xl mx-auto">The questions travelers actually ask — answered with firsthand, passport-tested information.</p>
+    <div class="space-y-3">
+      {faqHomeSchema.mainEntity.map((item) => (
+        <details class="card px-5 py-4 group open:border-accent/40 transition-colors">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer list-none text-warm-900 font-medium text-sm md:text-base">
+            {item.name}
+            <ChevronDown class="w-4 h-4 text-clay-400 flex-shrink-0 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="mt-3 text-sm text-warm-700 leading-relaxed">{item.acceptedAnswer.text}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <CTACard primaryHref="#sites" primaryLabel="Browse All Sites" secondaryHref="#plan" secondaryLabel="Plan Your Visit" />
 
   <RelatedLinks links={relatedLinks} />
 

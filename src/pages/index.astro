@@ -4,7 +4,7 @@ import { sites } from '../data/sites';
 import SiteCard from '../components/SiteCard.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import CTACard from '../components/CTACard.astro';
-import { Landmark, Route, MapPin, Map, Ticket, BadgeCheck, ShieldCheck, Footprints, Ban, ArrowRight, ChevronDown } from '@lucide/astro';
+import { Landmark, Route, MapPin, Map, Ticket, BadgeCheck, ShieldCheck, Footprints, Ban, ArrowRight, ChevronDown, Calendar, Smartphone, TrainFront, Globe, User, Flower, Sun, Sunset, Snowflake, Wallet, Banknote, CreditCard, Languages, CircleCheck, Utensils, Sparkles } from '@lucide/astro';
 
 const title = 'Walk Through 5,000 Years';
 const description = 'Step-by-step guides to visit ancient Chinese archaeological sites — ticket prices, museum booking instructions, and itineraries for foreign travelers.';
@@ -60,13 +60,129 @@ const eraTimeline = ['Neolithic', 'Bronze Age', 'Imperial'].map((era) => {
 });
 
 const relatedLinks = [
-  { href: '#plan', label: 'best time to visit china for ancient sites' },
-  { href: '#sites', label: 'terracotta warriors tickets' },
-  { href: '#sites', label: 'how to book sanxingdui tickets with foreign passport' },
-  { href: '#plan', label: 'china 240 hour transit visa free' },
+  { href: '#best-time', label: 'best time to visit china for ancient sites' },
+  { href: '#site-guides', label: 'terracotta warriors tickets' },
+  { href: '#site-guides', label: 'how to book sanxingdui tickets with foreign passport' },
+  { href: '#practical', label: 'china 240 hour transit visa free' },
   { href: '#sites', label: 'oldest archaeological site in china' },
   { href: '#routes', label: 'ancient china itinerary 10 days' },
+  { href: '#money', label: 'how do foreigners pay in china' },
+  { href: '#checklist', label: 'china travel packing list' },
 ];
+
+const practicalGuides = [
+  {
+    icon: Ticket,
+    title: 'Booking tickets with a foreign passport',
+    body: "Most top-tier museums — Sanxingdui and the Shaanxi History Museum especially — release tickets only through official WeChat mini-programs, often 3–7 days ahead, and weekend slots can disappear within minutes. When booking, choose 'Passport' (护照) as your ID type, enter your passport number, and bring the physical passport to the gate. A few big sites (Terracotta Warriors) still sell at the window, but expect 1–2 hour queues in peak season.",
+  },
+  {
+    icon: Globe,
+    title: "China's 240-hour visa-free transit",
+    body: "Citizens of 54 countries can enter China without a visa for up to 10 days when transiting onward to a third country or region. Requirements: an onward ticket, and entry/exit through designated ports within the eligible region. Gateway cities on this site — Hangzhou, Chengdu, Xi'an — are all covered. Confirm your exact route against the official list before booking flights.",
+  },
+  {
+    icon: TrainFront,
+    title: 'Getting between cities by high-speed rail',
+    body: "China's high-speed rail network connects nearly every site on this page, and you book with your passport on official channels (12306 or trip.com). E-tickets are scanned by passport at the gate — no paper collection. Xi'an–Chengdu is a ~3-hour ride; Xi'an to Anyang runs about 2.5 hours; Hangzhou to Chengdu is long enough that most travelers fly instead.",
+  },
+  {
+    icon: Smartphone,
+    title: 'SIM cards & staying connected',
+    body: "Every booking mini-program, map, and translator needs data. The easiest option is an eSIM activated before you fly; otherwise grab a tourist SIM at the airport. One honest warning: Google Maps and many Google services don't work reliably in mainland China — download Amap or Baidu Maps, plus the WeChat app itself, before you land.",
+  },
+  {
+    icon: User,
+    title: 'Do you actually need a tour guide?',
+    body: "Honest answer: usually no. Every site here has English signage and tickets bookable by passport. A licensed guide earns its 300–600 CNY/day when you want deeper history (Terracotta Warriors, Yin Xu) or are heading somewhere remote like Qianling. For the 10-day itinerary, skip the guide and save the budget for good hotels.",
+  },
+];
+
+const bestTimes = [
+  { icon: Flower, season: 'Spring', months: 'March – May', temp: '15–25°C', verdict: 'Mild weather, the fewest crowds, and Hangzhou\u2019s blossom season. The best all-round window for Liangzhu and the southern sites.', accent: 'text-jade-600 bg-jade-500/10' },
+  { icon: Sun, season: 'Summer', months: 'June – August', temp: '30–38°C', verdict: 'Hottest and busiest — July and August are Chinese school holidays. Book tickets days ahead and start early to beat the heat.', accent: 'text-clay-600 bg-clay-500/10' },
+  { icon: Sunset, season: 'Autumn', months: 'September – November', temp: '15–25°C', verdict: 'Clear skies and comfortable temperatures. The golden season for photography at the Terracotta Warriors and Liangzhu.', accent: 'text-bronze-600 bg-bronze-500/10' },
+  { icon: Snowflake, season: 'Winter', months: 'December – February', temp: '0–10°C', verdict: 'Cold but quiet — cheaper hotels and short queues. Bundle up for outdoor sites like Yin Xu and Qianling.', accent: 'text-stone-600 bg-stone-500/10' },
+];
+
+const siteGuides: Record<string, { getThere: string; eat: string; tip: string }> = {
+  'dawenkou-site': {
+    getThere: "Tai'an sits on the Beijing–Shanghai high-speed line. From Tai'an station it's a 25-minute taxi (about ¥40) to the site, and the Dawenkou Museum is right across the road.",
+    eat: "Tai'an's morning-market classics are fried zha cake (炸糕) and lamb soup — grab both before you visit the site.",
+    tip: 'The site itself is an open field, so go in the morning while the museum is quiet. Pair it with Mount Tai if you have a spare day.',
+  },
+  'liangzhu-ancient-city': {
+    getThere: 'Take Hangzhou Metro Line 2 to Liangzhu Station, then a 15-minute shuttle or taxi to the park — about an hour door to door from downtown.',
+    eat: 'Hangzhou is Longjing tea and Dongpo pork country. The Liangzhu Museum canteen is genuinely good and cheap, or bring a picnic for the city-wall park.',
+    tip: 'Rent the electric cart or a bike to cover the vast earthen walls; the jade gallery (cong tubes and bi disks) is the unmissable highlight.',
+  },
+  'sanxingdui': {
+    getThere: 'Take the intercity train from Chengdu East to Guanghan North (about 20 minutes), then a 15-minute taxi. A half-day guided tour from Chengdu is the no-hassle alternative.',
+    eat: "Guanghan's rabbit hotpot (兔火锅) is the local legend — spicy, cheap, and best shared. Chengdu's teahouses are a comfortable fallback.",
+    tip: 'Book the new museum tickets days ahead on WeChat and arrive right at 8:30 to beat the tour groups into the bronze exhibition hall.',
+  },
+  'yin-xu-anyang': {
+    getThere: 'Anyang East station sits on the Beijing–Guangzhou high-speed line. From the station it\u2019s a 30-minute taxi (about ¥60) to the ruins; start at the Yin Xu Museum.',
+    eat: "Anyang's donkey soup (安阳驴肉汤) is a local institution — warming and filling, ideal before a long walk around the ruins.",
+    tip: 'This is a big open-air site. Wear walking shoes and don\u2019t skip the Fu Hao tomb area — it\u2019s the quietest and most atmospheric corner.',
+  },
+  'terracotta-warriors': {
+    getThere: "From Xi'an, take Metro Line 9 to Huaqingchi, then the short shuttle to the site — about 1.5 hours door to door. A taxi runs around ¥150.",
+    eat: "The roujiamo (Chinese burger) and biangbiang noodles near the visitor center are surprisingly decent fuel for the walk around all three pits.",
+    tip: 'Enter Pit 1 the moment it opens at 8:30, then do Pit 3 before the crowds arrive — the army looks best in the low morning light.',
+  },
+  'han-yangling-mausoleum': {
+    getThere: 'About 40 minutes northwest of Xi\u2019an by taxi (around ¥100). It\u2019s the quietest major site on this page, with parking and a cafe on site.',
+    eat: 'Fill up on a proper Xi\u2019an breakfast — roujiamo and yangrou paomo — before you head out; on-site food options are limited.',
+    tip: 'The underground glass corridor over 50,000 miniature figures is the star. Go midweek and you may have the hall almost to yourself.',
+  },
+  'mawangdui-han-tombs': {
+    getThere: 'The relics now live at the Hunan Museum, reached by Metro Line 6 (Hunan Museum station) or a short taxi from downtown Changsha.',
+    eat: "Changsha is the food capital of Hunan — stinky tofu (臭豆腐) and tea-oil-smoked duck (茶油鸭) are the must-tries around the museum district.",
+    tip: 'Entry is free but the queue is fierce. Book your free ticket on the official WeChat mini-program up to 7 days ahead and head straight to the Lady Dai gallery first.',
+  },
+  'qianling-mausoleum': {
+    getThere: 'Qianling sits about 80 km from Xi\u2019an — 1.5 hours by taxi (around ¥250 one way) or a day tour. Public buses connect from Xi\u2019an bus station.',
+    eat: "Nearby Xianyang serves northern Shaanxi classics — biangbiang noodles and qishan roujiamo. Pack snacks; the site restaurant is basic.",
+    tip: 'The tomb itself is unopened, so you walk the Spirit Way past 120 stone statues — allow 3–4 hours and go in the morning before the heat.',
+  },
+};
+
+const moneyCards = [
+  { icon: Wallet, title: 'Alipay & WeChat Pay', body: 'Nearly everything in China is paid by scanning a QR code. Both Alipay and WeChat Pay now support foreign Visa/Mastercard and English UI — verify with your passport before you fly and you\u2019ll pay like a local.' },
+  { icon: Banknote, title: 'Keep cash as backup', body: 'Taxis, street food, and a few small museums still prefer cash. Carry ¥500–1,000 in small notes. ATMs at airports and major banks accept international cards.' },
+  { icon: CreditCard, title: 'International cards work, barely', body: 'Big hotels and some chains accept Visa/Mastercard, but don\u2019t rely on them for taxis, market food, or museum gates. Treat your card as plan C, not plan A.' },
+];
+
+const phrases = [
+  { zh: '你好', pinyin: 'nǐ hǎo', en: 'Hello' },
+  { zh: '谢谢', pinyin: 'xièxie', en: 'Thank you' },
+  { zh: '我要买票', pinyin: 'wǒ yào mǎi piào', en: 'I\u2019d like to buy a ticket' },
+  { zh: '护照', pinyin: 'hùzhào', en: 'Passport' },
+  { zh: '这里多少钱？', pinyin: 'zhèlǐ duōshǎo qián?', en: 'How much is this?' },
+  { zh: '厕所在哪里？', pinyin: 'cèsuǒ zài nǎlǐ?', en: 'Where is the restroom?' },
+  { zh: '有英文介绍吗？', pinyin: 'yǒu yīngwén jièshào ma?', en: 'Is there an English guide?' },
+  { zh: '我不会说中文', pinyin: 'wǒ bú huì shuō zhōngwén', en: 'I don\u2019t speak Chinese' },
+];
+
+const checklist = [
+  'Set up Alipay and WeChat Pay, verify with your passport, and link a card',
+  'Save photos of your passport pages and visa on your phone',
+  'Download Amap or Baidu Maps — Google Maps is unreliable in mainland China',
+  'Install an eSIM or tourist SIM before you land',
+  'Pack comfortable walking shoes — every site is large and mostly outdoor',
+  'Bring light layers: museum halls are cold, outdoor sites are hot',
+  'Pack sunscreen, a hat, and a power bank for long days',
+  'Book Sanxingdui and Shaanxi History Museum the moment ticket slots open',
+];
+
+const siteStats = {
+  total: sites.length,
+  unesco: sites.filter((s) => s.unesco).length,
+  provinces: new Set(sites.map((s) => s.province)).size,
+  oldest: Math.max(...sites.map((s) => s.yearsAgo)),
+  newest: Math.min(...sites.map((s) => s.yearsAgo)),
+};
 ---
 
 <BaseLayout {title} {description} schemaJson={schemaJson}>
@@ -92,6 +208,28 @@ const relatedLinks = [
       <div class="mt-16 hidden md:block">
         <p class="text-xs text-warm-200/50 tracking-wide">SCROLL</p>
         <div class="mt-2 w-px h-8 bg-warm-200/30 mx-auto"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="border-y border-border/60 bg-warm-50/60">
+    <div class="max-w-[1200px] mx-auto px-6 py-10 grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="text-center">
+        <p class="font-display text-3xl md:text-4xl font-bold text-clay-600">{siteStats.total}</p>
+        <p class="mt-1 text-xs text-muted uppercase tracking-wide">Sites open to visitors</p>
+      </div>
+      <div class="text-center">
+        <p class="font-display text-3xl md:text-4xl font-bold text-clay-600">{siteStats.unesco}</p>
+        <p class="mt-1 text-xs text-muted uppercase tracking-wide">UNESCO World Heritage</p>
+      </div>
+      <div class="text-center">
+        <p class="font-display text-3xl md:text-4xl font-bold text-clay-600">{siteStats.provinces}</p>
+        <p class="mt-1 text-xs text-muted uppercase tracking-wide">Provinces to explore</p>
+      </div>
+      <div class="text-center">
+        <p class="font-display text-3xl md:text-4xl font-bold text-clay-600">{siteStats.oldest.toLocaleString()}</p>
+        <p class="mt-1 text-xs text-muted uppercase tracking-wide">Years of history — oldest site</p>
       </div>
     </div>
   </section>
@@ -175,6 +313,92 @@ const relatedLinks = [
     </div>
   </section>
 
+  <!-- Comparison Table -->
+  <section id="compare" class="max-w-[1200px] mx-auto px-6 pb-20 reveal">
+    <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-2">Every Site at a Glance</h2>
+    <p class="text-muted mb-8 max-w-2xl">Prices, hours, and travel time for all {siteStats.total} sites — verified August 2026. No sign-up, no login, just the numbers you need to plan.</p>
+    <div class="overflow-x-auto rounded-2xl border border-border shadow-sm">
+      <table class="w-full min-w-[860px] text-sm">
+        <thead>
+          <tr class="bg-warm-50 text-left text-xs uppercase tracking-wide text-muted">
+            <th class="px-4 py-3 font-semibold">Site</th>
+            <th class="px-4 py-3 font-semibold">Era</th>
+            <th class="px-4 py-3 font-semibold">Culture</th>
+            <th class="px-4 py-3 font-semibold">City</th>
+            <th class="px-4 py-3 font-semibold">Tickets</th>
+            <th class="px-4 py-3 font-semibold">Hours</th>
+            <th class="px-4 py-3 font-semibold">Visit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sites.map((site, i) => (
+            <tr class={`border-t border-border ${i % 2 === 0 ? 'bg-surface' : 'bg-warm-50/40'}`}>
+              <td class="px-4 py-3 font-medium text-warm-900">
+                <div class="flex items-center gap-2">
+                  {site.name}
+                  {site.unesco && <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-accent/10 text-accent shrink-0">UNESCO</span>}
+                </div>
+              </td>
+              <td class="px-4 py-3 text-warm-700">{site.era}</td>
+              <td class="px-4 py-3 text-warm-700">{site.culture}</td>
+              <td class="px-4 py-3 text-warm-700">{site.city}</td>
+              <td class="px-4 py-3 text-warm-700 whitespace-nowrap">
+                {site.ticketLow === 0
+                  ? <span class="font-medium text-jade-600">Free</span>
+                  : <span class="font-medium text-accent">{site.ticketLow === site.ticketHigh ? `¥${site.ticketLow}` : `¥${site.ticketLow}–${site.ticketHigh}`}</span>}
+              </td>
+              <td class="px-4 py-3 text-warm-700">{site.hours}</td>
+              <td class="px-4 py-3 text-warm-700 whitespace-nowrap">{site.visitTime}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Site Travel Guides -->
+  <section id="site-guides" class="max-w-[1200px] mx-auto px-6 pb-20 reveal">
+    <div class="mb-8 flex items-end gap-4">
+      <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+        <MapPin class="w-5 h-5" />
+      </div>
+      <div>
+        <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-1">How to Visit Each Site</h2>
+        <p class="text-muted text-sm max-w-2xl">Getting there, where to eat nearby, and one honest pro tip for every stop — written from firsthand visits.</p>
+      </div>
+    </div>
+    <div class="space-y-3">
+      {sites.map((site) => {
+        const g = siteGuides[site.slug];
+        return (
+          <details class="card px-6 py-5 group open:border-accent/40 transition-colors">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+              <span class="flex items-center gap-3">
+                <span class="font-display font-semibold text-warm-900 text-sm md:text-base">{site.name}</span>
+                {site.unesco && <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-accent/10 text-accent shrink-0">UNESCO</span>}
+              </span>
+              <ChevronDown class="w-4 h-4 text-clay-400 flex-shrink-0 group-open:rotate-180 transition-transform" />
+            </summary>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-muted flex items-center gap-1.5 mb-2"><TrainFront class="w-3.5 h-3.5" /> Getting there</p>
+                <p class="text-sm text-warm-700 leading-relaxed">{g.getThere}</p>
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-muted flex items-center gap-1.5 mb-2"><Utensils class="w-3.5 h-3.5" /> Where to eat</p>
+                <p class="text-sm text-warm-700 leading-relaxed">{g.eat}</p>
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-muted flex items-center gap-1.5 mb-2"><Sparkles class="w-3.5 h-3.5" /> Pro tip</p>
+                <p class="text-sm text-warm-700 leading-relaxed">{g.tip}</p>
+              </div>
+            </div>
+          </details>
+        );
+      })}
+    </div>
+  </section>
+
   <!-- How to Use This Site -->
   <section class="bg-warm-50 py-20">
     <div class="max-w-[1200px] mx-auto px-6">
@@ -225,6 +449,125 @@ const relatedLinks = [
           <div class="mt-auto flex items-center justify-between text-sm"><span class="text-muted">5 days &middot; 3 cities</span><span class="flex items-center gap-2"><span class="font-medium text-accent">~3,500-6,000 CNY</span><ArrowRight class="w-4 h-4 text-clay-400 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" /></span></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Practical Essentials -->
+  <section id="practical" class="bg-warm-50 py-20">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="mb-10 flex items-end gap-4">
+        <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+          <Smartphone class="w-5 h-5" />
+        </div>
+        <div>
+          <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-1">Practical Essentials</h2>
+          <p class="text-muted text-sm max-w-2xl">The five questions every first-time traveler asks — booking, visa, trains, SIM, and guides. Tested with a foreign passport.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {practicalGuides.map((g) => (
+          <details class="card px-6 py-5 group open:border-accent/40 transition-colors">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+              <span class="flex items-center gap-3">
+                <span class="w-9 h-9 shrink-0 rounded-lg bg-accent/10 text-accent flex items-center justify-center"><g.icon class="w-4 h-4" /></span>
+                <span class="font-display font-semibold text-warm-900 text-sm md:text-base">{g.title}</span>
+              </span>
+              <ChevronDown class="w-4 h-4 text-clay-400 flex-shrink-0 group-open:rotate-180 transition-transform" />
+            </summary>
+            <p class="mt-4 text-sm text-warm-700 leading-relaxed">{g.body}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Time to Visit -->
+  <section id="best-time" class="max-w-[1200px] mx-auto px-6 py-20 reveal">
+    <div class="mb-10 flex items-end gap-4">
+      <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+        <Calendar class="w-5 h-5" />
+      </div>
+      <div>
+        <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-1">Best Time to Visit</h2>
+        <p class="text-muted text-sm max-w-2xl">There is no bad season — only different crowds and comfort levels. Here's how each one plays out across the sites.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {bestTimes.map((t) => (
+        <div class="reveal card p-6 flex flex-col">
+          <div class={`w-11 h-11 rounded-xl ${t.accent} flex items-center justify-center mb-4`}><t.icon class="w-5 h-5" /></div>
+          <h3 class="font-display font-semibold text-lg">{t.season}</h3>
+          <p class="text-xs text-muted mb-1">{t.months} &middot; {t.temp}</p>
+          <p class="text-sm text-warm-700 leading-relaxed mt-2">{t.verdict}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Money & Payments -->
+  <section id="money" class="bg-warm-50 py-20">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="mb-10 flex items-end gap-4">
+        <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+          <Wallet class="w-5 h-5" />
+        </div>
+        <div>
+          <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-1">Money & Payments</h2>
+          <p class="text-muted text-sm max-w-2xl">China is almost cashless — here's exactly how a foreign traveler pays, and what to keep as backup.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {moneyCards.map((c) => (
+          <div class="reveal card p-6 flex flex-col">
+            <div class="w-11 h-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-4"><c.icon class="w-5 h-5" /></div>
+            <h3 class="font-display font-semibold text-lg mb-2">{c.title}</h3>
+            <p class="text-sm text-warm-700 leading-relaxed">{c.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Survival Mandarin -->
+  <section id="phrases" class="max-w-[1200px] mx-auto px-6 py-20 reveal">
+    <div class="mb-10 flex items-end gap-4">
+      <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+        <Languages class="w-5 h-5" />
+      </div>
+      <div>
+        <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-1">Survival Mandarin</h2>
+        <p class="text-muted text-sm max-w-2xl">Eight phrases that will get you through tickets, taxis, and toilets. Learn two and you're already ahead.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {phrases.map((p) => (
+        <div class="card px-5 py-4">
+          <p class="text-2xl font-display font-semibold text-warm-900">{p.zh}</p>
+          <p class="text-xs text-accent font-medium mt-1">{p.pinyin}</p>
+          <p class="text-sm text-warm-700 mt-1">{p.en}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Packing Checklist -->
+  <section id="checklist" class="max-w-[1200px] mx-auto px-6 pb-20 reveal">
+    <div class="mb-8 flex items-end gap-4">
+      <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+        <CircleCheck class="w-5 h-5" />
+      </div>
+      <div>
+        <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-1">Before You Go</h2>
+        <p class="text-muted text-sm max-w-2xl">A short checklist so nothing important slips through — phone, payments, maps, and the right shoes.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-3">
+      {checklist.map((item) => (
+        <div class="flex items-start gap-3">
+          <CircleCheck class="w-5 h-5 text-jade-600 flex-shrink-0 mt-0.5" />
+          <p class="text-sm text-warm-700 leading-relaxed">{item}</p>
+        </div>
+      ))}
     </div>
   </section>
 

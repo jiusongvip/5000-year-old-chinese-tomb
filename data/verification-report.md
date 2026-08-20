@@ -18,6 +18,39 @@
 
 ---
 
+## Content enrichment re-audit (2026-08-19)
+
+Site was enriched with travel-themed content; full re-audit performed:
+
+### New content added
+- **Site comparison table** (`#compare`) — all 8 sites: era, culture, city, tickets, hours, visit time
+- **Travel guides per site** (`#site-guides`) — getting there / where to eat / pro tip for all 8 sites
+- **Practical essentials** (`#practical`) — booking, visa, trains, SIM, tour guide (5 accordions)
+- **Best time to visit** (`#best-time`) — 4 season cards
+- **Money & payments** (`#money`) — Alipay/WeChat, cash backup, cards
+- **Survival Mandarin** (`#phrases`) — 8 phrase cards
+- **Before You Go checklist** (`#checklist`) — 8 prep items
+- **Stats strip** after hero — 8 sites / 3 UNESCO / 6 provinces / 6,300 years
+- Site cards enriched (culture + era + visit time)
+
+### Re-audit results
+| Check | Status |
+|-------|--------|
+| Technical SEO | ✅ Title 47ch, desc 150ch, 1 H1, H2(16)/H3(25)/H4(4) no skips, 9/9 alt, canonical, robots+sitemap |
+| Schema | ✅ Organization/Person/WebSite + ItemList(8) + FAQPage(5); FAQ schema ↔ visible FAQ match |
+| Content | ✅ **2,679 visible words** (up from ~825); E-E-A-T signals ×39; keyword in H1 + early content; no duplicates |
+| Page-level | ✅ 47 hash links, 0 broken; 0 broken assets; 18 accordions (8+5+5); all buttons/interactive verified |
+| Single-page | ✅ dist = 2 HTML (index+404); sitemap = 1 entry |
+
+### Score: 95/100
+
+### Remaining nice-to-have
+1. ItemList schema still uses one identical `#sites` URL across 8 items (all content is legitimately on one page; dropping ItemList would be marginally cleaner).
+2. Field Core Web Vitals + security headers require a live deployment to verify.
+3. IndexNow optional for non-Google engines.
+
+---
+
 ## Post-fix re-verification (2026-08-19)
 
 Applied and re-verified:

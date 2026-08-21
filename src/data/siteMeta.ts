@@ -1,6 +1,6 @@
 export const SITE = {
   name: "Ancient China Travel",
-  url: "https://5000-year-old-chinese-tomb.com",
+  url: "https://www.5000-year-old-chinese-tomb.com",
   description:
     "Step-by-step guides to visit ancient Chinese archaeological sites — ticket prices, museum booking instructions, and itineraries for foreign travelers.",
   author: "Alex Chen",

@@ -24,13 +24,25 @@ const faqHomeSchema = {
 const schemaJson = JSON.stringify([
   {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "itemListElement": sites.map((s, i) => ({
-      "@type": "TouristAttraction",
-      "name": s.name,
-      "url": `https://www.5000-year-old-chinese-tomb.com/#sites`,
-      "position": i + 1,
-    })),
+    "@type": "WebPage",
+    "@id": "https://www.5000-year-old-chinese-tomb.com/",
+    "url": "https://www.5000-year-old-chinese-tomb.com/",
+    "name": title,
+    "description": description,
+    "inLanguage": "en",
+    "author": { "@type": "Person", "name": "Alex Chen" },
+    "datePublished": "2026-08-04",
+    "dateModified": "2026-09-02",
+    "publisher": { "@type": "Organization", "name": "Ancient China Travel", "url": "https://www.5000-year-old-chinese-tomb.com" },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": sites.map((s, i) => ({
+        "@type": "TouristAttraction",
+        "name": s.name,
+        "url": `https://www.5000-year-old-chinese-tomb.com/#sites`,
+        "position": i + 1,
+      })),
+    },
   },
   faqHomeSchema,
 ]);
@@ -183,6 +195,17 @@ const siteStats = {
   oldest: Math.max(...sites.map((s) => s.yearsAgo)),
   newest: Math.min(...sites.map((s) => s.yearsAgo)),
 };
+
+const sources = [
+  { name: 'Dawenkou culture', url: 'https://en.wikipedia.org/wiki/Dawenkou_culture' },
+  { name: 'Liangzhu culture', url: 'https://en.wikipedia.org/wiki/Liangzhu_culture' },
+  { name: 'Sanxingdui', url: 'https://en.wikipedia.org/wiki/Sanxingdui' },
+  { name: 'Yin Xu', url: 'https://en.wikipedia.org/wiki/Yinxu' },
+  { name: 'Terracotta Army', url: 'https://en.wikipedia.org/wiki/Terracotta_Army' },
+  { name: 'Han Yangling', url: 'https://en.wikipedia.org/wiki/Han_Yangling' },
+  { name: 'Mawangdui', url: 'https://en.wikipedia.org/wiki/Mawangdui' },
+  { name: 'Qianling Mausoleum', url: 'https://en.wikipedia.org/wiki/Qianling_Mausoleum' },
+];
 ---
 
 <BaseLayout {title} {description} schemaJson={schemaJson}>
@@ -236,7 +259,7 @@ const siteStats = {
   </section>
 
   <!-- Why This Site Exists -->
-  <section class="max-w-[800px] mx-auto px-6 py-16 reveal">
+  <section id="about" class="max-w-[800px] mx-auto px-6 py-16 reveal">
     <p class="text-sm font-medium tracking-wide text-accent/80 mb-3">Why This Site Exists</p>
     <p class="text-warm-700 leading-relaxed">
       In October 2024, Chinese archaeologists uncovered a <a href="#sites" class="text-accent font-medium hover:underline">5,000-year-old tomb in Henan</a> with 350 burial objects and nearly 200 jade artifacts. The discovery made global headlines. But when would-be visitors searched for how to go see it, they found nothing — only news articles that ended with a period. No museum opening hours. No ticket booking instructions. No answer to the simplest question: <em>"What ancient Chinese sites can I actually visit?"</em>
@@ -626,6 +649,17 @@ const siteStats = {
           </summary>
           <p class="mt-3 text-sm text-warm-700 leading-relaxed">{item.acceptedAnswer.text}</p>
         </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- Sources -->
+  <section id="sources" class="max-w-[800px] mx-auto px-6 py-16 reveal">
+    <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-2 text-center">Sources &amp; Further Reading</h2>
+    <p class="text-muted mb-8 text-center max-w-xl mx-auto">Authoritative sources referenced for site facts, history, and chronological data.</p>
+    <div class="flex flex-wrap justify-center gap-2">
+      {sources.map((s) => (
+        <a href={s.url} target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 border border-border rounded-full text-xs text-warm-700 hover:text-accent hover:border-clay-300 hover:bg-clay-50/60 transition" referrerpolicy="no-referrer">{s.name}</a>
       ))}
     </div>
   </section>

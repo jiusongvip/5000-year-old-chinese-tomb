@@ -50,7 +50,10 @@ const {
 } = Astro.props;
 
 const pathname = Astro.url.pathname;
-const canonicalURL = new URL(pathname, Astro.site).href.replace(/\/$/, '');
+// trailingSlash: "always" → subpages keep trailing slash; homepage root stays slash-free
+const canonicalURL = pathname === '/'
+  ? new URL('/', Astro.site).href.replace(/\/$/, '')
+  : new URL(pathname, Astro.site).href;
 const ogImageURL = new URL(ogImage ?? ogFor(pathname), Astro.site).href;
 const robotsContent = noindex ? 'noindex, follow' : 'index, follow';
 const titleSuffix = SITE.name;

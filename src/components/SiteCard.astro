@@ -11,7 +11,7 @@ const { site } = Astro.props;
 
 <div class="group reveal card card-hover overflow-hidden flex flex-col">
   <div class="aspect-[3/2] overflow-hidden bg-warm-100 relative">
-    <img src={site.image} alt={site.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="640" height="427" />
+    <img src={site.image} alt={site.imageAlt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="640" height="427" />
     {site.unesco && (<span class="absolute top-2 left-2 text-[9px] font-bold px-1.5 py-0.5 rounded bg-white/90 text-warm-800 flex items-center gap-1"><Landmark class="w-2.5 h-2.5 text-accent" />UNESCO</span>)}
   </div>
   <div class="p-4 flex flex-col flex-1">

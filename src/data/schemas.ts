@@ -17,6 +17,7 @@ export function organizationSchema() {
     email: SITE.email,
     logo: absolute("/favicon.svg"),
     founder: { "@type": "Person", name: SITE.author },
+    sameAs: ["https://github.com/jiusongvip/5000-year-old-chinese-tomb"],
   };
 }
 

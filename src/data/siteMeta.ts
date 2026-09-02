@@ -18,6 +18,9 @@ export interface PageMeta {
 
 export const pageMeta: Record<string, PageMeta> = {
   "/": { label: "Home", lastmod: "2026-08-04", og: "/og-home.webp" },
+  "/about/": { label: "About", lastmod: "2026-09-02" },
+  "/privacy/": { label: "Privacy Policy", lastmod: "2026-09-02" },
+  "/terms/": { label: "Terms of Use", lastmod: "2026-09-02" },
 };
 
 const monthNames = [

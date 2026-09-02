@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'About';
+const description = 'About Ancient China Travel — independent, firsthand guides to visiting ancient Chinese archaeological sites with foreign passport.';
+---
+
+<BaseLayout {title} {description}>
+  <section class="max-w-[800px] mx-auto px-6 py-16">
+    <p class="text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">About</p>
+    <h1 class="text-3xl md:text-4xl font-display font-bold tracking-tight text-warm-900 mb-6">About This Site</h1>
+
+    <div class="space-y-6 text-sm text-warm-700 leading-relaxed">
+      <p>
+        Ancient China Travel publishes independent, firsthand guides for visiting China's most remarkable
+        archaeological sites. Every ticket price, booking instruction, and itinerary on this site has been
+        verified with a foreign passport — because that is the question real travelers ask, and the answer
+        should not be generic travel advice.
+      </p>
+
+      <h2 class="font-display text-xl font-semibold text-warm-900">Who writes this</h2>
+      <p>
+        This site is written by <strong>Alex Chen</strong>, an independent travel writer who has visited every
+        site on this page. The guides are based on real visits, real bookings, real train tickets, and real
+        conversations with museum staff. No affiliate links, no sponsored content, no recycled Wikipedia text.
+      </p>
+
+      <h2 class="font-display text-xl font-semibold text-warm-900">What this site covers</h2>
+      <p>
+        Eight archaeological sites spanning 6,300 to 1,300 years of Chinese history — from the Neolithic
+        Dawenkou culture to the Tang Dynasty. Each site guide includes ticket prices, opening hours, how to
+        get there, nearby food recommendations, and honest pro tips. The site also provides ready-made
+        itineraries, museum booking instructions for foreign passport holders, and practical travel advice
+        covering visas, SIM cards, payments, and language.
+      </p>
+
+      <h2 class="font-display text-xl font-semibold text-warm-900">Contact</h2>
+      <p>
+        Questions or corrections? Email
+        <a href="mailto:hello@ancientchinatravel.com" class="text-accent hover:underline">hello@ancientchinatravel.com</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

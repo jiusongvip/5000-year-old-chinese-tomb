@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Terms of Use';
+const description = 'Terms of use for Ancient China Travel — independent travel guides for ancient Chinese archaeological sites.';
+---
+
+<BaseLayout {title} {description}>
+  <section class="max-w-[800px] mx-auto px-6 py-16">
+    <p class="text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">Terms</p>
+    <h1 class="text-3xl md:text-4xl font-display font-bold tracking-tight text-warm-900 mb-3">Terms of Use</h1>
+    <p class="text-xs text-muted mb-10">Last updated: September 2, 2026</p>
+
+    <div class="space-y-6 text-sm text-warm-700 leading-relaxed">
+      <section>
+        <h2 class="font-display text-xl font-semibold text-warm-900 mb-3">Information accuracy</h2>
+        <p>We make every effort to keep ticket prices, opening hours, and booking instructions accurate and up to date. However, prices and policies change. Always verify directly with the official museum or site before planning your visit. This site is provided as a helpful guide, not as a guaranteed source of current information.</p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-xl font-semibold text-warm-900 mb-3">Use of content</h2>
+        <p>
+          All content on this site is original and written from firsthand experience. You may share links to
+          this site freely. Republishing substantial portions of the content without permission is not
+          permitted. If you would like to reference or quote this content, please provide attribution and a
+          link back to the original page.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-xl font-semibold text-warm-900 mb-3">No liability</h2>
+        <p>This site is provided for informational purposes only. We are not responsible for any losses, inconveniences, or damages arising from the use of the information on this site. Travel decisions are your own responsibility.</p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-xl font-semibold text-warm-900 mb-3">Contact</h2>
+        <p>
+          Questions about these terms? Email
+          <a href="mailto:hello@ancientchinatravel.com" class="text-accent hover:underline">hello@ancientchinatravel.com</a>.
+        </p>
+      </section>
+    </div>
+  </section>
+</BaseLayout>

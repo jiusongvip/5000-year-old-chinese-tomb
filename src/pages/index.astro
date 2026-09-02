@@ -40,6 +40,7 @@ const schemaJson = JSON.stringify([
         "@type": "TouristAttraction",
         "name": s.name,
         "url": `https://www.5000-year-old-chinese-tomb.com/#sites`,
+        "sameAs": s.wikipedia,
         "position": i + 1,
       })),
     },
@@ -657,6 +658,10 @@ const sources = [
   <section id="sources" class="max-w-[800px] mx-auto px-6 py-16 reveal">
     <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight mb-2 text-center">Sources &amp; Further Reading</h2>
     <p class="text-muted mb-8 text-center max-w-xl mx-auto">Authoritative sources referenced for site facts, history, and chronological data.</p>
+    <blockquote class="border-l-4 border-accent/40 pl-5 py-3 mb-8 text-sm text-warm-600 italic leading-relaxed bg-warm-50/60 rounded-r-lg">
+      <p>The culture was highly stratified, as jade, silk, ivory and lacquer artifacts were found exclusively in elite burials, while pottery was more commonly found in the burial plots of poorer individuals. This division of class indicates that the Liangzhu period was an early state.</p>
+      <footer class="mt-2 text-xs text-accent not-italic">— <cite><a href="https://en.wikipedia.org/wiki/Liangzhu_culture" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline">Wikipedia, Liangzhu culture</a></cite></footer>
+    </blockquote>
     <div class="flex flex-wrap justify-center gap-2">
       {sources.map((s) => (
         <a href={s.url} target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 border border-border rounded-full text-xs text-warm-700 hover:text-accent hover:border-clay-300 hover:bg-clay-50/60 transition" referrerpolicy="no-referrer">{s.name}</a>

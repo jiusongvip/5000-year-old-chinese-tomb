@@ -15,6 +15,7 @@ export interface Site {
   visitTime: string;
   image: string;
   imageAlt: string;
+  wikipedia: string;
   description: string;
   lat?: number;
   lng?: number;
@@ -37,6 +38,7 @@ export const sites: Site[] = [
     visitTime: '2-3 hours',
     image: '/dawenkou-card.webp?v=2',
     imageAlt: "Neolithic pottery and jade artifacts at the 6,300-year-old Dawenkou Site in Tai'an, Shandong, China",
+    wikipedia: 'https://en.wikipedia.org/wiki/Dawenkou_culture',
     description: "The 6,300-year-old Dawenkou culture site in Shandong — the oldest site on this guide and open free of charge. Pottery, jade, and one of China's first written marks.",
     lat: 35.9,
     lng: 117.1,
@@ -58,6 +60,7 @@ export const sites: Site[] = [
     visitTime: '3-4 hours',
     image: '/liangzhu-card.webp?v=2',
     imageAlt: "Earthen city wall and jade artifacts at the 5,300-year-old Liangzhu Ancient City, a UNESCO World Heritage Site near Hangzhou, China",
+    wikipedia: 'https://en.wikipedia.org/wiki/Liangzhu_culture',
     description: 'A 5,300-year-old UNESCO World Heritage city near Hangzhou with a vast earthen city wall and the world-class Liangzhu Museum of jade cong and bi disks.',
     lat: 30.39,
     lng: 120.0,
@@ -78,6 +81,7 @@ export const sites: Site[] = [
     visitTime: '3-4 hours',
     image: '/sanxingdui-card.webp?v=2',
     imageAlt: "Bronze masks and sacred tree of the ancient Shu civilization at the Sanxingdui Museum near Chengdu, China",
+    wikipedia: 'https://en.wikipedia.org/wiki/Sanxingdui',
     description: "The lost Shu civilization's bronze masks, gold scepters, and sacred tree — a mysterious Bronze Age culture near Chengdu with a spectacular new museum.",
     lat: 30.99,
     lng: 104.19,
@@ -99,6 +103,7 @@ export const sites: Site[] = [
     visitTime: '3-4 hours',
     image: '/yinxu-card.webp?v=2',
     imageAlt: "Oracle bones and bronze vessels from Yin Xu, the 3,300-year-old Shang Dynasty capital in Anyang, China",
+    wikipedia: 'https://en.wikipedia.org/wiki/Yinxu',
     description: "The 3,300-year-old capital of the Shang Dynasty and birthplace of Chinese writing — oracle bones, bronze vessels, and the tomb of Fu Hao, a female general.",
     lat: 36.13,
     lng: 114.31,
@@ -120,6 +125,7 @@ export const sites: Site[] = [
     visitTime: '3-4 hours',
     image: '/terracotta-card.webp?v=2',
     imageAlt: "Rows of life-size terracotta warrior statues in Pit 1 at the Qin Emperor's mausoleum in Xi'an, China",
+    wikipedia: 'https://en.wikipedia.org/wiki/Terracotta_Army',
     description: "The 2,200-year-old army of Emperor Qin Shi Huang in Xi'an — 8,000 life-size terracotta warriors guarding China's first emperor, a UNESCO site since 1987.",
     lat: 34.38,
     lng: 109.27,
@@ -140,6 +146,7 @@ export const sites: Site[] = [
     visitTime: '2-3 hours',
     image: '/hanyangling-card.webp?v=2',
     imageAlt: "Miniature terracotta figures beneath the glass corridor at the 2,100-year-old Han Yangling Mausoleum near Xi'an, China",
+    wikipedia: 'https://en.wikipedia.org/wiki/Han_Yangling',
     description: "A 2,100-year-old Han Dynasty imperial tomb outside Xi'an with an underground glass-floor corridor over 50,000 miniature terracotta figures — barely a tourist in sight.",
     lat: 34.44,
     lng: 108.94,
@@ -160,6 +167,7 @@ export const sites: Site[] = [
     visitTime: '2-3 hours',
     image: '/mawangdui-card.webp?v=2',
     imageAlt: "Han Dynasty relics and the tomb of Lady Dai from the Mawangdui Han Tombs at the Hunan Museum in Changsha, China",
+    wikipedia: 'https://en.wikipedia.org/wiki/Mawangdui',
     description: "The tomb of Lady Dai — a 2,100-year-old mummy so well preserved her skin still has elasticity — now displayed at the Hunan Museum in Changsha, free entry.",
     lat: 28.2,
     lng: 112.97,
@@ -180,6 +188,7 @@ export const sites: Site[] = [
     visitTime: '3-4 hours',
     image: '/qianling-card.webp?v=2',
     imageAlt: "Stone statues along the Spirit Way at the Qianling Mausoleum, the Tang Dynasty tomb of Empress Wu Zetian near Xi'an, China",
+    wikipedia: 'https://en.wikipedia.org/wiki/Qianling_Mausoleum',
     description: 'The unopened Tang Dynasty tomb of Wu Zetian, China\'s only female emperor, and her husband — with 120 giant stone statues and the famous "characterless stele".',
     lat: 34.57,
     lng: 108.22,

@@ -15,9 +15,9 @@
 /*.html
   Cache-Control: public, max-age=86400
 
-# Images
+# Images (versioned via ?v=N — safe to cache long-term)
 /*.webp
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=31536000, immutable
 
 # Sitemap and robots
 /sitemap-index.xml

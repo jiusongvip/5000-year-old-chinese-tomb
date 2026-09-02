@@ -187,7 +187,8 @@ const siteStats = {
 
 <BaseLayout {title} {description} schemaJson={schemaJson}>
   <Fragment slot="head">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" /></noscript>
     <link rel="preconnect" href="https://unpkg.com" crossorigin />
   </Fragment>
 
@@ -633,15 +634,14 @@ const siteStats = {
 
   <RelatedLinks links={relatedLinks} />
 
-<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script is:inline defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script is:inline>
   (function() {
-    var L = window.L;
-    var map = document.getElementById('site-map');
-    if (!map) return;
-    function init() {
-      if (typeof L === 'undefined') { setTimeout(init, 100); return; }
-      var m = L.map(map, { scrollWheelZoom: false, zoomControl: true }).setView([34.0, 111.0], 5);
+    var mapEl = document.getElementById('site-map');
+    if (!mapEl) return;
+    function initMap() {
+      if (typeof L === 'undefined') { setTimeout(initMap, 100); return; }
+      var m = L.map(mapEl, { scrollWheelZoom: false, zoomControl: true }).setView([34.0, 111.0], 5);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         maxZoom: 18
@@ -661,7 +661,17 @@ const siteStats = {
         L.marker([s.lat, s.lng], {icon:icon}).addTo(m).bindTooltip(s.name, {permanent:false, direction:'top', offset:[0,-8], className:'site-tooltip'});
       });
     }
-    init();
+    // Lazy-init: only load map when the section enters viewport
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { obs.disconnect(); initMap(); }
+        });
+      }, { threshold: 0.1 });
+      obs.observe(mapEl);
+    } else {
+      initMap();
+    }
   })();
 </script>
 

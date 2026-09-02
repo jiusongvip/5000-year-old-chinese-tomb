@@ -21,12 +21,15 @@ const faqHomeSchema = {
   ],
 };
 
+// 首页根域名 canonical 规范：不带尾斜杠（与 BaseLayout canonical 逻辑保持一致）
+const homeUrl = new URL('/', Astro.site).href.replace(/\/$/, '');
+
 const schemaJson = JSON.stringify([
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://www.5000-year-old-chinese-tomb.com/",
-    "url": "https://www.5000-year-old-chinese-tomb.com/",
+    "@id": homeUrl,
+    "url": homeUrl,
     "name": title,
     "description": description,
     "inLanguage": "en",

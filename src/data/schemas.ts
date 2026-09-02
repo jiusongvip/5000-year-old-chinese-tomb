@@ -62,7 +62,8 @@ export function breadcrumbSchema(items: Crumb[]) {
       "@type": "ListItem",
       position: i + 1,
       name: c.name,
-      item: absolute(c.item),
+      // 首页根域名 canonical 不带尾斜杠；其余内页均带尾斜杠
+      item: c.item === '/' ? SITE.url : absolute(c.item),
     })),
   };
 }

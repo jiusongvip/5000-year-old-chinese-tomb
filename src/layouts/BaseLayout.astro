@@ -63,15 +63,17 @@ const crumbs: { name: string; item: string }[] = [{ name: 'Home', item: '/' }];
 let crumbSchema = '';
 if (!noindex) {
   const parts = pathname.split('/').filter(Boolean);
-  let path = '';
+  let crumbPath = '';
   let crumbsAdded = false;
   parts.forEach((part) => {
-    path += '/' + part;
-    const meta = pageMeta[path];
+    crumbPath += '/' + part;
+    // 规范：内页 URL 一律带尾斜杠（UI 面包屑链接与 BreadcrumbList JSON-LD 需与 canonical 一致）
+    const item = crumbPath.endsWith('/') ? crumbPath : crumbPath + '/';
+    const meta = pageMeta[item];
     const name =
       meta?.label ??
       part.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase());
-    crumbs.push({ name, item: path });
+    crumbs.push({ name, item });
     crumbsAdded = true;
   });
   if (crumbsAdded) {

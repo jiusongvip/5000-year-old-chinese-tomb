@@ -1,0 +1,287 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import {
+  Ticket,
+  TrainFront,
+  Bus,
+  Users,
+  Calendar,
+  MapPin,
+  Smartphone,
+  ShieldCheck,
+  Footprints,
+  ArrowRight,
+  CircleCheck,
+} from '@lucide/astro';
+
+const title = 'Sanxingdui Museum Visit Guide';
+const description =
+  'How to visit the Sanxingdui Museum near Chengdu: book tickets with a foreign passport on WeChat, opening hours, best season, transport from Chengdu, and a 3-day itinerary with pandas and Jinsha.';
+const author = 'Alex Chen';
+const datePublished = '2026-09-04';
+const dateModified = '2026-09-04';
+
+const relatedLinks = [
+  { href: '/plan-your-trip/#booking', label: 'book sanxingdui tickets with foreign passport' },
+  { href: '/#site-guides', label: 'how to visit each ancient site' },
+  { href: '/#routes', label: 'chengdu xian ancient sites itinerary' },
+  { href: '/#sites', label: 'oldest archaeological sites in china' },
+  { href: '/about/', label: 'about ancient china travel' },
+];
+---
+
+<BaseLayout
+  {title}
+  {description}
+  {author}
+  {datePublished}
+  {dateModified}
+>
+  <!-- Hero -->
+  <section class="relative min-h-[56vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/sanxingdui-bronze-mask.webp?v=2"
+        alt="Bronze mask with protruding eyes from the Sanxingdui site of the ancient Shu civilization near Chengdu, China"
+        width="1600" height="1067"
+        class="w-full h-full object-cover"
+        loading="eager" fetchpriority="high" decoding="async"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-warm-900/70 via-warm-900/45 to-surface"></div>
+    </div>
+    <div class="relative z-10 max-w-[1200px] mx-auto px-6 pt-16 pb-20">
+      <p class="text-sm font-medium tracking-wide text-warm-200/80 mb-4">Travel Guides</p>
+      <h1 class="text-4xl md:text-5xl font-display font-bold tracking-tight leading-tight text-white max-w-3xl">
+        The Sanxingdui Museum Visit Guide
+      </h1>
+      <p class="mt-5 text-lg text-warm-100/90 max-w-2xl leading-relaxed">
+        The lost Shu civilization's bronze masks, gold scepters, and a 3.96-metre sacred tree — a Bronze Age
+        culture that rewrote Chinese history. Here's how to actually go, ticket in hand, from Chengdu.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a href="#before-you-go" class="btn btn-primary px-6 py-3 text-sm"><Ticket class="w-4 h-4" /> Book tickets</a>
+        <a href="#getting-there" class="btn btn-ghost-light px-6 py-3 text-sm"><TrainFront class="w-4 h-4" /> Getting there</a>
+        <a href="#itinerary" class="btn btn-ghost-light px-6 py-3 text-sm"><Calendar class="w-4 h-4" /> 3-day plan</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust bar -->
+  <section class="border-y border-border/60 bg-warm-50/60">
+    <div class="max-w-[900px] mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="flex flex-col items-center gap-1.5">
+        <ShieldCheck class="w-6 h-6 text-accent" />
+        <p class="text-xs text-muted">Passport tested</p>
+      </div>
+      <div class="flex flex-col items-center gap-1.5">
+        <Footprints class="w-6 h-6 text-accent" />
+        <p class="text-xs text-muted">Firsthand visit</p>
+      </div>
+      <div class="flex flex-col items-center gap-1.5">
+        <Calendar class="w-6 h-6 text-accent" />
+        <p class="text-xs text-muted">Updated August 2026</p>
+      </div>
+      <div class="flex flex-col items-center gap-1.5">
+        <CircleCheck class="w-6 h-6 text-accent" />
+        <p class="text-xs text-muted">Tickets ¥72</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before you go -->
+  <section id="before-you-go" class="max-w-[800px] mx-auto px-6 py-16 scroll-mt-24">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center"><Ticket class="w-5 h-5" /></span>
+      <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight text-warm-900">Before you go</h2>
+    </div>
+
+    <h3 class="font-display text-xl font-semibold text-warm-900 mt-2 mb-2">How to grab tickets with a passport</h3>
+    <p class="text-warm-700 leading-relaxed mb-4">
+      Sanxingdui sells tickets <strong>only</strong> through its official WeChat mini-program, and the new museum
+      is one of the hardest tickets in China. Slots open several days ahead and the morning session sells out
+      fast — book the moment they release.
+    </p>
+    <ol class="space-y-4 my-5">
+      <li class="flex gap-4">
+        <span class="shrink-0 w-7 h-7 rounded-full bg-clay-600 text-white text-sm font-semibold flex items-center justify-center">1</span>
+        <div>
+          <p class="font-medium text-warm-900">Search "三星堆博物馆" (Sanxingdui Museum) in WeChat</p>
+          <p class="text-sm text-warm-700 leading-relaxed mt-1">Open the official mini-program (blue verification badge). Tap 门票预约 / "Ticket Booking".</p>
+        </div>
+      </li>
+      <li class="flex gap-4">
+        <span class="shrink-0 w-7 h-7 rounded-full bg-clay-600 text-white text-sm font-semibold flex items-center justify-center">2</span>
+        <div>
+          <p class="font-medium text-warm-900">Choose a date and the 8:30 morning session</p>
+          <p class="text-sm text-warm-700 leading-relaxed mt-1">Under ID type select <strong>护照 (Passport)</strong>, enter your passport number and name exactly as printed. Morning entry lets you reach the bronze hall before the tour groups.</p>
+        </div>
+      </li>
+      <li class="flex gap-4">
+        <span class="shrink-0 w-7 h-7 rounded-full bg-clay-600 text-white text-sm font-semibold flex items-center justify-center">3</span>
+        <div>
+          <p class="font-medium text-warm-900">Pay ¥72 and save the QR</p>
+          <p class="text-sm text-warm-700 leading-relaxed mt-1">Pay with WeChat Pay (foreign card linked). Screenshot the QR — at the gate you scan it <strong>and</strong> show your physical passport. Full step-by-step is in our <a href="/plan-your-trip/#booking" class="text-accent hover:underline">booking guide</a>.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+      <div class="card p-5 flex gap-3">
+        <Calendar class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+        <div>
+          <p class="font-semibold text-warm-900 mb-1">Opening hours</p>
+          <p class="text-sm text-warm-700 leading-relaxed">8:30–18:00 (last entry 17:00). Closed on public holidays' eve only — check the mini-program before rare closures.</p>
+        </div>
+      </div>
+      <div class="card p-5 flex gap-3">
+        <MapPin class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+        <div>
+          <p class="font-semibold text-warm-900 mb-1">Where it is</p>
+          <p class="text-sm text-warm-700 leading-relaxed">Guanghan, ~40 km north of Chengdu. The new museum sits beside the excavation pits — one ticket covers both.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="font-display text-xl font-semibold text-warm-900 mb-2">Best time to visit</h3>
+    <p class="text-warm-700 leading-relaxed">
+      <strong>Spring (Mar–May) and autumn (Sep–Nov)</strong> are ideal — mild weather and manageable crowds.
+      <strong>Summer (Jul–Aug)</strong> is the Chinese school-holiday peak: book days ahead and arrive at the 8:30
+      opening. Winters are cold but quiet, with short queues. Whenever you go, <strong>be at the gate by 8:30</strong>
+      — the bronze exhibition hall is glorious before the buses arrive.
+    </p>
+  </section>
+
+  <!-- Getting there -->
+  <section id="getting-there" class="bg-warm-50 py-16 scroll-mt-24">
+    <div class="max-w-[1000px] mx-auto px-6">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center"><TrainFront class="w-5 h-5" /></span>
+        <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight text-warm-900">Getting there from Chengdu</h2>
+      </div>
+      <p class="text-warm-700 leading-relaxed mb-6">Three realistic ways to reach Sanxingdui from Chengdu. Pick by budget, time, and how much hassle you'll tolerate.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- High-speed rail + taxi -->
+        <div class="card p-6 flex flex-col">
+          <div class="flex items-center gap-2 mb-2"><TrainFront class="w-5 h-5 text-accent" /><h3 class="font-display font-semibold text-lg">High-speed rail + taxi</h3></div>
+          <p class="text-sm text-warm-700 leading-relaxed flex-1">
+            Intercity train from <strong>Chengdu East</strong> to <strong>Guanghan North</strong> (~20 min, book on trip.com with passport). Then a 15-minute taxi (~¥25) to the museum. Fastest and most flexible.
+          </p>
+          <p class="text-xs text-muted mt-4 pt-3 border-t border-border">Time ~1 hr &middot; Cost ~¥40–60</p>
+        </div>
+        <!-- Direct shuttle -->
+        <div class="card p-6 flex flex-col">
+          <div class="flex items-center gap-2 mb-2"><Bus class="w-5 h-5 text-accent" /><h3 class="font-display font-semibold text-lg">Scenic direct bus</h3></div>
+          <p class="text-sm text-warm-700 leading-relaxed flex-1">
+            Direct shuttle buses run from Chengdu (Chunxi Road area / Xinnanmen) to the museum. Cheaper than a taxi and door-to-door, but fewer departures and fixed return times.
+          </p>
+          <p class="text-xs text-muted mt-4 pt-3 border-t border-border">Time ~1.5 hr &middot; Cost ~¥30</p>
+        </div>
+        <!-- Guided day tour -->
+        <div class="card p-6 flex flex-col">
+          <div class="flex items-center gap-2 mb-2"><Users class="w-5 h-5 text-accent" /><h3 class="font-display font-semibold text-lg">Guided day tour</h3></div>
+          <p class="text-sm text-warm-700 leading-relaxed flex-1">
+            A half-day guided tour from Chengdu handles tickets, transport, and a English guide. Most hassle-free — but you trade flexibility and pay a premium (often ¥300–600+ per person).
+          </p>
+          <p class="text-xs text-muted mt-4 pt-3 border-t border-border">Time ~half day &middot; Cost ~¥300–600</p>
+        </div>
+      </div>
+
+      <p class="text-sm text-muted mt-5">
+        <strong class="text-warm-700">Our pick:</strong> rail + taxi for independence, or a guided tour if you want the history explained. Either way, lock in the <a href="#before-you-go" class="text-accent hover:underline">morning ticket</a> first — transport is useless without one.
+      </p>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
+        <figure>
+          <img
+            src="/sanxingdui-museum-exterior.webp"
+            alt="The new Sanxingdui Museum building beside the excavation pits in Guanghan, near Chengdu"
+            width="666" height="910"
+            class="w-full h-auto rounded-2xl"
+            loading="lazy" decoding="async"
+          />
+          <figcaption class="mt-2 text-sm text-muted leading-relaxed">
+            The new Sanxingdui Museum (opened 2023) stands right beside the original excavation pits — one ticket covers both.
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/sanxingdui-sacred-tree.webp"
+            alt="The 3.96-metre bronze sacred tree, the centrepiece of the Sanxingdui bronze collection"
+            width="800" height="1200"
+            class="w-full h-auto rounded-2xl"
+            loading="lazy" decoding="async"
+          />
+          <figcaption class="mt-2 text-sm text-muted leading-relaxed">
+            The 3.96-metre bronze sacred tree, found in Pit No. 2 — the bronze hall's undisputed centrepiece.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-day itinerary -->
+  <section id="itinerary" class="max-w-[800px] mx-auto px-6 py-16 scroll-mt-24">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center"><Calendar class="w-5 h-5" /></span>
+      <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight text-warm-900">A 3-day Chengdu + Sanxingdui plan</h2>
+    </div>
+    <p class="text-warm-700 leading-relaxed mb-6">Pair Sanxingdui with Chengdu's other highlights — the Giant Pandas and the Jinsha Site Museum, where many Sanxingdui-style artifacts were found.</p>
+
+    <div class="space-y-4">
+      <div class="card p-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-1">Day 1 — Chengdu arrival &amp; pandas</p>
+        <p class="font-display font-semibold text-warm-900 text-lg">Giant Panda Base, then Jinli old street</p>
+        <p class="text-sm text-warm-700 leading-relaxed mt-2">Arrive Chengdu. Morning at the <strong>Chengdu Research Base of Giant Panda Breeding</strong> (be there at 7:30 opening for active pandas). Afternoon wander <strong>Jinli</strong> and the <strong>Wuhou Shrine</strong>. Easy, low-transit day to beat jet lag.</p>
+        <img
+          src="/chengdu-panda-base.webp"
+          alt="Giant pandas at the Chengdu Research Base of Giant Panda Breeding"
+          width="1200" height="900"
+          class="mt-4 rounded-xl w-full aspect-[16/9] object-cover"
+          loading="lazy" decoding="async"
+        />
+      </div>
+      <div class="card p-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-1">Day 2 — Sanxingdui (the main event)</p>
+        <p class="font-display font-semibold text-warm-900 text-lg">Sanxingdui Museum, Guanghan</p>
+        <p class="text-sm text-warm-700 leading-relaxed mt-2">Take the morning train to Guanghan, at the museum by 8:30. Spend 3–4 hours on the bronze masks, gold scepter, and sacred tree. Back to Chengdu for the evening — try Guanghan rabbit hotpot (兔火锅) before you leave.</p>
+      </div>
+      <div class="card p-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-1">Day 3 — Jinsha &amp; departure</p>
+        <p class="font-display font-semibold text-warm-900 text-lg">Jinsha Site Museum, then fly or rail out</p>
+        <p class="text-sm text-warm-700 leading-relaxed mt-2">The <strong>Jinsha Site Museum</strong> holds the sun-ring gold disc and ivory — the direct cultural link to Sanxingdui. A 2–3 hour visit, then onward to Xi'an (high-speed rail) or your flight home.</p>
+        <img
+          src="/jinsha-sun-bird.webp"
+          alt="The sun-and-immortal-birds gold ornament at the Jinsha Site Museum, Chengdu"
+          width="800" height="820"
+          class="mt-4 rounded-xl w-full max-w-[420px] mx-auto aspect-square object-cover"
+          loading="lazy" decoding="async"
+        />
+      </div>
+    </div>
+
+    <div class="rounded-2xl bg-accent/5 border border-accent/20 p-5 flex gap-3 mt-6">
+      <Footprints class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+      <p class="text-sm text-warm-700 leading-relaxed">
+        <strong class="text-warm-900">Firsthand tip:</strong> do Sanxingdui <em>before</em> Jinsha. Seeing the bronzes first makes the Jinsha gold disc land ten times harder — you'll recognize the same sun-worshipping motif.
+      </p>
+    </div>
+  </section>
+
+  <!-- Next step -->
+  <section class="max-w-[900px] mx-auto px-6 py-16">
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-warm-900 via-clay-900 to-warm-800 px-8 py-12 text-center shadow-xl">
+      <h2 class="text-2xl md:text-3xl font-display font-bold tracking-tight text-white max-w-2xl mx-auto">Planning the rest of your trip?</h2>
+      <p class="mt-3 text-warm-100/85 max-w-xl mx-auto leading-relaxed">
+        Our full planning guide covers booking, visas, trains, SIM cards, and payments — every step passport-tested.
+      </p>
+      <div class="mt-7 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/plan-your-trip/" class="btn btn-primary px-7 py-3.5 text-base">Plan Your Trip <ArrowRight class="w-4 h-4" /></a>
+        <a href="/#sites" class="btn btn-ghost-light px-7 py-3.5 text-base">All Sites</a>
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={relatedLinks} />
+</BaseLayout>

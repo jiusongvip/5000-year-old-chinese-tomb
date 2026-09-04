@@ -21,6 +21,8 @@ export const pageMeta: Record<string, PageMeta> = {
   "/about/": { label: "About", lastmod: "2026-09-02" },
   "/privacy/": { label: "Privacy Policy", lastmod: "2026-09-02" },
   "/terms/": { label: "Terms of Use", lastmod: "2026-09-02" },
+  "/plan-your-trip/": { label: "Plan Your Trip", lastmod: "2026-09-04", og: "/og-home.webp" },
+  "/sanxingdui-guide/": { label: "Sanxingdui Guide", lastmod: "2026-09-04", og: "/sanxingdui-card.webp" },
 };
 
 const monthNames = [

@@ -1,5 +1,5 @@
 ---
-import { Menu, X, ArrowRight, Landmark } from '@lucide/astro';
+import { Menu, X, ArrowRight, Landmark, ChevronDown } from '@lucide/astro';
 
 const navLinks = [
   { label: 'Sites', href: '#sites' },
@@ -7,6 +7,11 @@ const navLinks = [
   { label: 'Itineraries', href: '#routes' },
   { label: 'Plan', href: '#plan' },
   { label: 'About', href: '/about/' },
+];
+
+const guideLinks = [
+  { label: 'Plan Your Trip', href: '/plan-your-trip/', desc: 'Booking, visa, trains, SIM & payments' },
+  { label: 'Sanxingdui Guide', href: '/sanxingdui-guide/', desc: 'Tickets, transport & a 3-day plan' },
 ];
 ---
 
@@ -27,6 +32,24 @@ const navLinks = [
           </a>
         </li>
       ))}
+      <li class="relative group">
+        <button
+          class="flex items-center gap-1 text-sm font-medium text-warm-700 hover:text-accent transition-colors duration-150"
+          aria-haspopup="true"
+        >
+          Travel Guides <ChevronDown class="w-3.5 h-3.5" />
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full hidden pt-3 group-hover:block z-50">
+          <div class="w-64 rounded-xl border border-border bg-surface shadow-lg p-2">
+            {guideLinks.map(g => (
+              <a href={g.href} class="block rounded-lg px-3 py-2 hover:bg-warm-50 transition-colors">
+                <span class="block text-sm font-medium text-warm-900">{g.label}</span>
+                <span class="block text-xs text-muted">{g.desc}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </li>
     </ul>
     <a href="#plan" class="hidden lg:inline-flex items-center justify-center px-4 py-2 bg-accent text-white text-sm font-medium rounded-lg hover:bg-accent-dark transition-colors duration-150 shadow-[0_2px_8px_-3px_rgba(182,85,58,0.5)]">
       Plan a Trip
@@ -45,6 +68,19 @@ const navLinks = [
             class="block py-3 text-sm font-medium text-warm-700 hover:text-accent transition-colors duration-150"
           >
             {link.label}
+          </a>
+        </li>
+      ))}
+      <li class="pt-1">
+        <p class="py-2 text-xs font-semibold uppercase tracking-wide text-muted">Travel Guides</p>
+      </li>
+      {guideLinks.map(g => (
+        <li>
+          <a
+            href={g.href}
+            class="block py-2 text-sm font-medium text-warm-700 hover:text-accent transition-colors duration-150"
+          >
+            {g.label}
           </a>
         </li>
       ))}

@@ -1,0 +1,289 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import {
+  Ticket,
+  Globe,
+  TrainFront,
+  Smartphone,
+  Wallet,
+  Banknote,
+  CreditCard,
+  BadgeCheck,
+  ShieldCheck,
+  Footprints,
+  Calendar,
+  MapPin,
+  ArrowRight,
+  User,
+} from '@lucide/astro';
+
+const title = 'Plan Your Trip to Ancient China';
+const description =
+  'The complete planning guide for foreign visitors: how to book Chinese museum tickets with a passport, the 240-hour visa-free transit, high-speed rail, SIM cards, and payments — every step passport-tested.';
+const author = 'Alex Chen';
+const datePublished = '2026-09-04';
+const dateModified = '2026-09-04';
+
+const relatedLinks = [
+  { href: '/sanxingdui-guide/', label: 'Sanxingdui visit guide' },
+  { href: '/#practical', label: 'china 240 hour transit visa free' },
+  { href: '/#money', label: 'how do foreigners pay in china' },
+  { href: '/#routes', label: 'ancient china itinerary 10 days' },
+  { href: '/#site-guides', label: 'how to book sanxingdui tickets with foreign passport' },
+  { href: '/#checklist', label: 'china travel packing list' },
+];
+---
+
+<BaseLayout
+  {title}
+  {description}
+  {author}
+  {datePublished}
+  {dateModified}
+>
+  <!-- Hero -->
+  <section class="relative min-h-[56vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/og-home.webp?v=2"
+        alt="Ancient Chinese archaeological sites — terracotta warriors, jade artifacts, and bronze relics"
+        width="1600" height="900"
+        class="w-full h-full object-cover"
+        loading="eager" fetchpriority="high" decoding="async"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-warm-900/65 via-warm-900/45 to-surface"></div>
+    </div>
+    <div class="relative z-10 max-w-[1200px] mx-auto px-6 pt-16 pb-20">
+      <p class="text-sm font-medium tracking-wide text-warm-200/80 mb-4">Travel Guides</p>
+      <h1 class="text-4xl md:text-5xl font-display font-bold tracking-tight leading-tight text-white max-w-3xl">
+        Plan Your Trip to Ancient China
+      </h1>
+      <p class="mt-5 text-lg text-warm-100/90 max-w-2xl leading-relaxed">
+        Everything you need before you fly — booking museum tickets with a foreign passport, the visa-free
+        transit rule, trains, SIM cards, and paying like a local. Every step on this page was tested with a
+        real passport, not copied from a brochure.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a href="#booking" class="btn btn-primary px-6 py-3 text-sm"><Ticket class="w-4 h-4" /> Book tickets</a>
+        <a href="#visa" class="btn btn-ghost-light px-6 py-3 text-sm"><Globe class="w-4 h-4" /> Visa &amp; transit</a>
+        <a href="#transport" class="btn btn-ghost-light px-6 py-3 text-sm"><TrainFront class="w-4 h-4" /> Trains</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust bar -->
+  <section class="border-y border-border/60 bg-warm-50/60">
+    <div class="max-w-[900px] mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="flex flex-col items-center gap-1.5">
+        <ShieldCheck class="w-6 h-6 text-accent" />
+        <p class="text-xs text-muted">Passport tested</p>
+      </div>
+      <div class="flex flex-col items-center gap-1.5">
+        <Footprints class="w-6 h-6 text-accent" />
+        <p class="text-xs text-muted">Firsthand visits</p>
+      </div>
+      <div class="flex flex-col items-center gap-1.5">
+        <Calendar class="w-6 h-6 text-accent" />
+        <p class="text-xs text-muted">Updated August 2026</p>
+      </div>
+      <div class="flex flex-col items-center gap-1.5">
+        <BadgeCheck class="w-6 h-6 text-accent" />
+        <p class="text-xs text-muted">Verified prices</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking tickets -->
+  <section id="booking" class="max-w-[800px] mx-auto px-6 py-16 scroll-mt-24">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center"><Ticket class="w-5 h-5" /></span>
+      <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight text-warm-900">Booking museum tickets with a foreign passport</h2>
+    </div>
+    <p class="text-warm-700 leading-relaxed mb-5">
+      Most top-tier museums in China — <strong>Sanxingdui</strong> and the <strong>Shaanxi History Museum</strong>
+      most of all — sell tickets <em>only</em> through official WeChat mini-programs, often 3–7 days ahead, and
+      the best weekend slots can vanish within minutes. A few big sites (the Terracotta Warriors) still sell at
+      the window, but expect 1–2 hour queues in peak season. Here is the exact flow we used with a foreign
+      passport.
+    </p>
+
+    <ol class="space-y-4 my-6">
+      <li class="flex gap-4">
+        <span class="shrink-0 w-7 h-7 rounded-full bg-clay-600 text-white text-sm font-semibold flex items-center justify-center">1</span>
+        <div>
+          <p class="font-medium text-warm-900">Open the museum's official WeChat mini-program</p>
+          <p class="text-sm text-warm-700 leading-relaxed mt-1">In WeChat, tap <strong>Search (搜索)</strong> and look up the museum — e.g. "三星堆博物馆" (Sanxingdui) or "陕西历史博物馆" (Shaanxi History Museum). Use the <em>official</em> account, usually marked with a blue verification badge.</p>
+        </div>
+      </li>
+      <li class="flex gap-4">
+        <span class="shrink-0 w-7 h-7 rounded-full bg-clay-600 text-white text-sm font-semibold flex items-center justify-center">2</span>
+        <div>
+          <p class="font-medium text-warm-900">Tap 门票预约 / "Ticket Booking" and pick a date &amp; session</p>
+          <p class="text-sm text-warm-700 leading-relaxed mt-1">Slots typically open 5–7 days ahead at a fixed release time. For Sanxingdui, the new museum sells a morning and an afternoon session — book the 8:30 opening to beat the tour buses.</p>
+        </div>
+      </li>
+      <li class="flex gap-4">
+        <span class="shrink-0 w-7 h-7 rounded-full bg-clay-600 text-white text-sm font-semibold flex items-center justify-center">3</span>
+        <div>
+          <p class="font-medium text-warm-900">Add a visitor and choose 护照 (Passport) as the ID type</p>
+          <p class="text-sm text-warm-700 leading-relaxed mt-1">This is the step that trips up most foreigners. Under ID type, select <strong>护照</strong> — <em>not</em> 身份证 (resident ID, which you don't have). Enter your passport number and name <strong>exactly</strong> as printed in the machine-readable zone.</p>
+        </div>
+      </li>
+      <li class="flex gap-4">
+        <span class="shrink-0 w-7 h-7 rounded-full bg-clay-600 text-white text-sm font-semibold flex items-center justify-center">4</span>
+        <div>
+          <p class="font-medium text-warm-900">Pay and save the QR confirmation</p>
+          <p class="text-sm text-warm-700 leading-relaxed mt-1">Pay with WeChat Pay (link a foreign Visa/Mastercard first — see <a href="#payments" class="text-accent hover:underline">Payments</a>). Screenshot the booking QR. At the gate you scan that QR <strong>and</strong> show the physical passport — no printout needed.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="rounded-2xl bg-accent/5 border border-accent/20 p-5 flex gap-3">
+      <ShieldCheck class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+      <p class="text-sm text-warm-700 leading-relaxed">
+        <strong class="text-warm-900">Passport Tested:</strong> we completed this exact flow on a foreign passport for Sanxingdui, the Shaanxi History Museum, and the Hunan Museum. The "护照" option exists on all of them — you do not need a Chinese ID.
+      </p>
+    </div>
+  </section>
+
+  <!-- Visa & transit -->
+  <section id="visa" class="bg-warm-50 py-16 scroll-mt-24">
+    <div class="max-w-[800px] mx-auto px-6">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center"><Globe class="w-5 h-5" /></span>
+        <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight text-warm-900">Visa &amp; the 240-hour visa-free transit</h2>
+      </div>
+      <p class="text-warm-700 leading-relaxed mb-5">
+        Citizens of <strong>54 countries</strong> can enter China without a visa for up to <strong>10 days (240 hours)</strong>
+        when transiting onward to a third country or region. All the gateway cities on this site — Hangzhou,
+        Chengdu, Xi'an — are covered ports.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="card p-5">
+          <p class="font-semibold text-warm-900 mb-2">You qualify if you have…</p>
+          <ul class="text-sm text-warm-700 space-y-1.5 leading-relaxed list-disc list-inside">
+            <li>An onward ticket out of China within 10 days</li>
+            <li>Entry and exit through designated ports in the same region</li>
+            <li>A passport valid 3+ months beyond entry</li>
+          </ul>
+        </div>
+        <div class="card p-5">
+          <p class="font-semibold text-warm-900 mb-2">If you need a full visa</p>
+          <ul class="text-sm text-warm-700 space-y-1.5 leading-relaxed list-disc list-inside">
+            <li>Tourist (L) visa: apply at a Chinese embassy before you fly</li>
+            <li>Allow 4–10 working days; some consulates offer e-visa</li>
+            <li>Carry a printed itinerary and the first-night hotel booking</li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-xs text-muted mt-4">
+        Rules change — confirm your exact nationality and route against the official <a href="https://en.wikipedia.org/wiki/Visa_policy_of_China" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Chinese visa policy</a> before booking flights.
+      </p>
+    </div>
+  </section>
+
+  <!-- Transport -->
+  <section id="transport" class="max-w-[800px] mx-auto px-6 py-16 scroll-mt-24">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center"><TrainFront class="w-5 h-5" /></span>
+      <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight text-warm-900">Getting between cities by high-speed rail</h2>
+    </div>
+    <p class="text-warm-700 leading-relaxed mb-5">
+      China's high-speed rail connects nearly every site on this site, and you book with your passport on
+      official channels. E-tickets are scanned by passport at the gate — no paper collection, no queue at a
+      ticket window.
+    </p>
+    <div class="space-y-3">
+      <div class="card p-5 flex items-start gap-3">
+        <TrainFront class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+        <div>
+          <p class="font-medium text-warm-900">12306 (official) — bookRail.app / trip.com as backups</p>
+          <p class="text-sm text-warm-700 leading-relaxed mt-1">12306 is the state railway app and accepts foreign passports, but the English UI is rough. <strong>trip.com</strong> mirrors the same seats with a clean English interface and the same passport e-ticket. Xi'an–Chengdu is ~3 hours; Xi'an–Anyang ~2.5 hours.</p>
+        </div>
+      </div>
+      <div class="card p-5 flex items-start gap-3">
+        <MapPin class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+        <div>
+          <p class="font-medium text-warm-900">At the station</p>
+          <p class="text-sm text-warm-700 leading-relaxed mt-1">Arrive 30–40 min early. Scan your <strong>passport</strong> at the automated gate (not a code). Hangzhou→Chengdu is long enough that most travelers fly instead of taking the train.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIM & connectivity -->
+  <section id="sim" class="bg-warm-50 py-16 scroll-mt-24">
+    <div class="max-w-[800px] mx-auto px-6">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center"><Smartphone class="w-5 h-5" /></span>
+        <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight text-warm-900">SIM cards, eSIMs &amp; staying connected</h2>
+      </div>
+      <p class="text-warm-700 leading-relaxed mb-5">
+        Every booking mini-program, map, and translator needs data. Plan this <em>before</em> you land.
+      </p>
+      <ul class="space-y-3">
+        <li class="flex items-start gap-3"><Smartphone class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" /><p class="text-sm text-warm-700 leading-relaxed"><strong>eSIM (easiest):</strong> activate a China-eSIM (Airalo, Holafly, etc.) before you fly. Data works the moment you land.</p></li>
+        <li class="flex items-start gap-3"><Smartphone class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" /><p class="text-sm text-warm-700 leading-relaxed"><strong>Tourist SIM:</strong> grab one at the airport arrivals hall (China Mobile / Unicom). Bring your passport — registration is mandatory.</p></li>
+        <li class="flex items-start gap-3"><Smartphone class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" /><p class="text-sm text-warm-700 leading-relaxed"><strong>Maps:</strong> Google Maps is unreliable in mainland China. Download <strong>Amap (高德)</strong> or <strong>Baidu Maps (百度)</strong> and <strong>WeChat</strong> before you arrive.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Payments -->
+  <section id="payments" class="max-w-[800px] mx-auto px-6 py-16 scroll-mt-24">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center"><Wallet class="w-5 h-5" /></span>
+      <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight text-warm-900">Money &amp; paying like a local</h2>
+    </div>
+    <p class="text-warm-700 leading-relaxed mb-5">
+      China is almost cashless. Set this up once and you'll pay everywhere by QR code.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="card p-5">
+        <p class="font-semibold text-warm-900 mb-2 flex items-center gap-2"><Wallet class="w-4 h-4 text-accent" /> Alipay &amp; WeChat Pay</p>
+        <p class="text-sm text-warm-700 leading-relaxed">Both now support foreign Visa/Mastercard with an English UI. Verify with your passport <em>before</em> you fly and you pay like a local.</p>
+      </div>
+      <div class="card p-5">
+        <p class="font-semibold text-warm-900 mb-2 flex items-center gap-2"><Banknote class="w-4 h-4 text-accent" /> Keep cash as backup</p>
+        <p class="text-sm text-warm-700 leading-relaxed">Taxis, street food, and small museums still prefer cash. Carry ¥500–1,000 in small notes; airport ATMs take international cards.</p>
+      </div>
+      <div class="card p-5">
+        <p class="font-semibold text-warm-900 mb-2 flex items-center gap-2"><CreditCard class="w-4 h-4 text-accent" /> Cards work, barely</p>
+        <p class="text-sm text-warm-700 leading-relaxed">Big hotels and some chains take Visa/Mastercard, but don't rely on them for taxis, market food, or museum gates. Treat the card as plan C.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tour guide -->
+  <section id="guide" class="bg-warm-50 py-16 scroll-mt-24">
+    <div class="max-w-[800px] mx-auto px-6">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center"><User class="w-5 h-5" /></span>
+        <h2 class="text-2xl md:text-3xl font-display font-semibold tracking-tight text-warm-900">Do you actually need a tour guide?</h2>
+      </div>
+      <p class="text-warm-700 leading-relaxed">
+        Honest answer: usually no. Every site on this guide has English signage and tickets bookable by passport.
+        A licensed guide earns its <strong>300–600 CNY/day</strong> when you want deeper history (Terracotta
+        Warriors, Yin Xu) or are heading somewhere remote like Qianling. For the 10-day itinerary, skip the guide
+        and spend the budget on better hotels.
+      </p>
+    </div>
+  </section>
+
+  <!-- Next step -->
+  <section class="max-w-[900px] mx-auto px-6 py-16">
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-warm-900 via-clay-900 to-warm-800 px-8 py-12 text-center shadow-xl">
+      <h2 class="text-2xl md:text-3xl font-display font-bold tracking-tight text-white max-w-2xl mx-auto">Ready to pick your sites?</h2>
+      <p class="mt-3 text-warm-100/85 max-w-xl mx-auto leading-relaxed">
+        Use the full planning guide above, then browse the sites and build a route that fits your dates.
+      </p>
+      <div class="mt-7 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/#sites" class="btn btn-primary px-7 py-3.5 text-base">Browse All Sites</a>
+        <a href="/sanxingdui-guide/" class="btn btn-ghost-light px-7 py-3.5 text-base">Sanxingdui Guide <ArrowRight class="w-4 h-4" /></a>
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={relatedLinks} />
+</BaseLayout>

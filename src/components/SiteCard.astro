@@ -1,6 +1,6 @@
 ---
 import type { Site } from '../data/sites';
-import { Landmark } from '@lucide/astro';
+import { Landmark, ArrowRight } from '@lucide/astro';
 
 interface Props {
   site: Site;
@@ -18,9 +18,12 @@ const { site } = Astro.props;
     <h3 class="font-display font-semibold text-lg leading-tight">{site.name}</h3>
     <p class="text-xs text-muted mb-1">{site.yearsAgo.toLocaleString()} years old &middot; {site.city}</p>
     <p class="text-xs text-warm-600 font-medium">{site.culture} &middot; {site.era}</p>
-    <div class="mt-3 pt-3 border-t border-border flex items-center justify-between gap-2">
-      <p class="text-xs font-medium text-accent">{site.ticketLow === 0 ? 'Free entry' : `Tickets from ¥${site.ticketLow}`}</p>
-      <p class="text-xs text-muted">{site.visitTime}</p>
+      <div class="mt-3 pt-3 border-t border-border flex items-center justify-between gap-2">
+        <p class="text-xs font-medium text-accent">{site.ticketLow === 0 ? 'Free entry' : `Tickets from ¥${site.ticketLow}`}</p>
+        <p class="text-xs text-muted">{site.visitTime}</p>
+      </div>
+      {site.slug === 'sanxingdui' && (
+        <a href="/sanxingdui-guide/" class="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline">Read the full visit guide <ArrowRight class="w-4 h-4" /></a>
+      )}
     </div>
-  </div>
 </div>
